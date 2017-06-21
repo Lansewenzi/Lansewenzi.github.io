@@ -1,0 +1,12 @@
+# hexo robots.txt
+User-agent: * Allow: /
+Allow: /archives/
+Disallow: /vendors/
+Disallow: /js/
+Disallow: /css/
+Disallow: /fonts/
+Disallow: /vendors/
+Disallow: /fancybox/
+
+Sitemap: http://aibabby.win/sitemap.xml
+Sitemap: http://aibabby.win/baidusitemap.xml
