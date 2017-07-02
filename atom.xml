@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-06-23T15:04:08.909Z</updated>
+  <updated>2017-07-02T10:28:52.938Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -14,6 +14,36 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>Hexo文章简单加密</title>
+    <link href="http://aibabby.win/2017/07/02/hexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86/"/>
+    <id>http://aibabby.win/2017/07/02/hexo文章简单加密/</id>
+    <published>2017-07-02T10:03:43.000Z</published>
+    <updated>2017-07-02T10:28:52.938Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
+<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：<br><a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。<br>按道理是添加在任何地方都行，但是推荐加在所有的<meta>标签之后，个人建议，仅做参考。以下是我加的代码：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</div><div class="line">			<span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>,<span class="string">''</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</div><div class="line">				alert(<span class="string">'密码错误！'</span>);</div><div class="line">				history.back();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>如果你好奇page.password是什么东西，那么恭喜你，你对 Hexo 的结构还是很熟悉的。page这个变量就是你在hexo new的时候生成文件中最顶部的东西，以下我给出这篇文章的头部参考：</p>
+<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: Hexo文章简单加密</div><div class="line">comments: <span class="literal">true</span></div><div class="line">description: 这是篇受保护的文章！</div><div class="line">date: 2017-07-02 18:03:43</div><div class="line">categories:</div><div class="line">tags:</div><div class="line">password: password</div><div class="line">---</div></pre></td></tr></table></figure>
+<p>这样我们就好像使用静态页面完成了部分只有动态页面能完成的东西。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h1&gt;&lt;p&gt;由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？&lt;/p&gt;
+&lt;p&gt;这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：&lt;br&gt;
+    
+    </summary>
+    
+      <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
+    
+    
+      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
+    
+  </entry>
   
   <entry>
     <title>我的少女时代经典语录</title>
@@ -816,35 +846,6 @@
       <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
     
       <category term="代码" scheme="http://aibabby.win/tags/%E4%BB%A3%E7%A0%81/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>HEXO文章编辑常见问题</title>
-    <link href="http://aibabby.win/2017/02/24/HEXO%E6%96%87%E7%AB%A0%E7%BC%96%E8%BE%91%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
-    <id>http://aibabby.win/2017/02/24/HEXO文章编辑常见问题/</id>
-    <published>2017-02-24T13:37:03.000Z</published>
-    <updated>2017-03-07T12:56:18.794Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="文本居中的引用"><a href="#文本居中的引用" class="headerlink" title="文本居中的引用"></a>文本居中的引用</h2><p>此标签将生成一个带上下分割线的引用，同时引用内文本将自动居中。文本居中时，多行文本若长度不等，视觉上会显得不对称，因此建议在引用单行文本的场景下使用。 例如作为文章开篇引用 或者 结束语之前的总结引用。<br><a id="more"></a></p>
-<h3 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h3><p>HTML方式：使用这种方式时，给 img 添加属性 class=”blockquote-center” 即可。<br>标签方式：使用 centerquote 或者 简写 cq。</p>
-<figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</div><div class="line">&lt;!-- 其中 class=<span class="string">"blockquote-center"</span> 是必须的 --&gt;</div><div class="line">  &lt;blockquote class=<span class="string">"blockquote-center"</span>&gt;blah blah blah&lt;/blockquote&gt;</div><div class="line"></div><div class="line">  &lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;</div><div class="line">&#123;% centerquote %&#125;blah blah blah&#123;% endcenterquote %&#125;</div><div class="line"></div><div class="line">  &lt;!-- 标签别名 --&gt;</div><div class="line">&#123;% cq %&#125; blah blah blah &#123;% endcq %&#125;</div></pre></td></tr></table></figure>
-<h2 id="突破容器宽度限制的图片"><a href="#突破容器宽度限制的图片" class="headerlink" title="突破容器宽度限制的图片"></a>突破容器宽度限制的图片</h2><p>当使用此标签引用图片时，图片将自动扩大 26%，并突破文章容器的宽度。 此标签使用于需要突出显示的图片, 图片的扩大与容器的偏差从视觉上提升图片的吸引力。 此标签有两种调用方式（详细参看底下示例）：</p>
-<h3 id="使用方式-1"><a href="#使用方式-1" class="headerlink" title="使用方式"></a>使用方式</h3><p>HTML方式：使用这种方式时，为 img 添加属性 class=”full-image”即可。<br>标签方式：使用 fullimage 或者 简写 fi， 并传递图片地址、 alt 和 title 属性即可。 属性之间以逗号分隔。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;</div><div class="line">&lt;!-- 其中 class=<span class="string">"full-image"</span> 是必须的 --&gt;</div><div class="line">&lt;img src=<span class="string">"/image-url"</span> class=<span class="string">"full-image"</span> /&gt;</div><div class="line"></div><div class="line">    &lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;</div><div class="line">&#123;% fullimage /image-url, alt, title %&#125;</div><div class="line"></div><div class="line">&lt;!-- 别名 --&gt;</div><div class="line">&#123;% <span class="keyword">fi</span> /image-url, alt, title %&#125;</div></pre></td></tr></table></figure></p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;文本居中的引用&quot;&gt;&lt;a href=&quot;#文本居中的引用&quot; class=&quot;headerlink&quot; title=&quot;文本居中的引用&quot;&gt;&lt;/a&gt;文本居中的引用&lt;/h2&gt;&lt;p&gt;此标签将生成一个带上下分割线的引用，同时引用内文本将自动居中。文本居中时，多行文本若长度不等，视觉上会显得不对称，因此建议在引用单行文本的场景下使用。 例如作为文章开篇引用 或者 结束语之前的总结引用。&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
-    
-    
-      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
-    
-      <category term="常见问题" scheme="http://aibabby.win/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
     
   </entry>
   
