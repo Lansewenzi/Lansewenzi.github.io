@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-07-27T14:53:36.050Z</updated>
+  <updated>2017-07-27T14:56:35.050Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://aibabby.win/2017/07/27/%E8%A7%A3%E5%86%B3Photoshop-CS6%E7%95%8C%E9%9D%A2%E5%AD%97%E4%BD%93%E5%A4%AA%E5%B0%8F%E9%97%AE%E9%A2%98/"/>
     <id>http://aibabby.win/2017/07/27/解决Photoshop-CS6界面字体太小问题/</id>
     <published>2017-07-27T14:41:26.000Z</published>
-    <updated>2017-07-27T14:53:36.050Z</updated>
+    <updated>2017-07-27T14:56:35.050Z</updated>
     
     <content type="html"><![CDATA[<p>简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。</p>
 <p>1.windows健+R健，输入“regedit”，点击确定。</p>
@@ -43,6 +43,8 @@
     
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
+    
+      <category term="常见问题" scheme="http://aibabby.win/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
     
       <category term="经验" scheme="http://aibabby.win/tags/%E7%BB%8F%E9%AA%8C/"/>
     
