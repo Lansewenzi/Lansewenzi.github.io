@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[WordPress使用常见问题]]></title>
+    <url>%2F2017%2F07%2F30%2FWordPress%E4%BD%BF%E7%94%A8%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%2F</url>
+    <content type="text"><![CDATA[提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot 301重定向ppjiazu.com到www.ppjiazu.com目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯一坏处在于许多位于.htaccess 的规则都无法使用。通用办法是找到对应网站的conf文件，比如www.ppjiazu.com.conf，通常在/usr/local/nginx/conf/vhost/ 目录下，可以找到用sftp软件编辑此文件：把1server_name www.ppjiazu.com; 改为123server_name www.ppjiazu.com ppjiazu.com;if ($host != 'www.ppjiazu.com' ) &#123; rewrite ^/(.*)$ http://www.ppjiazu.com/$1 permanent;&#125; 重启服务器，即可实现访问ppjiazu.com跳转到www.ppjiazu.com。 WordPress只显示一个主题LNMP禁用了部分危险函数，而scandir函数也在此列，所以这样问题的解决方法只能是将scandir从禁用函数剔除就可以了。1disable_functions =passthru,exec,system,chroot,chgrp,chown,shell_exec,proc_open,proc_get_status,popen,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server 修改/usr/local/php/etc下的php.ini，删去scandir，然后用putty重启一下php进程“/etc/init.d/php-fpm restart”就可以了。 文章内容分页WordPress系统是内置分页功能的，要实现它极其简单，只需要在你想要分页的地方加入下面的代码即可(注意，是在文本编辑模式下)：1&lt;!–nextpage–&gt; 但还有一个问题．要让这个代码真正能够实现其分页功能，还需要你所使用的Wordpress主题支持，Wordpress的默认主题是支持的，如果你的主题不支持，那解决方法也很简单，找到你主题文件内的single.php里的下面这行代码：1&lt;?php the_content(); ?&gt; 在这段代码下面加上：1&lt;?php wp_link_pages('before=&lt;div id="page-links"&gt;&amp;after=&lt;/div&gt;'); ?&gt; 所以直接在需要分页的地方加上&lt;!–nextpage–&gt;就可以了，但我还是试了好几次才出现了分页。]]></content>
+      <categories>
+        <category>学无止境</category>
+      </categories>
+      <tags>
+        <tag>常见问题</tag>
+        <tag>Wordpress</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[解决Photoshop CS6界面字体太小问题]]></title>
     <url>%2F2017%2F07%2F27%2F%E8%A7%A3%E5%86%B3Photoshop-CS6%E7%95%8C%E9%9D%A2%E5%AD%97%E4%BD%93%E5%A4%AA%E5%B0%8F%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。 1.windows健+R健，输入“regedit”，点击确定。 2.找到目标文件夹123456&gt;HKEY_LOCAL_MACHINE&gt; SOFTWARE &gt; Microsoft &gt; Windows &gt; CurrentVersion &gt; SideBySide 在此文件夹上点击鼠标右键，点击新建，选择“DWORD(32位值）”，按enter健，直接输入PreferExternalManifest，然后确认（注意！名称是自己输入的！请注意大小写！）在此文件上，点击鼠标右键，选择修改。数值设为1，选择“十进制”，点击确认。3.把可以放大字体的补丁塞到安装路径的文件夹里就行了。一般跟着执行文件走就对了，比如：Photoshop.exe 在 C:\Program Files\Adobe\Adobe Photoshop CS6 (64 Bit)所以把这个补丁复制粘贴进去就行了! 大功告成另外，只要那你的adobe的软件安装默认路径的话都在，C:\Program Files (x86)\Adobe or C:\Program Files\Adobe.里（我安装在D盘，也是一样的，复制在D盘里）。还有AI.DW.FW的补丁，都在这位大神的网站里。Adobe App Scaling on High DPI Displays (FIX) 本文转自：作者：小象链接：https://www.zhihu.com/question/34480043/answer/151106099来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。]]></content>
@@ -102,8 +114,8 @@
         <category>时间风铃</category>
       </categories>
       <tags>
-        <tag>心情</tag>
         <tag>思念</tag>
+        <tag>心情</tag>
       </tags>
   </entry>
   <entry>

@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-07-27T14:56:35.050Z</updated>
+  <updated>2017-07-30T02:34:28.131Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -14,6 +14,41 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>WordPress使用常见问题</title>
+    <link href="http://aibabby.win/2017/07/30/WordPress%E4%BD%BF%E7%94%A8%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    <id>http://aibabby.win/2017/07/30/WordPress使用常见问题/</id>
+    <published>2017-07-30T02:23:27.000Z</published>
+    <updated>2017-07-30T02:34:28.131Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="提示需要输入FTP信息"><a href="#提示需要输入FTP信息" class="headerlink" title="提示需要输入FTP信息"></a>提示需要输入FTP信息</h1><p>后台安装插件或主题都提示需要输入FTP信息<br>出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod -R 755 /home/wwwroot</div><div class="line">chown -R www /home/wwwroot</div></pre></td></tr></table></figure></p>
+<a id="more"></a>
+<h1 id="301重定向ppjiazu-com到www-ppjiazu-com"><a href="#301重定向ppjiazu-com到www-ppjiazu-com" class="headerlink" title="301重定向ppjiazu.com到www.ppjiazu.com"></a>301重定向ppjiazu.com到www.ppjiazu.com</h1><p>目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯一坏处在于许多位于.htaccess 的规则都无法使用。通用办法是找到对应网站的conf文件，比如www.ppjiazu.com.conf，通常在/usr/local/nginx/conf/vhost/ 目录下，可以找到用sftp软件编辑此文件：<br>把<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server_name www.ppjiazu.com;</div></pre></td></tr></table></figure></p>
+<p>改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server_name www.ppjiazu.com ppjiazu.com;</div><div class="line"><span class="keyword">if</span> (<span class="variable">$host</span> != <span class="string">'www.ppjiazu.com'</span> ) &#123; </div><div class="line">rewrite ^/(.*)$ http://www.ppjiazu.com/<span class="variable">$1</span> permanent;&#125;</div></pre></td></tr></table></figure></p>
+<p>重启服务器，即可实现访问ppjiazu.com跳转到www.ppjiazu.com。</p>
+<h1 id="WordPress只显示一个主题"><a href="#WordPress只显示一个主题" class="headerlink" title="WordPress只显示一个主题"></a>WordPress只显示一个主题</h1><p>LNMP禁用了部分危险函数，而scandir函数也在此列，所以这样问题的解决方法只能是将scandir从禁用函数剔除就可以了。<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">disable_functions =passthru,<span class="built_in">exec</span>,system,chroot,chgrp,chown,shell_exec,proc_open,proc_get_status,popen,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server</div></pre></td></tr></table></figure></p>
+<p>修改<code>/usr/local/php/etc</code>下的php.ini，删去scandir，然后用putty重启一下php进程“<code>/etc/init.d/php-fpm restart</code>”就可以了。</p>
+<h1 id="文章内容分页"><a href="#文章内容分页" class="headerlink" title="文章内容分页"></a>文章内容分页</h1><p>WordPress系统是内置分页功能的，要实现它极其简单，只需要在你想要分页的地方加入下面的代码即可(注意，是在文本编辑模式下)：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;!–nextpage–&gt;</div></pre></td></tr></table></figure></p>
+<p>但还有一个问题．要让这个代码真正能够实现其分页功能，还需要你所使用的Wordpress主题支持，Wordpress的默认主题是支持的，如果你的主题不支持，那解决方法也很简单，找到你主题文件内的single.php里的下面这行代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php the_content(); ?&gt;</div></pre></td></tr></table></figure></p>
+<p>在这段代码下面加上：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;?php wp_link_pages(<span class="string">'before=&lt;div id="page-links"&gt;&amp;after=&lt;/div&gt;'</span>); ?&gt;</div></pre></td></tr></table></figure></p>
+<p>所以直接在需要分页的地方加上<code>&lt;!–nextpage–&gt;</code>就可以了，但我还是试了好几次才出现了分页。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;提示需要输入FTP信息&quot;&gt;&lt;a href=&quot;#提示需要输入FTP信息&quot; class=&quot;headerlink&quot; title=&quot;提示需要输入FTP信息&quot;&gt;&lt;/a&gt;提示需要输入FTP信息&lt;/h1&gt;&lt;p&gt;后台安装插件或主题都提示需要输入FTP信息&lt;br&gt;出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;chmod -R 755 /home/wwwroot&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chown -R www /home/wwwroot&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+    
+    </summary>
+    
+      <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
+    
+    
+      <category term="常见问题" scheme="http://aibabby.win/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+    
+      <category term="Wordpress" scheme="http://aibabby.win/tags/Wordpress/"/>
+    
+  </entry>
   
   <entry>
     <title>解决Photoshop CS6界面字体太小问题</title>
@@ -307,9 +342,9 @@
       <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
     
     
-      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
-    
       <category term="思念" scheme="http://aibabby.win/tags/%E6%80%9D%E5%BF%B5/"/>
+    
+      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
     
   </entry>
   
@@ -655,163 +690,6 @@
       <category term="激活" scheme="http://aibabby.win/tags/%E6%BF%80%E6%B4%BB/"/>
     
       <category term="教程" scheme="http://aibabby.win/tags/%E6%95%99%E7%A8%8B/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KMS激活命令</title>
-    <link href="http://aibabby.win/2017/02/26/kms%E6%BF%80%E6%B4%BB%E5%91%BD%E4%BB%A4/"/>
-    <id>http://aibabby.win/2017/02/26/kms激活命令/</id>
-    <published>2017-02-26T11:37:50.000Z</published>
-    <updated>2017-03-07T15:18:47.506Z</updated>
-    
-    <content type="html"><![CDATA[<h2 id="使用方法"><a href="#使用方法" class="headerlink" title="使用方法:"></a>使用方法:</h2><p>在 Windows 10 直接 用管理员权限 开启CMD </p>
-<h3 id="a-激活-Windows-10-企业版"><a href="#a-激活-Windows-10-企业版" class="headerlink" title="a.激活 Windows 10 企业版"></a>a.激活 Windows 10 企业版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">slmgr.vbs -upk</div><div class="line">slmgr.vbs -ipk NPPR9-FWDCX-D2C8J-H872K-2YT43</div><div class="line">slmgr.vbs -skms zhouwang.tk</div><div class="line">slmgr.vbs -ato</div><div class="line">slmgr.vbs -dlv</div></pre></td></tr></table></figure>
-<a id="more"></a>
-<p>其他 win8, win8.1 一样都可以使用 KMS 激活。<br>不过，激活的 key 就要自己找了。</p>
-<h3 id="b-激活-Office-2013-Vol-版"><a href="#b-激活-Office-2013-Vol-版" class="headerlink" title="b.激活 Office 2013 Vol 版"></a>b.激活 Office 2013 Vol 版</h3><p>Office 2010 Vol + Office 2013 Vol 通用激活方式 (2016未测试)</p>
-<p>用管理员权限 开启CMD<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:</div><div class="line"><span class="built_in">cd</span> <span class="string">"C:\Program Files\Microsoft Office\Office15\"</span></div><div class="line">cscript ospp.vbs /sethst:zhouwang.tk</div><div class="line">cscript ospp.vbs /act</div></pre></td></tr></table></figure></p>
-<p>按照安装的 Office 2010, 2013, x86, x64 版本，自行修改成 正确的路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:\Program Files\Microsoft Office\Office14\</div><div class="line">C:\Program Files (x86)\Microsoft Office\Office14\</div><div class="line">C:\Program Files\Microsoft Office\Office15\</div><div class="line">C:\Program Files (x86)\Microsoft Office\Office15\</div></pre></td></tr></table></figure></p>
-<hr>
-<h2 id="Windows-10-版本的-key"><a href="#Windows-10-版本的-key" class="headerlink" title="Windows 10 版本的 key"></a>Windows 10 版本的 key</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">Windows 10</th>
-<th style="text-align:left">KEY</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Windows 10 Professional</td>
-<td style="text-align:left">W269N-WFGWX-YVC9B-4J6C9-T83GX</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Professional N</td>
-<td style="text-align:left">MH37W-N47XK-V7XM9-C7227-GCQG9</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Education</td>
-<td style="text-align:left">NW6C2-QMPVW-D7KKK-3GKT6-VCFB2</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Education N</td>
-<td style="text-align:left">2WH4N-8QGBV-H22JP-CT43Q-MDWWJ</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Enterprise</td>
-<td style="text-align:left">NPPR9-FWDCX-D2C8J-H872K-2YT43</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Enterprise N</td>
-<td style="text-align:left">DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Enterprise 2015 LTSB</td>
-<td style="text-align:left">WNMTR-4C88C-JK8YV-HQ7T2-76DF9</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Enterprise 2015 LTSB N</td>
-<td style="text-align:left">2F77B-TNFGY-69QQF-B8YKP-D69TJ</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Home</td>
-<td style="text-align:left">TX9XD-98N7V-6WMQ6-BX7FG-H8Q99</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Home N</td>
-<td style="text-align:left">3KHY7-WNT83-DGQKR-F7HPR-844BM</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Home Single Language</td>
-<td style="text-align:left">7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH</td>
-</tr>
-<tr>
-<td style="text-align:left">Windows 10 Home Country Specific</td>
-<td style="text-align:left">PVMJN-6DFY6-9CCP6-7BKTT-D3WVR</td>
-</tr>
-</tbody>
-</table>
-<h2 id="Office-2016-版本的-key"><a href="#Office-2016-版本的-key" class="headerlink" title="Office 2016 版本的 key"></a>Office 2016 版本的 key</h2><table>
-<thead>
-<tr>
-<th style="text-align:left">Office 2016</th>
-<th style="text-align:left">KEY</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td style="text-align:left">Office Professional Plus 2016</td>
-<td style="text-align:left">XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99</td>
-</tr>
-<tr>
-<td style="text-align:left">Office Standard 2016</td>
-<td style="text-align:left">JNRGM-WHDWX-FJJG3-K47QV-DRTFM</td>
-</tr>
-<tr>
-<td style="text-align:left">Project Professional 2016</td>
-<td style="text-align:left">YG9NW-3K39V-2T3HJ-93F3Q-G83KT</td>
-</tr>
-<tr>
-<td style="text-align:left">Project Standard 2016</td>
-<td style="text-align:left">GNFHQ-F6YQM-KQDGJ-327XX-KQBVC</td>
-</tr>
-<tr>
-<td style="text-align:left">Visio Professional 2016</td>
-<td style="text-align:left">PD3PC-RHNGV-FXJ29-8JK7D-RJRJK</td>
-</tr>
-<tr>
-<td style="text-align:left">Visio Standard 2016</td>
-<td style="text-align:left">7WHWN-4T7MP-G96JF-G33KR-W8GF4</td>
-</tr>
-<tr>
-<td style="text-align:left">Access 2016</td>
-<td style="text-align:left">GNH9Y-D2J4T-FJHGG-QRVH7-QPFDW</td>
-</tr>
-<tr>
-<td style="text-align:left">Excel 2016</td>
-<td style="text-align:left">9C2PK-NWTVB-JMPW8-BFT28-7FTBF</td>
-</tr>
-<tr>
-<td style="text-align:left">OneNote 2016</td>
-<td style="text-align:left">DR92N-9HTF2-97XKM-XW2WJ-XW3J6</td>
-</tr>
-<tr>
-<td style="text-align:left">Outlook 2016</td>
-<td style="text-align:left">R69KK-NTPKF-7M3Q4-QYBHW-6MT9B</td>
-</tr>
-<tr>
-<td style="text-align:left">PowerPoint 2016</td>
-<td style="text-align:left">J7MQP-HNJ4Y-WJ7YM-PFYGF-BY6C6</td>
-</tr>
-<tr>
-<td style="text-align:left">Publisher 2016</td>
-<td style="text-align:left">F47MM-N3XJP-TQXJ9-BP99D-8K837</td>
-</tr>
-<tr>
-<td style="text-align:left">Skype for Business 2016</td>
-<td style="text-align:left">869NQ-FJ69K-466HW-QYCP2-DDBV6</td>
-</tr>
-<tr>
-<td style="text-align:left">Word 2016</td>
-<td style="text-align:left">WXY84-JN2Q9-RBCCQ-3Q3J3-3PFJ6</td>
-</tr>
-</tbody>
-</table>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;h2 id=&quot;使用方法&quot;&gt;&lt;a href=&quot;#使用方法&quot; class=&quot;headerlink&quot; title=&quot;使用方法:&quot;&gt;&lt;/a&gt;使用方法:&lt;/h2&gt;&lt;p&gt;在 Windows 10 直接 用管理员权限 开启CMD &lt;/p&gt;
-&lt;h3 id=&quot;a-激活-Windows-10-企业版&quot;&gt;&lt;a href=&quot;#a-激活-Windows-10-企业版&quot; class=&quot;headerlink&quot; title=&quot;a.激活 Windows 10 企业版&quot;&gt;&lt;/a&gt;a.激活 Windows 10 企业版&lt;/h3&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;slmgr.vbs -upk&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;slmgr.vbs -ipk NPPR9-FWDCX-D2C8J-H872K-2YT43&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;slmgr.vbs -skms zhouwang.tk&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;slmgr.vbs -ato&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;slmgr.vbs -dlv&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-    
-    </summary>
-    
-      <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
-    
-    
-      <category term="激活" scheme="http://aibabby.win/tags/%E6%BF%80%E6%B4%BB/"/>
-    
-      <category term="命令" scheme="http://aibabby.win/tags/%E5%91%BD%E4%BB%A4/"/>
     
   </entry>
   
