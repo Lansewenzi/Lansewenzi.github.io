@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[雨静]]></title>
+    <url>%2F2017%2F07%2F30%2F%E9%9B%A8%E9%9D%99%2F</url>
+    <content type="text"><![CDATA[自从和某人那次大吵之后便很少写文章了，某人为了这个还不胜其烦的“拷问”我是不是又不喜欢她了，对于某人的这种问题，我个人是相当的头疼，每次回答都战战兢兢、如履薄冰，生怕哪句说的不中某人意，又哼哼半天。尽管我早已深知某人的那套周氏理论，但最终的结局还是逃脱不了某人那诡异般让人防不胜防的命运！为此我深感无力，个人觉得最大的痛苦莫过于此！ 某人是一感性动物，喜欢听好听的，吃好吃的，但对于穿着方面，个人觉得品味不敢苟同。一个女孩子对于穿着打扮方面有着如此的特立独行，也是罕见。每次让她买几件好看点的衣服，某人总是嘟着一张嘴，一副感觉像是要割她肉的样子！但对于吃这方面，可以大方的不能再大方了。还记得某人当时为了我一句晚上少吃点东西，还大动肝火的直接挂了我是视频，生了一晚上气呢！真不敢想像如果真让她少吃点东西，会有什么样的后果。看来某人在吃这方面和我们的大明朝有着千丝万缕的关系呀！ 前几天，某人和我讲她要努力上进，为此，我大为感动。可能是平时自己说话过于刻薄，以至于和某人每每提及到学习方面的事情，或是避而不谈，或是不欢而散。其实想想也挺难过的，明明一个那么好的女孩，自从和我在一起之后，便很少听到我鼓励的话了，对此我深表歉意，希望某人能原谅我当初的无理，同时也希望某人能够重拾当初的初心，昂首阔步。 窗外淅淅沥沥的雨湿了窗台，可以用纸巾擦拭干净，心灵上的伤害该用什么去擦拭呢？我无言以对，只愿某人安好，这里便是晴天！]]></content>
+      <categories>
+        <category>时间风铃</category>
+      </categories>
+      <tags>
+        <tag>心情</tag>
+        <tag>日志</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[WordPress使用常见问题]]></title>
     <url>%2F2017%2F07%2F30%2FWordPress%E4%BD%BF%E7%94%A8%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot 301重定向ppjiazu.com到www.ppjiazu.com目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯一坏处在于许多位于.htaccess 的规则都无法使用。通用办法是找到对应网站的conf文件，比如www.ppjiazu.com.conf，通常在/usr/local/nginx/conf/vhost/ 目录下，可以找到用sftp软件编辑此文件：把1server_name www.ppjiazu.com; 改为123server_name www.ppjiazu.com ppjiazu.com;if ($host != 'www.ppjiazu.com' ) &#123; rewrite ^/(.*)$ http://www.ppjiazu.com/$1 permanent;&#125; 重启服务器，即可实现访问ppjiazu.com跳转到www.ppjiazu.com。 WordPress只显示一个主题LNMP禁用了部分危险函数，而scandir函数也在此列，所以这样问题的解决方法只能是将scandir从禁用函数剔除就可以了。1disable_functions =passthru,exec,system,chroot,chgrp,chown,shell_exec,proc_open,proc_get_status,popen,ini_alter,ini_restore,dl,openlog,syslog,readlink,symlink,popepassthru,stream_socket_server 修改/usr/local/php/etc下的php.ini，删去scandir，然后用putty重启一下php进程“/etc/init.d/php-fpm restart”就可以了。 文章内容分页WordPress系统是内置分页功能的，要实现它极其简单，只需要在你想要分页的地方加入下面的代码即可(注意，是在文本编辑模式下)：1&lt;!–nextpage–&gt; 但还有一个问题．要让这个代码真正能够实现其分页功能，还需要你所使用的Wordpress主题支持，Wordpress的默认主题是支持的，如果你的主题不支持，那解决方法也很简单，找到你主题文件内的single.php里的下面这行代码：1&lt;?php the_content(); ?&gt; 在这段代码下面加上：1&lt;?php wp_link_pages('before=&lt;div id="page-links"&gt;&amp;after=&lt;/div&gt;'); ?&gt; 所以直接在需要分页的地方加上&lt;!–nextpage–&gt;就可以了，但我还是试了好几次才出现了分页。]]></content>

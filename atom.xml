@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-07-30T02:34:28.131Z</updated>
+  <updated>2017-07-30T10:50:00.742Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -14,6 +14,34 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>雨静</title>
+    <link href="http://aibabby.win/2017/07/30/%E9%9B%A8%E9%9D%99/"/>
+    <id>http://aibabby.win/2017/07/30/雨静/</id>
+    <published>2017-07-30T02:53:28.000Z</published>
+    <updated>2017-07-30T10:50:00.742Z</updated>
+    
+    <content type="html"><![CDATA[<p>自从和某人那次大吵之后便很少写文章了，某人为了这个还不胜其烦的“拷问”我是不是又不喜欢她了，对于某人的这种问题，我个人是相当的头疼，每次回答都战战兢兢、如履薄冰，生怕哪句说的不中某人意，又哼哼半天。尽管我早已深知某人的那套周氏理论，但最终的结局还是逃脱不了某人那诡异般让人防不胜防的命运！为此我深感无力，个人觉得最大的痛苦莫过于此！</p>
+<p>某人是一感性动物，喜欢听好听的，吃好吃的，但对于穿着方面，个人觉得品味不敢苟同。一个女孩子对于穿着打扮方面有着如此的特立独行，也是罕见。每次让她买几件好看点的衣服，某人总是嘟着一张嘴，一副感觉像是要割她肉的样子！但对于吃这方面，可以大方的不能再大方了。还记得某人当时为了我一句晚上少吃点东西，还大动肝火的直接挂了我是视频，生了一晚上气呢！真不敢想像如果真让她少吃点东西，会有什么样的后果。看来某人在吃这方面和我们的大明朝有着千丝万缕的关系呀！</p>
+<p>前几天，某人和我讲她要努力上进，为此，我大为感动。可能是平时自己说话过于刻薄，以至于和某人每每提及到学习方面的事情，或是避而不谈，或是不欢而散。其实想想也挺难过的，明明一个那么好的女孩，自从和我在一起之后，便很少听到我鼓励的话了，对此我深表歉意，希望某人能原谅我当初的无理，同时也希望某人能够重拾当初的初心，昂首阔步。</p>
+<p>窗外淅淅沥沥的雨湿了窗台，可以用纸巾擦拭干净，心灵上的伤害该用什么去擦拭呢？我无言以对，只愿某人安好，这里便是晴天！</p>
+]]></content>
+    
+    <summary type="html">
+    
+      这是篇受保护的文章！
+    
+    </summary>
+    
+      <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
+    
+    
+      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="日志" scheme="http://aibabby.win/tags/%E6%97%A5%E5%BF%97/"/>
+    
+  </entry>
   
   <entry>
     <title>WordPress使用常见问题</title>
@@ -627,69 +655,6 @@
     
     
       <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>KMS服务器搭建教程</title>
-    <link href="http://aibabby.win/2017/02/27/KMS%E6%9C%8D%E5%8A%A1%E5%99%A8%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/"/>
-    <id>http://aibabby.win/2017/02/27/KMS服务器搭建教程/</id>
-    <published>2017-02-27T13:49:33.000Z</published>
-    <updated>2017-03-07T12:56:38.907Z</updated>
-    
-    <content type="html"><![CDATA[<p>vlmcsd 支持 多种系统+芯片，其他没提到的系统，请自行参考原始文件。</p>
-<h1 id="准备工作"><a href="#准备工作" class="headerlink" title="准备工作"></a>准备工作</h1><p>下载来源同为 <a href="http://forums.mydigitallife.info/threads/50234-Emulated-KMS-Servers-on-non-Windows-platforms" target="_blank" rel="external">地址</a><br>原始文件下载<br>svn906版 <a href="http://rgho.st/7TTN97Z4W" target="_blank" rel="external">http://rgho.st/7TTN97Z4W</a> 解压密码 <code>2016</code><br><a id="more"></a></p>
-<h1 id="android-手机搭建方法"><a href="#android-手机搭建方法" class="headerlink" title="android 手机搭建方法"></a>android 手机搭建方法</h1><h2 id="1-在-android-手机-执行这个-就可以-KMS-激活-windows-10-了"><a href="#1-在-android-手机-执行这个-就可以-KMS-激活-windows-10-了" class="headerlink" title="1.在 android 手机 执行这个 就可以 KMS 激活 windows 10 了"></a>1.在 android 手机 执行这个 就可以 KMS 激活 windows 10 了</h2><p><code>vlmcsd-svn796-2015-07-18-Hotbird64/binaries/Android/arm/static/vlmcsd-android15-armv7-static</code><br>请按自己手机的芯片 使用正确的文件</p>
-<p>要用有 d 的 vlmcsd 才是 正确的服务器<br>不是没 d 的 vlmcs 使用端 client</p>
-<p>为简化命令 先将 <code>vlmcsd-android15-armv7-static</code> 文件 改名为 <code>kms-server</code></p>
-<p>怎么执行?</p>
-<p>先自行 root 手机<br>将 kms-server 放在 手机的 /sdcard/ 里面<br>用 RootExplorer.apk 将 手机的 <code>/sdcard/kms-server</code> 拷贝放在 <code>/system/bin/kms-server</code><br>权限改为 755</p>
-<p>###a.手动启动 KMS 服务器<br>用 Androidterm.apk 的 shell 进入 <code>/system/bin/</code> 执行 <code>kms-server</code></p>
-<p>###b.开机自动启动 KMS 服务器<br>(如附件 <code>install-recovery.sh</code> 配合 <code>/system/bin/kms-server</code>)<br>找不到 <code>/system/etc/install-recovery.sh</code> 的话，将附件放入 <code>/system/etc/install-recovery.sh </code><br>用 RootExplorer.apk 编辑 <code>/system/etc/install-recovery.sh</code><br>在 <code>/system/etc/install-recovery.sh</code> 中加入 <code>/system/bin/kms-server</code><br>权限改为 755<br>设置完成后，手机开机 即可自动启用 KMS server。</p>
-<h2 id="2-在-android-手机-用-shell-的-netcfg-或-自己想办法知道-手机的IP，"><a href="#2-在-android-手机-用-shell-的-netcfg-或-自己想办法知道-手机的IP，" class="headerlink" title="2.在 android 手机 用 shell 的 netcfg 或 自己想办法知道 手机的IP，"></a>2.在 android 手机 用 shell 的 netcfg 或 自己想办法知道 手机的IP，</h2><p>假设为 192.168.0.3<br>范例: WLAN IP = 192.168.0.3</p>
-<h2 id="3-在-Windows-10-直接-用管理员权限-开启CMD"><a href="#3-在-Windows-10-直接-用管理员权限-开启CMD" class="headerlink" title="3.在 Windows 10 直接 用管理员权限 开启CMD"></a>3.在 Windows 10 直接 用管理员权限 开启CMD</h2><h3 id="a-激活-Windows-10-企业版"><a href="#a-激活-Windows-10-企业版" class="headerlink" title="a.激活 Windows 10 企业版"></a>a.激活 Windows 10 企业版</h3><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">slmgr.vbs -upk</div><div class="line">slmgr.vbs -ipk NPPR9-FWDCX-D2C8J-H872K-2YT43</div><div class="line">slmgr.vbs -skms 192.168.0.3</div><div class="line">slmgr.vbs -ato</div><div class="line">slmgr.vbs -dlv</div></pre></td></tr></table></figure>
-<p>其他 win8, win8.1 一样都可以使用 KMS 激活。<br>不过，激活的 key 就要自己找了。</p>
-<h3 id="b-激活-Office-2013-Vol-版"><a href="#b-激活-Office-2013-Vol-版" class="headerlink" title="b.激活 Office 2013 Vol 版"></a>b.激活 Office 2013 Vol 版</h3><p>Office 2010 Vol + Office 2013 Vol 通用激活方式 (2016未测试)</p>
-<p>用管理员权限 <code>开启CMD</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:</div><div class="line"><span class="built_in">cd</span> <span class="string">"C:\Program Files\Microsoft Office\Office15\"</span></div><div class="line">cscript ospp.vbs /sethst:192.168.0.3</div><div class="line">cscript ospp.vbs /act</div></pre></td></tr></table></figure></p>
-<p>按照安装的 Office 2010, 2013, x86, x64 版本，自行修改成 正确的路径<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">C:\Program Files\Microsoft Office\Office14\</div><div class="line">C:\Program Files (x86)\Microsoft Office\Office14\</div><div class="line">C:\Program Files\Microsoft Office\Office15\</div><div class="line">C:\Program Files (x86)\Microsoft Office\Office15\</div></pre></td></tr></table></figure></p>
-<hr>
-<h1 id="搭建-苹果-Mac-OS-X-的-服务器"><a href="#搭建-苹果-Mac-OS-X-的-服务器" class="headerlink" title="搭建 苹果 Mac OS X 的 服务器"></a>搭建 苹果 Mac OS X 的 服务器</h1><h2 id="为简化命令"><a href="#为简化命令" class="headerlink" title="为简化命令"></a>为简化命令</h2><p>先将 <code>vlmcsd-svn796-2015-07-18-Hotbird64/binaries/MacOSX/intel/vlmcsd-MacOSX-x64</code> 文件 改名为 <code>kms-server</code><br>将 <code>kms-server</code> 复制放到 <code>/usr/bin/kms-server</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo cp vlmcsd-svn796-2015-07-18-Hotbird64/binaries/MacOSX/intel/vlmcsd-MacOSX-x64 /usr/bin/kms-server</div></pre></td></tr></table></figure></p>
-<p>修改 <code>/usr/bin/kms-server</code> 权限为 755<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 755 /usr/bin/kms-server</div></pre></td></tr></table></figure></p>
-<h2 id="a-手动启动-KMS-服务器"><a href="#a-手动启动-KMS-服务器" class="headerlink" title="a.手动启动 KMS 服务器"></a>a.手动启动 KMS 服务器</h2><p>直接执行 <code>/usr/bin/kms-server</code></p>
-<h2 id="b-开机自动启动-KMS-服务器"><a href="#b-开机自动启动-KMS-服务器" class="headerlink" title="b.开机自动启动 KMS 服务器"></a>b.开机自动启动 KMS 服务器</h2><p>(如附件 <code>com.kms.server.plist</code> 配合 <code>/usr/bin/kms-server</code>)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo cp com.kms.server.plist /Library/LaunchDaemons/com.kms.server.plist</div><div class="line">sudo chmod 755 /Library/LaunchDaemons/com.kms.server.plist</div></pre></td></tr></table></figure></p>
-<p>即可 设置 开机自动启动 KMS server </p>
-<p>确认 IP 位址，如 <code>192.168.0.3</code>&gt;<br><code>ifconfig</code></p>
-<hr>
-<h1 id="搭建-Linux-的-服务器"><a href="#搭建-Linux-的-服务器" class="headerlink" title="搭建 Linux 的 服务器"></a>搭建 Linux 的 服务器</h1><h2 id="为简化命令-假设为-x64-版本"><a href="#为简化命令-假设为-x64-版本" class="headerlink" title="为简化命令(假设为 x64 版本)"></a>为简化命令(假设为 x64 版本)</h2><p>先将 <code>vlmcsd-svn796-2015-07-18-Hotbird64/binaries/Linux/intel/static/vlmcsd-x64-musl-static</code> 文件 改名为 <code>kms-server</code><br>将 <code>kms-server</code> 复制放到 <code>/usr/bin/kms-server</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo vlmcsd-svn796-2015-07-18-Hotbird64/binaries/Linux/intel/static/vlmcsd-x64-musl-static /usr/bin/kms-server</div></pre></td></tr></table></figure></p>
-<p>修改 <code>/usr/bin/kms-server</code> 权限为 755<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">sudo chmod 755 /usr/bin/kms-server</div></pre></td></tr></table></figure></p>
-<h2 id="a-手动启动-KMS-服务器-1"><a href="#a-手动启动-KMS-服务器-1" class="headerlink" title="a.手动启动 KMS 服务器"></a>a.手动启动 KMS 服务器</h2><p>直接执行 <code>/usr/bin/kms-server</code></p>
-<p>##b.开机自动启动 KMS 服务器<br>(如附件 <code>rc.local</code> 配合 <code>/usr/bin/kms-server</code>)<br>将 <code>/usr/bin/kms-server</code> 加入 <code>/etc/rc.local</code> 的最后一段<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">sudo cp rc.local /etc/rc.local</div><div class="line">sudo chmod 755 /etc/rc.local</div></pre></td></tr></table></figure></p>
-<p>即可 设置 开机自动启动 KMS server<br>确认 IP 位址，如 192.168.0.3<br><code>ifconfig</code></p>
-<hr>
-<h1 id="搭建-Windows-的-服务器"><a href="#搭建-Windows-的-服务器" class="headerlink" title="搭建 Windows 的 服务器"></a>搭建 Windows 的 服务器</h1><p>Windows版本 支持 XP, Win7, Win8, Win8.1, 但是不支持 Win10。<br>x64＝64位版本，x86＝32位版本。</p>
-<h2 id="为简化命令-假设为-x64-版本-1"><a href="#为简化命令-假设为-x64-版本-1" class="headerlink" title="为简化命令(假设为 x64 版本)"></a>为简化命令(假设为 x64 版本)</h2><p>先将 <code>vlmcsd-svn796-2015-07-18-Hotbird64/binaries/Windows/intel/vlmcsd-Windows-x64.exe</code> 文件 改名为 <code>kms-server.exe</code><br>将 <code>kms-server.exe</code> 复制放到 <code>C:\Windows\System32\kms-server.exe</code><br>用管理员权限 开启 CMD<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">copy Windows/intel/vlmcsd-Windows-x64.exe C:\Windows\System32\kms-server.exe</div></pre></td></tr></table></figure></p>
-<h2 id="开机自动启动-KMS-服务器"><a href="#开机自动启动-KMS-服务器" class="headerlink" title="开机自动启动 KMS 服务器"></a>开机自动启动 KMS 服务器</h2><p>(小写 -s 为安装服务器，大写 -S 为移除服务器)<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">C:\Windows\System32\kms-server.exe -s</div></pre></td></tr></table></figure></p>
-<p>重新启动电脑，开机 即可 自动启动 KMS server</p>
-<h2 id="确认-IP-位址，如-192-168-0-3"><a href="#确认-IP-位址，如-192-168-0-3" class="headerlink" title="确认 IP 位址，如 192.168.0.3"></a>确认 IP 位址，如 192.168.0.3</h2><p><code>ipconfig</code></p>
-<p>Windows 必须关闭防火墙，或是自行爬文学习 加入 C:\Windows\System32\kms-server.exe 的 TCP 的 1688 端口到防火墙，才能提供其他计算机连接到 KMS 服务器。</p>
-<p>爱怎么激活 就怎么激活。</p>
-<p>会玩 android手机+root+shell 命令 的人，就玩玩看吧</p>
-<h2 id="Linux-注意事项："><a href="#Linux-注意事项：" class="headerlink" title="Linux 注意事项："></a>Linux 注意事项：</h2><p>老手，自行 添加 TCP 的 1688 端口到 防火墙。<br>新手，记得关闭 SELinux 和 防火墙，否则 其他计算机无法连接到 KMS 服务器。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;vlmcsd 支持 多种系统+芯片，其他没提到的系统，请自行参考原始文件。&lt;/p&gt;
-&lt;h1 id=&quot;准备工作&quot;&gt;&lt;a href=&quot;#准备工作&quot; class=&quot;headerlink&quot; title=&quot;准备工作&quot;&gt;&lt;/a&gt;准备工作&lt;/h1&gt;&lt;p&gt;下载来源同为 &lt;a href=&quot;http://forums.mydigitallife.info/threads/50234-Emulated-KMS-Servers-on-non-Windows-platforms&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;地址&lt;/a&gt;&lt;br&gt;原始文件下载&lt;br&gt;svn906版 &lt;a href=&quot;http://rgho.st/7TTN97Z4W&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;http://rgho.st/7TTN97Z4W&lt;/a&gt; 解压密码 &lt;code&gt;2016&lt;/code&gt;&lt;br&gt;
-    
-    </summary>
-    
-      <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
-    
-    
-      <category term="激活" scheme="http://aibabby.win/tags/%E6%BF%80%E6%B4%BB/"/>
-    
-      <category term="教程" scheme="http://aibabby.win/tags/%E6%95%99%E7%A8%8B/"/>
     
   </entry>
   
