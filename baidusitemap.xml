@@ -4,6 +4,21 @@
 
     
   <url>
+    <loc>http://aibabby.win/2016/09/06/hello-world/</loc>
+    <lastmod>2017-08-19T07:43:13.557Z</lastmod>
+    <data>
+        <display>
+        <title>Hello World</title>
+        <pubTime>2016-09-06T12:24:43.000Z</pubTime>
+        
+         
+           
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://aibabby.win/2017/02/26/kms%E6%BF%80%E6%B4%BB%E5%91%BD%E4%BB%A4/</loc>
     <lastmod>2017-08-19T04:35:34.910Z</lastmod>
     <data>
@@ -274,21 +289,6 @@
              
               <breadCrumb title="学无止境" url="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
           
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://aibabby.win/2016/09/06/hello-world/</loc>
-    <lastmod>2017-08-18T15:54:27.271Z</lastmod>
-    <data>
-        <display>
-        <title>Hello World</title>
-        <pubTime>2016-09-06T12:24:43.000Z</pubTime>
-        
-         
-           
         </display>
     </data>
     </url>
