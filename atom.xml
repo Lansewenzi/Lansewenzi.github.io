@@ -48,10 +48,9 @@
     <link href="http://aibabby.win/2017/07/30/WordPress%E4%BD%BF%E7%94%A8%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
     <id>http://aibabby.win/2017/07/30/WordPress使用常见问题/</id>
     <published>2017-07-30T02:23:27.000Z</published>
-    <updated>2017-07-30T02:34:28.131Z</updated>
+    <updated>2017-08-19T04:23:59.888Z</updated>
     
     <content type="html"><![CDATA[<h1 id="提示需要输入FTP信息"><a href="#提示需要输入FTP信息" class="headerlink" title="提示需要输入FTP信息"></a>提示需要输入FTP信息</h1><p>后台安装插件或主题都提示需要输入FTP信息<br>出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod -R 755 /home/wwwroot</div><div class="line">chown -R www /home/wwwroot</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <h1 id="301重定向ppjiazu-com到www-ppjiazu-com"><a href="#301重定向ppjiazu-com到www-ppjiazu-com" class="headerlink" title="301重定向ppjiazu.com到www.ppjiazu.com"></a>301重定向ppjiazu.com到www.ppjiazu.com</h1><p>目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯一坏处在于许多位于.htaccess 的规则都无法使用。通用办法是找到对应网站的conf文件，比如www.ppjiazu.com.conf，通常在/usr/local/nginx/conf/vhost/ 目录下，可以找到用sftp软件编辑此文件：<br>把<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server_name www.ppjiazu.com;</div></pre></td></tr></table></figure></p>
 <p>改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server_name www.ppjiazu.com ppjiazu.com;</div><div class="line"><span class="keyword">if</span> (<span class="variable">$host</span> != <span class="string">'www.ppjiazu.com'</span> ) &#123; </div><div class="line">rewrite ^/(.*)$ http://www.ppjiazu.com/<span class="variable">$1</span> permanent;&#125;</div></pre></td></tr></table></figure></p>
 <p>重启服务器，即可实现访问ppjiazu.com跳转到www.ppjiazu.com。</p>
@@ -65,7 +64,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;提示需要输入FTP信息&quot;&gt;&lt;a href=&quot;#提示需要输入FTP信息&quot; class=&quot;headerlink&quot; title=&quot;提示需要输入FTP信息&quot;&gt;&lt;/a&gt;提示需要输入FTP信息&lt;/h1&gt;&lt;p&gt;后台安装插件或主题都提示需要输入FTP信息&lt;br&gt;出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;chmod -R 755 /home/wwwroot&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;chown -R www /home/wwwroot&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
+      &lt;h1 id=&quot;提示需要输入FTP信息&quot;&gt;&lt;a href=&quot;#提示需要输入FTP信息&quot; class=&quot;headerlink&quot; title=&quot;提示需要输入FTP信息&quot;&gt;&lt;/a&gt;提示需要输入FTP信息&lt;/h1&gt;&lt;p&gt;后台安装插件或主题都提示需要输入FTP信息&lt;br&gt;出现这个问题，是因
     
     </summary>
     
@@ -83,12 +82,13 @@
     <link href="http://aibabby.win/2017/07/27/%E8%A7%A3%E5%86%B3Photoshop-CS6%E7%95%8C%E9%9D%A2%E5%AD%97%E4%BD%93%E5%A4%AA%E5%B0%8F%E9%97%AE%E9%A2%98/"/>
     <id>http://aibabby.win/2017/07/27/解决Photoshop-CS6界面字体太小问题/</id>
     <published>2017-07-27T14:41:26.000Z</published>
-    <updated>2017-07-27T14:56:35.050Z</updated>
+    <updated>2017-08-19T04:24:43.780Z</updated>
     
     <content type="html"><![CDATA[<p>简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。</p>
 <p>1.windows健+R健，输入“regedit”，点击确定。</p>
 <p>2.找到目标文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;HKEY_LOCAL_MACHINE</div><div class="line">&gt; SOFTWARE</div><div class="line"> &gt; Microsoft</div><div class="line">  &gt; Windows</div><div class="line">   &gt; CurrentVersion</div><div class="line">    &gt; SideBySide</div></pre></td></tr></table></figure></p>
-<p>在此文件夹上点击鼠标右键，点击新建，选择“DWORD(32位值）”，按enter健，直接输入PreferExternalManifest，然后确认（注意！名称是自己输入的！请注意大小写！）<br>在此文件上，点击鼠标右键，选择修改。数值设为1，选择“十进制”，点击确认。<br><a id="more"></a><br>3.把可以放大字体的补丁塞到安装路径的文件夹里就行了。<br>一般跟着执行文件走就对了，比如：Photoshop.exe 在 <code>C:\Program Files\Adobe\Adobe Photoshop CS6 (64 Bit)</code><br>所以把这个补丁复制粘贴进去就行了!</p>
+<p>在此文件夹上点击鼠标右键，点击新建，选择“DWORD(32位值）”，按enter健，直接输入PreferExternalManifest，然后确认（注意！名称是自己输入的！请注意大小写！）<br>在此文件上，点击鼠标右键，选择修改。数值设为1，选择“十进制”，点击确认。</p>
+<p>3.把可以放大字体的补丁塞到安装路径的文件夹里就行了。<br>一般跟着执行文件走就对了，比如：Photoshop.exe 在 <code>C:\Program Files\Adobe\Adobe Photoshop CS6 (64 Bit)</code><br>所以把这个补丁复制粘贴进去就行了!</p>
 <p>大功告成另外，只要那你的adobe的软件安装默认路径的话都在，<code>C:\Program Files (x86)\Adobe or C:\Program Files\Adobe</code>.里（我安装在D盘，也是一样的，复制在D盘里）。还有AI.DW.FW的补丁，都在这位大神的网站里。<a href="http://www.danantonielli.com/adobe-app-scaling-on-high-dpi-displays-fix/" target="_blank" rel="external">Adobe App Scaling on High DPI Displays  (FIX)</a></p>
 <blockquote>
 <p>本文转自：<br>作者：小象<br>链接：<a href="https://www.zhihu.com/question/34480043/answer/151106099" target="_blank" rel="external">https://www.zhihu.com/question/34480043/answer/151106099</a><br>来源：知乎<br>著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。</p>
@@ -99,8 +99,7 @@
     
       &lt;p&gt;简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。&lt;/p&gt;
 &lt;p&gt;1.windows健+R健，输入“regedit”，点击确定。&lt;/p&gt;
-&lt;p&gt;2.找到目标文件夹&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt;HKEY_LOCAL_MACHINE&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&amp;gt; SOFTWARE&lt;/div&gt;&lt;div class=&quot;line&quot;&gt; &amp;gt; Microsoft&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;  &amp;gt; Windows&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;   &amp;gt; CurrentVersion&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;    &amp;gt; SideBySide&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;&lt;/p&gt;
-&lt;p&gt;在此文件夹上点击鼠标右键，点击新建，选择“DWORD(32位值）”，按enter健，直接输入PreferExternalManifest，然后确认（注意！名称是自己输入的！请注意大小写！）&lt;br&gt;在此文件上，点击鼠标右键，选择修改。数值设为1，选择“十进制”，点击确认。&lt;br&gt;
+&lt;p&gt;2.找到目标文件夹&lt;br&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;t
     
     </summary>
     
@@ -146,10 +145,10 @@
     <link href="http://aibabby.win/2017/07/02/hexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86/"/>
     <id>http://aibabby.win/2017/07/02/hexo文章简单加密/</id>
     <published>2017-07-02T10:03:43.000Z</published>
-    <updated>2017-07-02T10:33:21.463Z</updated>
+    <updated>2017-08-19T04:22:58.944Z</updated>
     
     <content type="html"><![CDATA[<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
-<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：<a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
+<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。<br>按道理是添加在任何地方都行，但是推荐加在所有的<meta>标签之后，个人建议，仅做参考。以下是我加的代码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</div><div class="line">			<span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>,<span class="string">''</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</div><div class="line">				alert(<span class="string">'密码错误！'</span>);</div><div class="line">				history.back();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>如果你好奇page.password是什么东西，那么恭喜你，你对 Hexo 的结构还是很熟悉的。page这个变量就是你在hexo new的时候生成文件中最顶部的东西，以下我给出这篇文章的头部参考：</p>
@@ -159,8 +158,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h1&gt;&lt;p&gt;由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？&lt;/p&gt;
-&lt;p&gt;这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：
+      &lt;h1 id=&quot;原理&quot;&gt;&lt;a href=&quot;#原理&quot; class=&quot;headerlink&quot; title=&quot;原理&quot;&gt;&lt;/a&gt;原理&lt;/h1&gt;&lt;p&gt;由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已
     
     </summary>
     
@@ -201,12 +199,11 @@
     <link href="http://aibabby.win/2017/06/23/%E6%88%91%E7%9A%84%E5%B0%91%E5%A5%B3%E6%97%B6%E4%BB%A3%E7%BB%8F%E5%85%B8%E8%AF%AD%E5%BD%95/"/>
     <id>http://aibabby.win/2017/06/23/我的少女时代经典语录/</id>
     <published>2017-06-23T14:36:20.000Z</published>
-    <updated>2017-06-23T15:04:08.909Z</updated>
+    <updated>2017-08-19T04:25:38.028Z</updated>
     
     <content type="html"><![CDATA[<div class="note success"><p>我的愿望，就是希望你的愿望里，也有我。 </p></div>
 <div class="note success"><p>很久很久以后我们才知道，当一个女孩说她再也不理你，不是真的讨厌你，而是她很在乎你，非常非常在乎你。</p></div>
 <div class="note success"><p>长大之后才知道，砸水球比赛第一个所砸的人，不是因为你讨厌他，而是因为你眼里只有他。</p></div>
-<a id="more"></a>
 <div class="note success"><p>原来喜欢一个人，会没有勇气告诉她。那个晚上，我向流星许愿，希望她的愿望里，也有我。即使我知道，能让她快乐的，是另一个人。</p></div>
 <div class="note success"><p>原来喜欢一个人，当你看到她走向她喜欢的人，才突然发现，原来你对她很坏，只是为了想跟她更靠近一点。</p></div>
 <div class="note success"><p>女生说没事，就是有事；女生说没关系，就是有关系！</p></div>
@@ -215,8 +212,7 @@
     <summary type="html">
     
       &lt;div class=&quot;note success&quot;&gt;&lt;p&gt;我的愿望，就是希望你的愿望里，也有我。 &lt;/p&gt;&lt;/div&gt;
-&lt;div class=&quot;note success&quot;&gt;&lt;p&gt;很久很久以后我们才知道，当一个女孩说她再也不理你，不是真的讨厌你，而是她很在乎你，非常非常在乎你。&lt;/p&gt;&lt;/div&gt;
-&lt;div class=&quot;note success&quot;&gt;&lt;p&gt;长大之后才知道，砸水球比赛第一个所砸的人，不是因为你讨厌他，而是因为你眼里只有他。&lt;/p&gt;&lt;/div&gt;
+&lt;div class=&quot;note success&quot;&gt;&lt;p&gt;很久很久以后我们才知道，当一个女孩说她再也不理你，不是真的讨厌你，而是她很在乎你，非常非常在乎你。&lt;/
     
     </summary>
     
@@ -289,7 +285,7 @@
     <link href="http://aibabby.win/2017/04/11/Bootstrap%20Callout%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://aibabby.win/2017/04/11/Bootstrap Callout的使用/</id>
     <published>2017-04-11T12:37:00.000Z</published>
-    <updated>2017-04-11T14:35:03.281Z</updated>
+    <updated>2017-08-18T15:54:12.550Z</updated>
     
     <content type="html"><![CDATA[<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% note class_name %&#125; Content (md partial supported) &#123;% endnote %&#125;</div></pre></td></tr></table></figure>
 <p>其中，class_name 可以是以下列表中的一个值：</p>
@@ -299,27 +295,18 @@
 <li>success</li>
 <li>info</li>
 <li>warning</li>
-<li>danger<a id="more"></a>
+<li>danger</li>
+</ul>
 <h1 id="示例"><a href="#示例" class="headerlink" title="示例"></a>示例</h1><div class="note default"><p>default </p></div>
 <div class="note primary"><p>primary </p></div>
 <div class="note success"><p>success </p></div>
 <div class="note info"><p>info </p></div>
 <div class="note warning"><p>warning </p></div>
-<div class="note danger"><p>danger </p></div></li>
-</ul>
-]]></content>
+<div class="note danger"><p>danger </p></div>]]></content>
     
     <summary type="html">
     
-      &lt;h1 id=&quot;使用方式&quot;&gt;&lt;a href=&quot;#使用方式&quot; class=&quot;headerlink&quot; title=&quot;使用方式&quot;&gt;&lt;/a&gt;使用方式&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&amp;#123;% note class_name %&amp;#125; Content (md partial supported) &amp;#123;% endnote %&amp;#125;&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
-&lt;p&gt;其中，class_name 可以是以下列表中的一个值：&lt;/p&gt;
-&lt;ul&gt;
-&lt;li&gt;default&lt;/li&gt;
-&lt;li&gt;primary&lt;/li&gt;
-&lt;li&gt;success&lt;/li&gt;
-&lt;li&gt;info&lt;/li&gt;
-&lt;li&gt;warning&lt;/li&gt;
-&lt;li&gt;danger
+      &lt;h1 id=&quot;使用方式&quot;&gt;&lt;a href=&quot;#使用方式&quot; class=&quot;headerlink&quot; title=&quot;使用方式&quot;&gt;&lt;/a&gt;使用方式&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre
     
     </summary>
     
@@ -365,10 +352,9 @@
     <link href="http://aibabby.win/2017/04/03/NexT%E4%B8%BB%E9%A2%98%E7%9A%84Hexo%E4%BC%98%E5%8C%96%EF%BC%88SEO%E7%AF%87%EF%BC%89/"/>
     <id>http://aibabby.win/2017/04/03/NexT主题的Hexo优化（SEO篇）/</id>
     <published>2017-04-03T10:59:35.000Z</published>
-    <updated>2017-04-03T11:38:11.022Z</updated>
+    <updated>2017-08-19T04:23:32.412Z</updated>
     
     <content type="html"><![CDATA[<h1 id="给你的hexo站点添加sitemap网站地图"><a href="#给你的hexo站点添加sitemap网站地图" class="headerlink" title="给你的hexo站点添加sitemap网站地图"></a>给你的hexo站点添加sitemap网站地图</h1><h2 id="安装hexo的sitemap网站地图生成插件"><a href="#安装hexo的sitemap网站地图生成插件" class="headerlink" title="安装hexo的sitemap网站地图生成插件"></a>安装hexo的sitemap网站地图生成插件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div><div class="line">npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="在你的hexo站点的-config-yml添加下面的代码"><a href="#在你的hexo站点的-config-yml添加下面的代码" class="headerlink" title="在你的hexo站点的_config.yml添加下面的代码"></a>在你的hexo站点的_config.yml添加下面的代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># hexo sitemap网站地图</span></div><div class="line">sitemap:</div><div class="line">path: sitemap.xml</div><div class="line">baidusitemap:</div><div class="line">path: baidusitemap.xml</div></pre></td></tr></table></figure>
 <p>配置成功后，hexo编译时会在hexo站点根目录生成sitemap.xml和baidusitemap.xml<br>其中sitemap.xml适合提交给谷歌搜素引擎，baidusitemap.xml适合提交百度搜索引擎。<br>其次，在robots.txt中添加下面的一段代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Sitemap: http://www.arao.me/sitemap.xml</div><div class="line">Sitemap: http://www.arao.me/baidusitemap.xml</div></pre></td></tr></table></figure></p>
 <p>请自行改成自己的网站。</p>
@@ -388,7 +374,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;给你的hexo站点添加sitemap网站地图&quot;&gt;&lt;a href=&quot;#给你的hexo站点添加sitemap网站地图&quot; class=&quot;headerlink&quot; title=&quot;给你的hexo站点添加sitemap网站地图&quot;&gt;&lt;/a&gt;给你的hexo站点添加sitemap网站地图&lt;/h1&gt;&lt;h2 id=&quot;安装hexo的sitemap网站地图生成插件&quot;&gt;&lt;a href=&quot;#安装hexo的sitemap网站地图生成插件&quot; class=&quot;headerlink&quot; title=&quot;安装hexo的sitemap网站地图生成插件&quot;&gt;&lt;/a&gt;安装hexo的sitemap网站地图生成插件&lt;/h2&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo-generator-sitemap --save&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;npm install hexo-generator-baidu-sitemap --save&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h1 id=&quot;给你的hexo站点添加sitemap网站地图&quot;&gt;&lt;a href=&quot;#给你的hexo站点添加sitemap网站地图&quot; class=&quot;headerlink&quot; title=&quot;给你的hexo站点添加sitemap网站地图&quot;&gt;&lt;/a&gt;给你的hexo站点添加sitemap网站
     
     </summary>
     
@@ -404,10 +390,10 @@
     <link href="http://aibabby.win/2017/04/03/%E5%A6%82%E4%BD%95%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF/"/>
     <id>http://aibabby.win/2017/04/03/如何批量修改文章信息/</id>
     <published>2017-04-03T10:40:54.000Z</published>
-    <updated>2017-04-03T10:55:10.561Z</updated>
+    <updated>2017-08-19T04:25:03.100Z</updated>
     
     <content type="html"><![CDATA[<p>你是否遇到过如下几种状况：</p>
-<p>博客更换域名，博客文章的内容也要跟着换<br>使用的图片地址更换了<br>写了很多文章，回过头来想切换作者<br>想删除某个可恶留言者的所有留言<br>想更改某个留言者所有留言的网站URL<br>想要禁用所有文章的pingback<br>想要禁用所有文章的评论功能<br>所有的这些，都涉及到一个关键词：批量修改。如果在WordPress后台，手动地去一个一个修改文章内容，相信会让你很抓狂，对一些拥有上千篇文章的博客来说，几乎是不可能完成任务。本文将教你如何使用SQL语句来操作你的数据库，实现数据的批量修改。<br><a id="more"></a><br>如果你没学过数据库的相关知识，肯定不知道SQL是什么，但是本文所涉及到的内容不需要你了解数据库的知识，也不需要你精通SQL语句的编写，你完全可以直接使用本文提到的SQL，下面我们将分条介绍各个SQL语句的功能，所有语句都使用默认的 wp_ 表前缀，如果你的不是，请自行更改。</p>
+<p>博客更换域名，博客文章的内容也要跟着换<br>使用的图片地址更换了<br>写了很多文章，回过头来想切换作者<br>想删除某个可恶留言者的所有留言<br>想更改某个留言者所有留言的网站URL<br>想要禁用所有文章的pingback<br>想要禁用所有文章的评论功能<br>所有的这些，都涉及到一个关键词：批量修改。如果在WordPress后台，手动地去一个一个修改文章内容，相信会让你很抓狂，对一些拥有上千篇文章的博客来说，几乎是不可能完成任务。本文将教你如何使用SQL语句来操作你的数据库，实现数据的批量修改。<br>如果你没学过数据库的相关知识，肯定不知道SQL是什么，但是本文所涉及到的内容不需要你了解数据库的知识，也不需要你精通SQL语句的编写，你完全可以直接使用本文提到的SQL，下面我们将分条介绍各个SQL语句的功能，所有语句都使用默认的 wp_ 表前缀，如果你的不是，请自行更改。</p>
 <p>开始之前，先介绍以下如何执行SQL语句，进行批量操作。现在一般的空间都是用phpmyadmin来管理数据库，这里将以phpmyadmin为例来介绍如何执行SQL语句：</p>
 <p>进入你的phpmyadmin管理页面，然后进入你的博客对应的数据库<br>菜单栏有个 SQL 选项，点击进去<br>出现一个SQL语句的输入框，现在你就可以在里面输入SQL语句了<br>输入完毕，点击 执行 ，将执行你刚才输入的SQL语句<br>SQL语句执行完毕，你的文章也被批量修改了，现在去看看你的文章是否都被更改了<br>最后提个醒：以下介绍的SQL语句都在我的博客上做过测试，但是尽管如此，操作数据库之前都要先备份一下你的数据库；定期备份你的数据库是好习惯</p>
 <h1 id="批量修改文章内容："><a href="#批量修改文章内容：" class="headerlink" title="批量修改文章内容："></a>批量修改文章内容：</h1><h2 id="如果你想替换之前写过的所有文章中的某些内容，如更换博客的名称，更换博客的网址，更换文章配图的链接等等，你可以使用以下SQL语句："><a href="#如果你想替换之前写过的所有文章中的某些内容，如更换博客的名称，更换博客的网址，更换文章配图的链接等等，你可以使用以下SQL语句：" class="headerlink" title="如果你想替换之前写过的所有文章中的某些内容，如更换博客的名称，更换博客的网址，更换文章配图的链接等等，你可以使用以下SQL语句："></a>如果你想替换之前写过的所有文章中的某些内容，如更换博客的名称，更换博客的网址，更换文章配图的链接等等，你可以使用以下SQL语句：</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">UPDATE wp_posts </div><div class="line">SET post_content = REPLACE( post_content, &apos;露兜博客&apos;, &apos;露兜中文博客&apos; );</div></pre></td></tr></table></figure>
@@ -436,7 +422,7 @@
     <summary type="html">
     
       &lt;p&gt;你是否遇到过如下几种状况：&lt;/p&gt;
-&lt;p&gt;博客更换域名，博客文章的内容也要跟着换&lt;br&gt;使用的图片地址更换了&lt;br&gt;写了很多文章，回过头来想切换作者&lt;br&gt;想删除某个可恶留言者的所有留言&lt;br&gt;想更改某个留言者所有留言的网站URL&lt;br&gt;想要禁用所有文章的pingback&lt;br&gt;想要禁用所有文章的评论功能&lt;br&gt;所有的这些，都涉及到一个关键词：批量修改。如果在WordPress后台，手动地去一个一个修改文章内容，相信会让你很抓狂，对一些拥有上千篇文章的博客来说，几乎是不可能完成任务。本文将教你如何使用SQL语句来操作你的数据库，实现数据的批量修改。&lt;br&gt;
+&lt;p&gt;博客更换域名，博客文章的内容也要跟着换&lt;br&gt;使用的图片地址更换了&lt;br&gt;写了很多文章，回过头来想切换作者&lt;br&gt;想删除某个可恶留言者的所有留言&lt;br&gt;想更改某个留言者所有留言的网站URL&lt;br&gt;想要禁用所有文章的pingback&lt;
     
     </summary>
     
@@ -452,10 +438,9 @@
     <link href="http://aibabby.win/2017/03/08/VPS%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B%EF%BC%9A%E5%B8%B8%E8%A7%81%E7%9A%84Linux%E5%91%BD%E4%BB%A4/"/>
     <id>http://aibabby.win/2017/03/08/VPS新手教程：常见的Linux命令/</id>
     <published>2017-03-08T12:37:00.000Z</published>
-    <updated>2017-03-08T12:43:48.219Z</updated>
+    <updated>2017-08-19T04:23:47.992Z</updated>
     
     <content type="html"><![CDATA[<h1 id="tar-命令-主要用来打包和解压缩"><a href="#tar-命令-主要用来打包和解压缩" class="headerlink" title="tar 命令 主要用来打包和解压缩"></a>tar 命令 主要用来打包和解压缩</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#tar cvf a.tar.gz /home (将home文件夹下所有文件打包，压缩为文件名a.tar.gz)</span></div><div class="line"><span class="comment">#tar xvf a.tar.gz  (将a.tar.gz解压至当前文件夹，亦可用zxvf)</span></div><div class="line"></div><div class="line">tar czvf</div><div class="line">tar czvf /root/x.tar.gz /home/y/ 说明：把/home/y/目录直接打包并且命名为x.tar.gz存放在/root/x目录下。</div><div class="line">tar xzvf</div><div class="line">tar xzvf /root/x.tar.gz /home/y/ 说明：把/root/目录下的x.tar.gz解压缩到/home/y/目录下。</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h1 id="MV命令-用来移动文件、文件夹"><a href="#MV命令-用来移动文件、文件夹" class="headerlink" title="MV命令 用来移动文件、文件夹"></a>MV命令 用来移动文件、文件夹</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#mv a.tar.gz /home (移动当前目录下a.tar.gz到home目录)</span></div><div class="line"><span class="comment">#mv a.tar.gz b.tar.gz (将a.tar.gz改名为b.tar.gz)</span></div><div class="line"></div><div class="line">mv /root/x.tar.gz /home/y/ 说明：把把/root/目录下的x.tar.gz移动到/home/y/目录下。</div></pre></td></tr></table></figure>
 <h1 id="rm命令-删除文件和文件夹"><a href="#rm命令-删除文件和文件夹" class="headerlink" title="rm命令 删除文件和文件夹"></a>rm命令 删除文件和文件夹</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#rm a.tar.gz (删除a.tar.gz，之后出现确认，输入y)</span></div><div class="line"><span class="comment">#rm –r (删除目录逐一确认)</span></div><div class="line"><span class="comment">#rm –rf (强制删除，不确认)</span></div><div class="line"></div><div class="line">rm -rf /root/x.tar.gz  说明：删除root目录下的x.tar.gz文件</div><div class="line">rm -rf /root/z/    说明：删除root的z文件夹，Z文件夹里面的所有文件都会被删除</div></pre></td></tr></table></figure>
 <h1 id="CD命令-改变当前目录"><a href="#CD命令-改变当前目录" class="headerlink" title="CD命令 改变当前目录"></a>CD命令 改变当前目录</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#cd /home/wwwroot (进入/home/wwwroot目录)</span></div><div class="line"><span class="comment">#cd .. (进入上一层目录)</span></div><div class="line"><span class="comment">#cd – (进入上一次进入的目录)</span></div><div class="line"><span class="comment">#cd / (进入根目录)</span></div></pre></td></tr></table></figure>
@@ -468,7 +453,7 @@
     
     <summary type="html">
     
-      &lt;h1 id=&quot;tar-命令-主要用来打包和解压缩&quot;&gt;&lt;a href=&quot;#tar-命令-主要用来打包和解压缩&quot; class=&quot;headerlink&quot; title=&quot;tar 命令 主要用来打包和解压缩&quot;&gt;&lt;/a&gt;tar 命令 主要用来打包和解压缩&lt;/h1&gt;&lt;figure class=&quot;highlight bash&quot;&gt;&lt;table&gt;&lt;tr&gt;&lt;td class=&quot;gutter&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;1&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;2&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;3&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;4&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;5&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;6&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;7&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;td class=&quot;code&quot;&gt;&lt;pre&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#tar cvf a.tar.gz /home (将home文件夹下所有文件打包，压缩为文件名a.tar.gz)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;span class=&quot;comment&quot;&gt;#tar xvf a.tar.gz  (将a.tar.gz解压至当前文件夹，亦可用zxvf)&lt;/span&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar czvf&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar czvf /root/x.tar.gz /home/y/ 说明：把/home/y/目录直接打包并且命名为x.tar.gz存放在/root/x目录下。&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar xzvf&lt;/div&gt;&lt;div class=&quot;line&quot;&gt;tar xzvf /root/x.tar.gz /home/y/ 说明：把/root/目录下的x.tar.gz解压缩到/home/y/目录下。&lt;/div&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;&lt;/figure&gt;
+      &lt;h1 id=&quot;tar-命令-主要用来打包和解压缩&quot;&gt;&lt;a href=&quot;#tar-命令-主要用来打包和解压缩&quot; class=&quot;headerlink&quot; title=&quot;tar 命令 主要用来打包和解压缩&quot;&gt;&lt;/a&gt;tar 命令 主要用来打包和解压缩&lt;/h1&gt;&lt;figure class
     
     </summary>
     
@@ -484,16 +469,18 @@
     <link href="http://aibabby.win/2017/03/07/markdown%E7%BC%96%E8%BE%91%E5%99%A8%E8%AF%AD%E6%B3%95%E2%80%94%E2%80%94%E5%AD%97%E4%BD%93%E3%80%81%E5%AD%97%E5%8F%B7%E4%B8%8E%E9%A2%9C%E8%89%B2/"/>
     <id>http://aibabby.win/2017/03/07/markdown编辑器语法——字体、字号与颜色/</id>
     <published>2017-03-07T15:13:40.000Z</published>
-    <updated>2017-03-08T13:05:08.876Z</updated>
+    <updated>2017-08-19T04:22:44.268Z</updated>
     
-    <content type="html"><![CDATA[<p> Markdown是一种可以使用普通文本编辑器编写的标记语言，通过类似HTML的标记语法，它可以使普通文本内容具有一定的格式。但是它本身是不支持修改字体、字号与颜色等功能的！<br><a id="more"></a><br>  CSDN-markdown编辑器是其衍生版本，扩展了Markdown的功能（如表格、脚注、内嵌HTML等等）！对，就是内嵌HTML，接下来要讲的功能就需要使用内嵌HTML的方法来实现。</p>
+    <content type="html"><![CDATA[<p> Markdown是一种可以使用普通文本编辑器编写的标记语言，通过类似HTML的标记语法，它可以使普通文本内容具有一定的格式。但是它本身是不支持修改字体、字号与颜色等功能的！</p>
+<p>  CSDN-markdown编辑器是其衍生版本，扩展了Markdown的功能（如表格、脚注、内嵌HTML等等）！对，就是内嵌HTML，接下来要讲的功能就需要使用内嵌HTML的方法来实现。</p>
 <h1 id="字体、字号与颜色"><a href="#字体、字号与颜色" class="headerlink" title="字体、字号与颜色"></a>字体、字号与颜色</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&lt;font face=<span class="string">"黑体"</span>&gt;我是黑体字&lt;/font&gt;</div><div class="line">&lt;font face=<span class="string">"微软雅黑"</span>&gt;我是微软雅黑&lt;/font&gt;</div><div class="line">&lt;font face=<span class="string">"STCAIYUN"</span>&gt;我是华文彩云&lt;/font&gt;</div><div class="line">&lt;font color=<span class="comment">#0099ff size=7 face="黑体"&gt;color=#0099ff size=72 face="黑体"&lt;/font&gt;</span></div><div class="line">&lt;font color=<span class="comment">#00ffff size=72&gt;color=#00ffff&lt;/font&gt;</span></div><div class="line">&lt;font color=gray size=72&gt;color=gray&lt;/font&gt;</div></pre></td></tr></table></figure>
 <p>Size：规定文本的尺寸大小。可能的值：从 1 到 7 的数字。浏览器默认值是 3。</p>
 <h1 id="呈现效果"><a href="#呈现效果" class="headerlink" title="呈现效果"></a>呈现效果</h1><font face="黑体">我是黑体字</font><br><font face="微软雅黑">我是微软雅黑</font><br><font face="STCAIYUN">我是华文彩云</font><br><font color="#0099ff" size="7" face="黑体">color=#0099ff size=72 face=”黑体”</font><br><font color="#00ffff" size="72">color=#00ffff</font><br><font color="gray" size="72">color=gray</font>]]></content>
     
     <summary type="html">
     
-      &lt;p&gt; Markdown是一种可以使用普通文本编辑器编写的标记语言，通过类似HTML的标记语法，它可以使普通文本内容具有一定的格式。但是它本身是不支持修改字体、字号与颜色等功能的！&lt;br&gt;
+      &lt;p&gt; Markdown是一种可以使用普通文本编辑器编写的标记语言，通过类似HTML的标记语法，它可以使普通文本内容具有一定的格式。但是它本身是不支持修改字体、字号与颜色等功能的！&lt;/p&gt;
+&lt;p&gt;  CSDN-markdown编辑器是其衍生版本，扩展了Markdown的功能（如表
     
     </summary>
     

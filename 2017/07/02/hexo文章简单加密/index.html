@@ -101,7 +101,7 @@
 <meta property="og:url" content="http://aibabby.win/2017/07/02/hexo文章简单加密/index.html">
 <meta property="og:site_name" content="艾巴彼小屋">
 <meta property="og:description" content="原理由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？ 这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止">
-<meta property="og:updated_time" content="2017-07-02T10:33:21.463Z">
+<meta property="og:updated_time" content="2017-08-19T04:22:58.944Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="Hexo文章简单加密">
 <meta name="twitter:description" content="原理由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？ 这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止">
@@ -448,7 +448,7 @@
 
       
         <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
-<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：<a id="more"></a><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
+<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
 <h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。<br>按道理是添加在任何地方都行，但是推荐加在所有的<meta>标签之后，个人建议，仅做参考。以下是我加的代码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</div><div class="line">			<span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>,<span class="string">''</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</div><div class="line">				alert(<span class="string">'密码错误！'</span>);</div><div class="line">				history.back();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
 <p>如果你好奇page.password是什么东西，那么恭喜你，你对 Hexo 的结构还是很熟悉的。page这个变量就是你在hexo new的时候生成文件中最顶部的东西，以下我给出这篇文章的头部参考：</p>

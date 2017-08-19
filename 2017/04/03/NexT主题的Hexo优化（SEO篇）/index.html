@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="给你的hexo站点添加sitemap网站地图安装hexo的sitemap网站地图生成插件12npm install hexo-generator-sitemap --savenpm install hexo-generator-baidu-sitemap --save">
+<meta name="description" content="给你的hexo站点添加sitemap网站地图安装hexo的sitemap网站地图生成插件12npm install hexo-generator-sitemap --savenpm install hexo-generator-baidu-sitemap --save 在你的hexo站点的_config.yml添加下面的代码12345# hexo sitemap网站地图sitemap:path:">
 <meta name="keywords" content="HEXO">
 <meta property="og:type" content="article">
 <meta property="og:title" content="NexT主题的Hexo优化（SEO篇）">
 <meta property="og:url" content="http://aibabby.win/2017/04/03/NexT主题的Hexo优化（SEO篇）/index.html">
 <meta property="og:site_name" content="艾巴彼小屋">
-<meta property="og:description" content="给你的hexo站点添加sitemap网站地图安装hexo的sitemap网站地图生成插件12npm install hexo-generator-sitemap --savenpm install hexo-generator-baidu-sitemap --save">
-<meta property="og:updated_time" content="2017-04-03T11:38:11.022Z">
+<meta property="og:description" content="给你的hexo站点添加sitemap网站地图安装hexo的sitemap网站地图生成插件12npm install hexo-generator-sitemap --savenpm install hexo-generator-baidu-sitemap --save 在你的hexo站点的_config.yml添加下面的代码12345# hexo sitemap网站地图sitemap:path:">
+<meta property="og:updated_time" content="2017-08-19T04:23:32.412Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NexT主题的Hexo优化（SEO篇）">
-<meta name="twitter:description" content="给你的hexo站点添加sitemap网站地图安装hexo的sitemap网站地图生成插件12npm install hexo-generator-sitemap --savenpm install hexo-generator-baidu-sitemap --save">
+<meta name="twitter:description" content="给你的hexo站点添加sitemap网站地图安装hexo的sitemap网站地图生成插件12npm install hexo-generator-sitemap --savenpm install hexo-generator-baidu-sitemap --save 在你的hexo站点的_config.yml添加下面的代码12345# hexo sitemap网站地图sitemap:path:">
 
 
 
@@ -448,7 +448,6 @@
 
       
         <h1 id="给你的hexo站点添加sitemap网站地图"><a href="#给你的hexo站点添加sitemap网站地图" class="headerlink" title="给你的hexo站点添加sitemap网站地图"></a>给你的hexo站点添加sitemap网站地图</h1><h2 id="安装hexo的sitemap网站地图生成插件"><a href="#安装hexo的sitemap网站地图生成插件" class="headerlink" title="安装hexo的sitemap网站地图生成插件"></a>安装hexo的sitemap网站地图生成插件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div><div class="line">npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure>
-<a id="more"></a>
 <h2 id="在你的hexo站点的-config-yml添加下面的代码"><a href="#在你的hexo站点的-config-yml添加下面的代码" class="headerlink" title="在你的hexo站点的_config.yml添加下面的代码"></a>在你的hexo站点的_config.yml添加下面的代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># hexo sitemap网站地图</span></div><div class="line">sitemap:</div><div class="line">path: sitemap.xml</div><div class="line">baidusitemap:</div><div class="line">path: baidusitemap.xml</div></pre></td></tr></table></figure>
 <p>配置成功后，hexo编译时会在hexo站点根目录生成sitemap.xml和baidusitemap.xml<br>其中sitemap.xml适合提交给谷歌搜素引擎，baidusitemap.xml适合提交百度搜索引擎。<br>其次，在robots.txt中添加下面的一段代码：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">Sitemap: http://www.arao.me/sitemap.xml</div><div class="line">Sitemap: http://www.arao.me/baidusitemap.xml</div></pre></td></tr></table></figure></p>
 <p>请自行改成自己的网站。</p>

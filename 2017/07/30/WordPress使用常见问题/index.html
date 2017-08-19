@@ -94,17 +94,17 @@
 
 
 
-<meta name="description" content="提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot">
+<meta name="description" content="提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot 301重定向ppjiazu.com到www.ppjiazu.com目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯">
 <meta name="keywords" content="常见问题,Wordpress">
 <meta property="og:type" content="article">
 <meta property="og:title" content="WordPress使用常见问题">
 <meta property="og:url" content="http://aibabby.win/2017/07/30/WordPress使用常见问题/index.html">
 <meta property="og:site_name" content="艾巴彼小屋">
-<meta property="og:description" content="提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot">
-<meta property="og:updated_time" content="2017-07-30T02:34:28.131Z">
+<meta property="og:description" content="提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot 301重定向ppjiazu.com到www.ppjiazu.com目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯">
+<meta property="og:updated_time" content="2017-08-19T04:23:59.888Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="WordPress使用常见问题">
-<meta name="twitter:description" content="提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot">
+<meta name="twitter:description" content="提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot 301重定向ppjiazu.com到www.ppjiazu.com目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯">
 
 
 
@@ -448,7 +448,6 @@
 
       
         <h1 id="提示需要输入FTP信息"><a href="#提示需要输入FTP信息" class="headerlink" title="提示需要输入FTP信息"></a>提示需要输入FTP信息</h1><p>后台安装插件或主题都提示需要输入FTP信息<br>出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod -R 755 /home/wwwroot</div><div class="line">chown -R www /home/wwwroot</div></pre></td></tr></table></figure></p>
-<a id="more"></a>
 <h1 id="301重定向ppjiazu-com到www-ppjiazu-com"><a href="#301重定向ppjiazu-com到www-ppjiazu-com" class="headerlink" title="301重定向ppjiazu.com到www.ppjiazu.com"></a>301重定向ppjiazu.com到www.ppjiazu.com</h1><p>目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯一坏处在于许多位于.htaccess 的规则都无法使用。通用办法是找到对应网站的conf文件，比如www.ppjiazu.com.conf，通常在/usr/local/nginx/conf/vhost/ 目录下，可以找到用sftp软件编辑此文件：<br>把<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server_name www.ppjiazu.com;</div></pre></td></tr></table></figure></p>
 <p>改为<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">server_name www.ppjiazu.com ppjiazu.com;</div><div class="line"><span class="keyword">if</span> (<span class="variable">$host</span> != <span class="string">'www.ppjiazu.com'</span> ) &#123; </div><div class="line">rewrite ^/(.*)$ http://www.ppjiazu.com/<span class="variable">$1</span> permanent;&#125;</div></pre></td></tr></table></figure></p>
 <p>重启服务器，即可实现访问ppjiazu.com跳转到www.ppjiazu.com。</p>

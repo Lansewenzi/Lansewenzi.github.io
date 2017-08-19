@@ -607,7 +607,10 @@
 
       
         
-          <h1 id="提示需要输入FTP信息"><a href="#提示需要输入FTP信息" class="headerlink" title="提示需要输入FTP信息"></a>提示需要输入FTP信息</h1><p>后台安装插件或主题都提示需要输入FTP信息<br>出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod -R 755 /home/wwwroot</div><div class="line">chown -R www /home/wwwroot</div></pre></td></tr></table></figure></p>
+          
+          提示需要输入FTP信息后台安装插件或主题都提示需要输入FTP信息出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可12chmod -R 755 /home/wwwrootchown -R www /home/wwwroot
+301重定向ppjiazu.com到ww
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/30/WordPress使用常见问题/#more" rel="contents">
@@ -764,10 +767,11 @@
 
       
         
-          <p>简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。</p>
-<p>1.windows健+R健，输入“regedit”，点击确定。</p>
-<p>2.找到目标文件夹<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div></pre></td><td class="code"><pre><div class="line">&gt;HKEY_LOCAL_MACHINE</div><div class="line">&gt; SOFTWARE</div><div class="line"> &gt; Microsoft</div><div class="line">  &gt; Windows</div><div class="line">   &gt; CurrentVersion</div><div class="line">    &gt; SideBySide</div></pre></td></tr></table></figure></p>
-<p>在此文件夹上点击鼠标右键，点击新建，选择“DWORD(32位值）”，按enter健，直接输入PreferExternalManifest，然后确认（注意！名称是自己输入的！请注意大小写！）<br>在此文件上，点击鼠标右键，选择修改。数值设为1，选择“十进制”，点击确认。<br>
+          
+          简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。
+1.windows健+R健，输入“regedit”，点击确定。
+2.找到目标文件夹123456&gt;HKEY_LOCAL_MACHINE&gt; SOFTWARE &gt; Microsoft  &gt; Windows   &g
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/27/解决Photoshop-CS6界面字体太小问题/#more" rel="contents">
@@ -1081,8 +1085,10 @@
 
       
         
-          <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
-<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：
+          
+          原理由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？
+这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/07/02/hexo文章简单加密/#more" rel="contents">
@@ -1396,9 +1402,12 @@
 
       
         
-          <div class="note success"><p>我的愿望，就是希望你的愿望里，也有我。 </p></div>
-<div class="note success"><p>很久很久以后我们才知道，当一个女孩说她再也不理你，不是真的讨厌你，而是她很在乎你，非常非常在乎你。</p></div>
-<div class="note success"><p>长大之后才知道，砸水球比赛第一个所砸的人，不是因为你讨厌他，而是因为你眼里只有他。</p></div>
+          
+          我的愿望，就是希望你的愿望里，也有我。 
+很久很久以后我们才知道，当一个女孩说她再也不理你，不是真的讨厌你，而是她很在乎你，非常非常在乎你。
+长大之后才知道，砸水球比赛第一个所砸的人，不是因为你讨厌他，而是因为你眼里只有他。
+原来喜欢一个人，会没有勇气告诉她。那个晚上，我向流星许愿，希望她的愿望里，
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/06/23/我的少女时代经典语录/#more" rel="contents">
@@ -1869,15 +1878,16 @@
 
       
         
-          <h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% note class_name %&#125; Content (md partial supported) &#123;% endnote %&#125;</div></pre></td></tr></table></figure>
-<p>其中，class_name 可以是以下列表中的一个值：</p>
-<ul>
-<li>default</li>
-<li>primary</li>
-<li>success</li>
-<li>info</li>
-<li>warning</li>
-<li>danger
+          
+          使用方式1&#123;% note class_name %&#125; Content (md partial supported) &#123;% endnote %&#125;
+其中，class_name 可以是以下列表中的一个值：
+
+default
+primary
+success
+info
+
+          ...
           <!--noindex-->
           <div class="post-button text-center">
             <a class="btn" href="/2017/04/11/Bootstrap Callout的使用/#more" rel="contents">
