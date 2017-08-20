@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-08-20T07:08:01.303Z</updated>
+  <updated>2017-08-20T10:37:01.422Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://aibabby.win/2017/08/20/%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E6%8F%92%E4%BB%B6%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E5%AD%98%E5%82%A8%E8%B5%84%E6%BA%90/"/>
     <id>http://aibabby.win/2017/08/20/使用七牛云插件为Hexo博客存储资源/</id>
     <published>2017-08-20T06:14:47.000Z</published>
-    <updated>2017-08-20T07:08:01.303Z</updated>
+    <updated>2017-08-20T10:37:01.422Z</updated>
     
     <content type="html"><![CDATA[<p>Hexo 七牛同步插件地址: <a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="external">https://github.com/gyk001/hexo-qiniu-sync</a>基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在<code> _config.yml </code>中不要配置插件栏如下，否则会报错找不到<code> hexo server </code>的命令，可参考问题:<code>hexo-qiniu-sync </code>安装好后，<code>hexo s </code>命令不见了，<code>hexo d </code>也提示问题！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 错误示范</span></div><div class="line">plugins:</div><div class="line">  - hexo-qiniu-sync</div></pre></td></tr></table></figure></p>
 <h1 id="安装插件：在hexo主目录下运行以下命令："><a href="#安装插件：在hexo主目录下运行以下命令：" class="headerlink" title="安装插件：在hexo主目录下运行以下命令："></a><p id="div-border-left-blue">安装插件：在hexo主目录下运行以下命令：</p></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-qiniu-sync --save</div></pre></td></tr></table></figure>
@@ -48,12 +48,12 @@
 <ul>
 <li><code>[] </code>表示可选项，按需添加，也可以不写</li>
 <li><code>| </code>表示二选一</li>
-<li><code>extend:… </code>图片处理参数，表示对图片进行某种特定处理5，多个处理之间用<code> | </code>间隔。</li>
+<li><code>extend:… </code>图片处理参数，表示对图片进行某种特定处理，多个处理之间用<code> | </code>间隔。</li>
 <li><code>normal:yes </code>表示使用原图，忽略<code> _config.yml </code>文件中的<code> image.extend </code>设置</li>
 </ul>
 <p>实例 图片的本地路径为<code> File/images/test/demo.png ：</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg <span class="built_in">test</span>/demo.png title:标题 alt:说明 <span class="string">'class:class1 class2'</span> extend:?imageView2/2/w/600 %&#125;</div></pre></td></tr></table></figure></p>
 <p>解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img title=<span class="string">"标题"</span> alt=<span class="string">"说明"</span> class=<span class="string">"class1 class2"</span> src=<span class="string">"http://xxx.bkt.clouddn.com/images/test/demo.png?imageView2/2/w/600"</span>&gt;</div></pre></td></tr></table></figure></p>
-<p>其中<code> ?imageView2/2/w/500 </code>代表生成宽度最多<code> 500px</code> 的缩略图5。如果经常使用某种图片效果，可以在其七牛创建处理样式，以后直接将<code>  extend </code> 参数设置为<code>  分隔符 </code>+<code>  样式名 </code> 就好。例如设置的分隔符为<code>  - </code> ，样式名为<code>  new </code> ，则<code>  extend </code> 参数为<code>  -new </code> 。</p>
+<p>其中<code> ?imageView2/2/w/500 </code>代表生成宽度最多<code> 500px</code> 的缩略图。如果经常使用某种图片效果，可以在其七牛创建处理样式，以后直接将<code>  extend </code> 参数设置为<code>  分隔符 </code>+<code>  样式名 </code> 就好。例如设置的分隔符为<code>  - </code> ，样式名为<code>  new </code> ，则<code>  extend </code> 参数为<code>  -new </code> 。</p>
 <h2 id="引用CSS和JS"><a href="#引用CSS和JS" class="headerlink" title="引用CSS和JS"></a>引用CSS和JS</h2><p>只是引用的标签名不同：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;% qnjs jsFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div><div class="line">&#123;% qncss cssFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="同步到七牛"><a href="#同步到七牛" class="headerlink" title="同步到七牛"></a><p id="div-border-left-blue">同步到七牛</p></h1><p>网站说使用<code> hexo server </code>命令（简写为<code> hexo s </code>）即可自动上传到七牛，但是我和很多网友都发现，此方法无效。好在提供的另一种方法也很简便，运行<code> hexo qiniu s </code>命令即可同步到七牛。</p>
 ]]></content>
@@ -78,10 +78,10 @@
     <link href="http://aibabby.win/2017/08/19/NexT%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E4%BF%AE%E6%94%B9/"/>
     <id>http://aibabby.win/2017/08/19/NexT主题个性化修改/</id>
     <published>2017-08-19T13:38:42.000Z</published>
-    <updated>2017-08-19T14:35:37.537Z</updated>
+    <updated>2017-08-20T10:59:14.338Z</updated>
     
     <content type="html"><![CDATA[<h1 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h1><p>修改模板<code> /themes/next/layout/_macro/post.swig</code>，搜索<code> rel=”tag”&gt;#</code>，将<code> # </code>换成<code><i class="fa fa-tag"></i></code></p>
-<h1 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h1><p>在路径<code> \themes\next\layout_macro </code>中新建<code> passage-end-tag.swig </code>文件,并添加以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &#123;% <span class="keyword">if</span> not is_index %&#125;</div><div class="line">        &lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;-------------本文结束&lt;i class=<span class="string">"fa fa-paw"</span>&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h1><p>在路径<code> \themes\next\layout_macro </code>中新建<code> passage-end-tag.swig </code>文件,并添加以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &#123;% <span class="keyword">if</span> not is_index %&#125;</div><div class="line">        &lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;--------------------------------------------------------本文结束&lt;i class=<span class="string">"fa fa-heartbeat"</span>&gt;&lt;/i&gt;感谢您的阅读--------------------------------------------------------&lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>接着打开<code> \themes\next\layout_macro\post.swig</code>文件，在<code>post-body </code>之后， <code>post-footer </code>之前添加如下画红色部分代码（<code>post-footer</code>之前两个DIV）：<br>代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &#123;% <span class="keyword">if</span> not is_index %&#125;</div><div class="line">    &#123;% include <span class="string">'passage-end-tag.swig'</span> %&#125;</div><div class="line">  &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>然后打开主题配置文件（_config.yml),在末尾添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 文章末尾添加“本文结束”标记</span></div><div class="line">passage_end_tag:</div><div class="line">  enabled: <span class="literal">true</span></div></pre></td></tr></table></figure></p>
 <p>完成以上设置之后，就会出现你想要的效果。</p>
@@ -625,9 +625,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HTML" scheme="http://aibabby.win/tags/HTML/"/>
-    
       <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
+    
+      <category term="HTML" scheme="http://aibabby.win/tags/HTML/"/>
     
   </entry>
   

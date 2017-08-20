@@ -103,7 +103,7 @@
 <meta property="og:url" content="http://aibabby.win/2017/08/19/NexT主题个性化修改/index.html">
 <meta property="og:site_name" content="艾巴彼小屋">
 <meta property="og:description" content="修改文章底部的那个带#号的标签修改模板 /themes/next/layout/_macro/post.swig，搜索 rel=”tag”&amp;gt;#，将 # 换成 在每篇文章末尾统一添加“本文结束”标记在路径 \themes\next\layout_macro 中新建 passage-end-tag.swig 文件,并添加以下内容：12345&amp;lt;div&amp;gt;    &amp;#123;% if no">
-<meta property="og:updated_time" content="2017-08-19T14:35:37.537Z">
+<meta property="og:updated_time" content="2017-08-20T10:59:14.338Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NexT主题个性化修改">
 <meta name="twitter:description" content="修改文章底部的那个带#号的标签修改模板 /themes/next/layout/_macro/post.swig，搜索 rel=”tag”&amp;gt;#，将 # 换成 在每篇文章末尾统一添加“本文结束”标记在路径 \themes\next\layout_macro 中新建 passage-end-tag.swig 文件,并添加以下内容：12345&amp;lt;div&amp;gt;    &amp;#123;% if no">
@@ -472,7 +472,7 @@
 
       
         <h1 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h1><p>修改模板<code> /themes/next/layout/_macro/post.swig</code>，搜索<code> rel=”tag”&gt;#</code>，将<code> # </code>换成<code><i class="fa fa-tag"></i></code></p>
-<h1 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h1><p>在路径<code> \themes\next\layout_macro </code>中新建<code> passage-end-tag.swig </code>文件,并添加以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &#123;% <span class="keyword">if</span> not is_index %&#125;</div><div class="line">        &lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;-------------本文结束&lt;i class=<span class="string">"fa fa-paw"</span>&gt;&lt;/i&gt;感谢您的阅读-------------&lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
+<h1 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h1><p>在路径<code> \themes\next\layout_macro </code>中新建<code> passage-end-tag.swig </code>文件,并添加以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &#123;% <span class="keyword">if</span> not is_index %&#125;</div><div class="line">        &lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;--------------------------------------------------------本文结束&lt;i class=<span class="string">"fa fa-heartbeat"</span>&gt;&lt;/i&gt;感谢您的阅读--------------------------------------------------------&lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>接着打开<code> \themes\next\layout_macro\post.swig</code>文件，在<code>post-body </code>之后， <code>post-footer </code>之前添加如下画红色部分代码（<code>post-footer</code>之前两个DIV）：<br>代码如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">  &#123;% <span class="keyword">if</span> not is_index %&#125;</div><div class="line">    &#123;% include <span class="string">'passage-end-tag.swig'</span> %&#125;</div><div class="line">  &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
 <p>然后打开主题配置文件（_config.yml),在末尾添加：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 文章末尾添加“本文结束”标记</span></div><div class="line">passage_end_tag:</div><div class="line">  enabled: <span class="literal">true</span></div></pre></td></tr></table></figure></p>
 <p>完成以上设置之后，就会出现你想要的效果。</p>
@@ -499,7 +499,7 @@
     
       <div>
     
-        <div style="text-align:center;color: #ccc;font-size:14px;">-------------本文结束<i class="fa fa-paw"></i>感谢您的阅读-------------</div>
+        <div style="text-align:center;color: #ccc;font-size:14px;">--------------------------------------------------------本文结束<i class="fa fa-heartbeat"></i>感谢您的阅读--------------------------------------------------------</div>
     
 </div>
     
