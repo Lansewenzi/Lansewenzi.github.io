@@ -103,12 +103,12 @@
 <meta property="og:url" content="http://aibabby.win/2017/08/20/使用七牛云插件为Hexo博客存储资源/index.html">
 <meta property="og:site_name" content="艾巴彼小屋">
 <meta property="og:description" content="Hexo 七牛同步插件地址: https://github.com/gyk001/hexo-qiniu-sync基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在 _config.yml 中不要配置插件栏如下，否则会报错找不到 hexo server 的命令，可参考问题:hexo-qiniu-sync 安装好后，hexo s 命令不见了，hexo d 也提示问题！123">
-<meta property="og:image" content="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg">
-<meta property="og:updated_time" content="2017-08-20T10:37:01.422Z">
+<meta property="og:image" content="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg?imageView2/5/w/450/h/300">
+<meta property="og:updated_time" content="2017-08-20T11:53:12.258Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用七牛云插件为Hexo博客存储资源">
 <meta name="twitter:description" content="Hexo 七牛同步插件地址: https://github.com/gyk001/hexo-qiniu-sync基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在 _config.yml 中不要配置插件栏如下，否则会报错找不到 hexo server 的命令，可参考问题:hexo-qiniu-sync 安装好后，hexo s 命令不见了，hexo d 也提示问题！123">
-<meta name="twitter:image" content="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg">
+<meta name="twitter:image" content="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg?imageView2/5/w/450/h/300">
 
 
 
@@ -438,7 +438,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">1,239(字)</span>
+           <span class="post-count">1,266(字)</span>
            
          </span>
     
@@ -492,8 +492,7 @@
 </ul>
 <h1 id="配置本地目录"><a href="#配置本地目录" class="headerlink" title="配置本地目录"></a><p id="div-border-left-blue">配置本地目录</p></h1><p>本地目录名称需要与<code> local_dir </code>参数的值一致。所以在<code> hexo</code>主目录 下新建与<code> source </code>平级的目录<code> File </code>，用于存放需要上传到七牛的资源。</p>
 <p>在<code> File </code>目录下创建子目录：<code> css 、 images 、 js ，</code>与<code> image/js/css </code>子参数<code> folder </code>保持一致，待上传的<code>css、</code>图片、<code>js</code>文件应该存储到相应子目录。我的Hexo主目录结构如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">├─.deploy_git</div><div class="line">├─File</div><div class="line">│ ├─css</div><div class="line">│ ├─images</div><div class="line">│ └─js</div><div class="line">├─node_modules</div><div class="line">├─public</div><div class="line">├─scaffolds</div><div class="line">├─<span class="built_in">source</span></div><div class="line">└─theme</div></pre></td></tr></table></figure></p>
-<h1 id="引用七牛资源"><a href="#引用七牛资源" class="headerlink" title=" 引用七牛资源"></a><p id="div-border-left-blue"> 引用七牛资源</p></h1><p>图片的引用是最典型的情况。让我们来看最简单的情况：如果你想引用储存在<code> File/images </code>下的图片<code> demo.jpg </code>，只需在文章中插入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg yujing.jpg %&#125;</div></pre></td></tr></table></figure></p>
-<img src="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg">
+<h1 id="引用七牛资源"><a href="#引用七牛资源" class="headerlink" title=" 引用七牛资源"></a><p id="div-border-left-blue"> 引用七牛资源</p></h1><p>图片的引用是最典型的情况。让我们来看最简单的情况：如果你想引用储存在<code> File/images </code>下的图片<code> demo.jpg </code>，只需在文章中插入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg demo.jpg %&#125;</div></pre></td></tr></table></figure></p>
 <p>生成站点时将被解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"http://xxx.bkt.clouddn.com/images/demo.jpg"</span>&gt;</div></pre></td></tr></table></figure></p>
 <h2 id="图片引用的高阶版"><a href="#图片引用的高阶版" class="headerlink" title="图片引用的高阶版"></a>图片引用的高阶版</h2><p>高级用法的通用模版：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg imageFile [attr1:value1] [<span class="string">'attr2:value21 value22 ...'</span>] [extend:... | normal:yes] %&#125;</div></pre></td></tr></table></figure></p>
 <ul>
@@ -505,6 +504,9 @@
 <p>实例 图片的本地路径为<code> File/images/test/demo.png ：</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg <span class="built_in">test</span>/demo.png title:标题 alt:说明 <span class="string">'class:class1 class2'</span> extend:?imageView2/2/w/600 %&#125;</div></pre></td></tr></table></figure></p>
 <p>解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img title=<span class="string">"标题"</span> alt=<span class="string">"说明"</span> class=<span class="string">"class1 class2"</span> src=<span class="string">"http://xxx.bkt.clouddn.com/images/test/demo.png?imageView2/2/w/600"</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>其中<code> ?imageView2/2/w/500 </code>代表生成宽度最多<code> 500px</code> 的缩略图。如果经常使用某种图片效果，可以在其七牛创建处理样式，以后直接将<code>  extend </code> 参数设置为<code>  分隔符 </code>+<code>  样式名 </code> 就好。例如设置的分隔符为<code>  - </code> ，样式名为<code>  new </code> ，则<code>  extend </code> 参数为<code>  -new </code> 。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 图片裁剪成450*300，并居中</span></div><div class="line">&lt;div align=center&gt;</div><div class="line">&#123;% qnimg yujing.jpg extend:?imageView2/5/w/450/h/300 %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<div align="center"><img src="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg?imageView2/5/w/450/h/300"></div>
+
 <h2 id="引用CSS和JS"><a href="#引用CSS和JS" class="headerlink" title="引用CSS和JS"></a>引用CSS和JS</h2><p>只是引用的标签名不同：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;% qnjs jsFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div><div class="line">&#123;% qncss cssFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="同步到七牛"><a href="#同步到七牛" class="headerlink" title="同步到七牛"></a><p id="div-border-left-blue">同步到七牛</p></h1><p>网站说使用<code> hexo server </code>命令（简写为<code> hexo s </code>）即可自动上传到七牛，但是我和很多网友都发现，此方法无效。好在提供的另一种方法也很简便，运行<code> hexo qiniu s </code>命令即可同步到七牛。</p>
 
@@ -723,7 +725,7 @@
             
 
             
-              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装插件：在hexo主目录下运行以下命令："><span class="nav-number">1.</span> <span class="nav-text">安装插件：在hexo主目录下运行以下命令：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加插件配置信息到站点配置文件-config-yml-："><span class="nav-number">2.</span> <span class="nav-text">添加插件配置信息到站点配置文件 _config.yml ：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意：几个需要修改的地方："><span class="nav-number">2.1.</span> <span class="nav-text">注意：几个需要修改的地方：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置参数的说明："><span class="nav-number">2.2.</span> <span class="nav-text">配置参数的说明：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置本地目录"><span class="nav-number">3.</span> <span class="nav-text">配置本地目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用七牛资源"><span class="nav-number">4.</span> <span class="nav-text"> 引用七牛资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图片引用的高阶版"><span class="nav-number">4.1.</span> <span class="nav-text">图片引用的高阶版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用CSS和JS"><span class="nav-number">4.2.</span> <span class="nav-text">引用CSS和JS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同步到七牛"><span class="nav-number">5.</span> <span class="nav-text">同步到七牛</span></a></li></ol></div>
+              <div class="post-toc-content"><ol class="nav"><li class="nav-item nav-level-1"><a class="nav-link" href="#安装插件：在hexo主目录下运行以下命令："><span class="nav-number">1.</span> <span class="nav-text">安装插件：在hexo主目录下运行以下命令：</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#添加插件配置信息到站点配置文件-config-yml-："><span class="nav-number">2.</span> <span class="nav-text">添加插件配置信息到站点配置文件 _config.yml ：</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#注意：几个需要修改的地方："><span class="nav-number">2.1.</span> <span class="nav-text">注意：几个需要修改的地方：</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#配置参数的说明："><span class="nav-number">2.2.</span> <span class="nav-text">配置参数的说明：</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#配置本地目录"><span class="nav-number">3.</span> <span class="nav-text">配置本地目录</span></a></li><li class="nav-item nav-level-1"><a class="nav-link" href="#引用七牛资源"><span class="nav-number">4.</span> <span class="nav-text"> 引用七牛资源</span></a><ol class="nav-child"><li class="nav-item nav-level-2"><a class="nav-link" href="#图片引用的高阶版"><span class="nav-number">4.1.</span> <span class="nav-text">图片引用的高阶版</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#举例"><span class="nav-number">4.2.</span> <span class="nav-text">举例</span></a></li><li class="nav-item nav-level-2"><a class="nav-link" href="#引用CSS和JS"><span class="nav-number">4.3.</span> <span class="nav-text">引用CSS和JS</span></a></li></ol></li><li class="nav-item nav-level-1"><a class="nav-link" href="#同步到七牛"><span class="nav-number">5.</span> <span class="nav-text">同步到七牛</span></a></li></ol></div>
             
 
           </div>

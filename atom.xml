@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-08-20T10:37:01.422Z</updated>
+  <updated>2017-08-20T11:53:12.258Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://aibabby.win/2017/08/20/%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E6%8F%92%E4%BB%B6%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E5%AD%98%E5%82%A8%E8%B5%84%E6%BA%90/"/>
     <id>http://aibabby.win/2017/08/20/使用七牛云插件为Hexo博客存储资源/</id>
     <published>2017-08-20T06:14:47.000Z</published>
-    <updated>2017-08-20T10:37:01.422Z</updated>
+    <updated>2017-08-20T11:53:12.258Z</updated>
     
     <content type="html"><![CDATA[<p>Hexo 七牛同步插件地址: <a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="external">https://github.com/gyk001/hexo-qiniu-sync</a>基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在<code> _config.yml </code>中不要配置插件栏如下，否则会报错找不到<code> hexo server </code>的命令，可参考问题:<code>hexo-qiniu-sync </code>安装好后，<code>hexo s </code>命令不见了，<code>hexo d </code>也提示问题！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 错误示范</span></div><div class="line">plugins:</div><div class="line">  - hexo-qiniu-sync</div></pre></td></tr></table></figure></p>
 <h1 id="安装插件：在hexo主目录下运行以下命令："><a href="#安装插件：在hexo主目录下运行以下命令：" class="headerlink" title="安装插件：在hexo主目录下运行以下命令："></a><p id="div-border-left-blue">安装插件：在hexo主目录下运行以下命令：</p></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-qiniu-sync --save</div></pre></td></tr></table></figure>
@@ -41,8 +41,7 @@
 </ul>
 <h1 id="配置本地目录"><a href="#配置本地目录" class="headerlink" title="配置本地目录"></a><p id="div-border-left-blue">配置本地目录</p></h1><p>本地目录名称需要与<code> local_dir </code>参数的值一致。所以在<code> hexo</code>主目录 下新建与<code> source </code>平级的目录<code> File </code>，用于存放需要上传到七牛的资源。</p>
 <p>在<code> File </code>目录下创建子目录：<code> css 、 images 、 js ，</code>与<code> image/js/css </code>子参数<code> folder </code>保持一致，待上传的<code>css、</code>图片、<code>js</code>文件应该存储到相应子目录。我的Hexo主目录结构如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">├─.deploy_git</div><div class="line">├─File</div><div class="line">│ ├─css</div><div class="line">│ ├─images</div><div class="line">│ └─js</div><div class="line">├─node_modules</div><div class="line">├─public</div><div class="line">├─scaffolds</div><div class="line">├─<span class="built_in">source</span></div><div class="line">└─theme</div></pre></td></tr></table></figure></p>
-<h1 id="引用七牛资源"><a href="#引用七牛资源" class="headerlink" title=" 引用七牛资源"></a><p id="div-border-left-blue"> 引用七牛资源</p></h1><p>图片的引用是最典型的情况。让我们来看最简单的情况：如果你想引用储存在<code> File/images </code>下的图片<code> demo.jpg </code>，只需在文章中插入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg yujing.jpg %&#125;</div></pre></td></tr></table></figure></p>
-<img src="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg">
+<h1 id="引用七牛资源"><a href="#引用七牛资源" class="headerlink" title=" 引用七牛资源"></a><p id="div-border-left-blue"> 引用七牛资源</p></h1><p>图片的引用是最典型的情况。让我们来看最简单的情况：如果你想引用储存在<code> File/images </code>下的图片<code> demo.jpg </code>，只需在文章中插入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg demo.jpg %&#125;</div></pre></td></tr></table></figure></p>
 <p>生成站点时将被解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"http://xxx.bkt.clouddn.com/images/demo.jpg"</span>&gt;</div></pre></td></tr></table></figure></p>
 <h2 id="图片引用的高阶版"><a href="#图片引用的高阶版" class="headerlink" title="图片引用的高阶版"></a>图片引用的高阶版</h2><p>高级用法的通用模版：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg imageFile [attr1:value1] [<span class="string">'attr2:value21 value22 ...'</span>] [extend:... | normal:yes] %&#125;</div></pre></td></tr></table></figure></p>
 <ul>
@@ -54,6 +53,9 @@
 <p>实例 图片的本地路径为<code> File/images/test/demo.png ：</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg <span class="built_in">test</span>/demo.png title:标题 alt:说明 <span class="string">'class:class1 class2'</span> extend:?imageView2/2/w/600 %&#125;</div></pre></td></tr></table></figure></p>
 <p>解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img title=<span class="string">"标题"</span> alt=<span class="string">"说明"</span> class=<span class="string">"class1 class2"</span> src=<span class="string">"http://xxx.bkt.clouddn.com/images/test/demo.png?imageView2/2/w/600"</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>其中<code> ?imageView2/2/w/500 </code>代表生成宽度最多<code> 500px</code> 的缩略图。如果经常使用某种图片效果，可以在其七牛创建处理样式，以后直接将<code>  extend </code> 参数设置为<code>  分隔符 </code>+<code>  样式名 </code> 就好。例如设置的分隔符为<code>  - </code> ，样式名为<code>  new </code> ，则<code>  extend </code> 参数为<code>  -new </code> 。</p>
+<h2 id="举例"><a href="#举例" class="headerlink" title="举例"></a>举例</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 图片裁剪成450*300，并居中</span></div><div class="line">&lt;div align=center&gt;</div><div class="line">&#123;% qnimg yujing.jpg extend:?imageView2/5/w/450/h/300 %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure>
+<div align="center"><img src="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg?imageView2/5/w/450/h/300"></div>
+
 <h2 id="引用CSS和JS"><a href="#引用CSS和JS" class="headerlink" title="引用CSS和JS"></a>引用CSS和JS</h2><p>只是引用的标签名不同：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;% qnjs jsFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div><div class="line">&#123;% qncss cssFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div></pre></td></tr></table></figure></p>
 <h1 id="同步到七牛"><a href="#同步到七牛" class="headerlink" title="同步到七牛"></a><p id="div-border-left-blue">同步到七牛</p></h1><p>网站说使用<code> hexo server </code>命令（简写为<code> hexo s </code>）即可自动上传到七牛，但是我和很多网友都发现，此方法无效。好在提供的另一种方法也很简便，运行<code> hexo qiniu s </code>命令即可同步到七牛。</p>
 ]]></content>
