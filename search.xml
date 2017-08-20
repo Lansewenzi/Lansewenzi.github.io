@@ -63,7 +63,7 @@
   <entry>
     <title><![CDATA[解决Photoshop CS6界面字体太小问题]]></title>
     <url>%2F2017%2F07%2F27%2F%E8%A7%A3%E5%86%B3Photoshop-CS6%E7%95%8C%E9%9D%A2%E5%AD%97%E4%BD%93%E5%A4%AA%E5%B0%8F%E9%97%AE%E9%A2%98%2F</url>
-    <content type="text"><![CDATA[简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。 1.windows健+R健，输入“regedit”，点击确定。 2.找到目标文件夹123456&gt;HKEY_LOCAL_MACHINE&gt; SOFTWARE &gt; Microsoft &gt; Windows &gt; CurrentVersion &gt; SideBySide 在此文件夹上点击鼠标右键，点击新建，选择“DWORD(32位值）”，按enter健，直接输入PreferExternalManifest，然后确认（注意！名称是自己输入的！请注意大小写！）在此文件上，点击鼠标右键，选择修改。数值设为1，选择“十进制”，点击确认。 3.把可以放大字体的补丁塞到安装路径的文件夹里就行了。一般跟着执行文件走就对了，比如：Photoshop.exe 在 C:\Program Files\Adobe\Adobe Photoshop CS6 (64 Bit)所以把这个补丁复制粘贴进去就行了! 大功告成另外，只要那你的adobe的软件安装默认路径的话都在，C:\Program Files (x86)\Adobe or C:\Program Files\Adobe.里（我安装在D盘，也是一样的，复制在D盘里）。还有AI.DW.FW的补丁，都在这位大神的网站里。Adobe App Scaling on High DPI Displays (FIX) 本文转自：作者：小象链接：https://www.zhihu.com/question/34480043/answer/151106099来源：知乎著作权归作者所有。商业转载请联系作者获得授权，非商业转载请注明出处。]]></content>
+    <content type="text"><![CDATA[简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。 1.windows健+R健，输入“regedit”，点击确定。 2.找到目标文件夹123456&gt;HKEY_LOCAL_MACHINE&gt; SOFTWARE &gt; Microsoft &gt; Windows &gt; CurrentVersion &gt; SideBySide 在此文件夹上点击鼠标右键，点击新建，选择“DWORD(32位值）”，按enter健，直接输入PreferExternalManifest，然后确认（注意！名称是自己输入的！请注意大小写！）在此文件上，点击鼠标右键，选择修改。数值设为1，选择“十进制”，点击确认。 3.把可以放大字体的补丁塞到安装路径的文件夹里就行了。一般跟着执行文件走就对了，比如：Photoshop.exe 在 C:\Program Files\Adobe\Adobe Photoshop CS6 (64 Bit)所以把这个补丁复制粘贴进去就行了! 大功告成另外，只要那你的adobe的软件安装默认路径的话都在，C:\Program Files (x86)\Adobe or C:\Program Files\Adobe.里（我安装在D盘，也是一样的，复制在D盘里）。还有AI.DW.FW的补丁，都在这位大神的网站里。Adobe App Scaling on High DPI Displays (FIX)]]></content>
       <categories>
         <category>学无止境</category>
       </categories>
