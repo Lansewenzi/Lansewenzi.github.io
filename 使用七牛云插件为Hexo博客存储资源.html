@@ -104,7 +104,7 @@
 <meta property="og:site_name" content="艾巴彼小屋">
 <meta property="og:description" content="Hexo 七牛同步插件地址: https://github.com/gyk001/hexo-qiniu-sync基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在 _config.yml 中不要配置插件栏如下，否则会报错找不到 hexo server 的命令，可参考问题:hexo-qiniu-sync 安装好后，hexo s 命令不见了，hexo d 也提示问题！123">
 <meta property="og:image" content="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg">
-<meta property="og:updated_time" content="2017-08-20T07:01:28.805Z">
+<meta property="og:updated_time" content="2017-08-20T07:08:01.303Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="使用七牛云插件为Hexo博客存储资源">
 <meta name="twitter:description" content="Hexo 七牛同步插件地址: https://github.com/gyk001/hexo-qiniu-sync基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在 _config.yml 中不要配置插件栏如下，否则会报错找不到 hexo server 的命令，可参考问题:hexo-qiniu-sync 安装好后，hexo s 命令不见了，hexo d 也提示问题！123">
@@ -496,7 +496,13 @@
 <img src="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg">
 <p>生成站点时将被解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"http://xxx.bkt.clouddn.com/images/demo.jpg"</span>&gt;</div></pre></td></tr></table></figure></p>
 <h2 id="图片引用的高阶版"><a href="#图片引用的高阶版" class="headerlink" title="图片引用的高阶版"></a>图片引用的高阶版</h2><p>高级用法的通用模版：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg imageFile [attr1:value1] [<span class="string">'attr2:value21 value22 ...'</span>] [extend:... | normal:yes] %&#125;</div></pre></td></tr></table></figure></p>
-<p><code>[] </code>表示可选项，按需添加，也可以不写<br><code>| </code>表示二选一<br><code>extend:… </code>图片处理参数，表示对图片进行某种特定处理5，多个处理之间用<code> | </code>间隔。<br><code>normal:yes </code>表示使用原图，忽略<code> _config.yml </code>文件中的<code> image.extend </code>设置<br>实例 图片的本地路径为<code> File/images/test/demo.png ：</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg <span class="built_in">test</span>/demo.png title:标题 alt:说明 <span class="string">'class:class1 class2'</span> extend:?imageView2/2/w/600 %&#125;</div></pre></td></tr></table></figure></p>
+<ul>
+<li><code>[] </code>表示可选项，按需添加，也可以不写</li>
+<li><code>| </code>表示二选一</li>
+<li><code>extend:… </code>图片处理参数，表示对图片进行某种特定处理5，多个处理之间用<code> | </code>间隔。</li>
+<li><code>normal:yes </code>表示使用原图，忽略<code> _config.yml </code>文件中的<code> image.extend </code>设置</li>
+</ul>
+<p>实例 图片的本地路径为<code> File/images/test/demo.png ：</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg <span class="built_in">test</span>/demo.png title:标题 alt:说明 <span class="string">'class:class1 class2'</span> extend:?imageView2/2/w/600 %&#125;</div></pre></td></tr></table></figure></p>
 <p>解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img title=<span class="string">"标题"</span> alt=<span class="string">"说明"</span> class=<span class="string">"class1 class2"</span> src=<span class="string">"http://xxx.bkt.clouddn.com/images/test/demo.png?imageView2/2/w/600"</span>&gt;</div></pre></td></tr></table></figure></p>
 <p>其中<code> ?imageView2/2/w/500 </code>代表生成宽度最多<code> 500px</code> 的缩略图5。如果经常使用某种图片效果，可以在其七牛创建处理样式，以后直接将<code>  extend </code> 参数设置为<code>  分隔符 </code>+<code>  样式名 </code> 就好。例如设置的分隔符为<code>  - </code> ，样式名为<code>  new </code> ，则<code>  extend </code> 参数为<code>  -new </code> 。</p>
 <h2 id="引用CSS和JS"><a href="#引用CSS和JS" class="headerlink" title="引用CSS和JS"></a>引用CSS和JS</h2><p>只是引用的标签名不同：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;% qnjs jsFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div><div class="line">&#123;% qncss cssFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div></pre></td></tr></table></figure></p>
