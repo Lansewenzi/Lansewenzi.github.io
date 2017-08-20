@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-08-19T14:35:37.537Z</updated>
+  <updated>2017-08-20T07:01:28.805Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -14,6 +14,58 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>使用七牛云插件为Hexo博客存储资源</title>
+    <link href="http://aibabby.win/%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E6%8F%92%E4%BB%B6%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E5%AD%98%E5%82%A8%E8%B5%84%E6%BA%90.html"/>
+    <id>http://aibabby.win/使用七牛云插件为Hexo博客存储资源.html</id>
+    <published>2017-08-20T06:14:47.000Z</published>
+    <updated>2017-08-20T07:01:28.805Z</updated>
+    
+    <content type="html"><![CDATA[<p>Hexo 七牛同步插件地址: <a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="external">https://github.com/gyk001/hexo-qiniu-sync</a>基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在<code> _config.yml </code>中不要配置插件栏如下，否则会报错找不到<code> hexo server </code>的命令，可参考问题:<code>hexo-qiniu-sync </code>安装好后，<code>hexo s </code>命令不见了，<code>hexo d </code>也提示问题！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 错误示范</span></div><div class="line">plugins:</div><div class="line">  - hexo-qiniu-sync</div></pre></td></tr></table></figure></p>
+<h1 id="安装插件：在hexo主目录下运行以下命令："><a href="#安装插件：在hexo主目录下运行以下命令：" class="headerlink" title="安装插件：在hexo主目录下运行以下命令："></a><p id="div-border-left-blue">安装插件：在hexo主目录下运行以下命令：</p></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-qiniu-sync --save</div></pre></td></tr></table></figure>
+<h1 id="添加插件配置信息到站点配置文件-config-yml-："><a href="#添加插件配置信息到站点配置文件-config-yml-：" class="headerlink" title="添加插件配置信息到站点配置文件 _config.yml ："></a><p id="div-border-left-blue">添加插件配置信息到站点配置文件<code> _config.yml </code>：</p></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#plugins:</span></div><div class="line"><span class="comment"># - hexo-qiniu-sync</span></div><div class="line"></div><div class="line">qiniu:</div><div class="line">  offline: <span class="literal">false</span></div><div class="line">  sync: <span class="literal">true</span></div><div class="line">  bucket: bucket_name</div><div class="line">  access_key: AccessKey</div><div class="line">  secret_key: SecretKey</div><div class="line">  dirPrefix:</div><div class="line">  urlPrefix: http://xxx.bkt.clouddn.com</div><div class="line">  local_dir: File</div><div class="line">  update_exist: <span class="literal">true</span></div><div class="line">  image:</div><div class="line">    folder: images</div><div class="line">    extend:</div><div class="line">  js:</div><div class="line">    folder: js</div><div class="line">  css:</div><div class="line">    folder: css</div></pre></td></tr></table></figure>
+<h2 id="注意：几个需要修改的地方："><a href="#注意：几个需要修改的地方：" class="headerlink" title="注意：几个需要修改的地方："></a>注意：几个需要修改的地方：</h2><ul>
+<li><code>bucket ：</code>修改为你刚才申请的七牛空间名称</li>
+<li><code>access_key 、 secret_key : </code>上传密钥<code>AccessKey、SecretKey</code>。即3 第3步复制的<code>AK</code>和<code>SK</code>。</li>
+<li><code>urlPrefix : </code>七牛空间地址的前缀。 重要！必填！ 因为现在七牛已经取消了二级域名，外链前缀类似设置中的<code> <a href="http://xxx.bkt.clouddn.com" target="_blank" rel="external">http://xxx.bkt.clouddn.com</a> ，</code>插件不能根据<code> bucket </code>自动生成外链前缀了。你可以进入自己创建的空间在域名设置中看到自己的七牛测试域名，也可以查看一个已上传的文件外链地址，确认前缀无误。这个参数的设置是保证解析成网页文件时，外链地址正确的关键之一！</li>
+</ul>
+<h2 id="配置参数的说明："><a href="#配置参数的说明：" class="headerlink" title="配置参数的说明："></a>配置参数的说明：</h2><ul>
+<li><code>offline ：</code>是否离线。设置为<code> true </code>将在本地预览时使用本地地址渲染，省流量； <code>false </code>将使用同步到七牛空间的静态资源渲染，方便检查资源链接是否正确。</li>
+<li><code>sync ：</code>是否同步到七牛，一般都是设置<code> true </code>啦</li>
+<li><code>dirPrefix ：</code>资源将上传到七牛空间的此目录下，可像我一样设置为空。该参数会影响外链的地址，如果设置为非空值，例如默认值<code> static </code>，则<code> urlPrefix </code>为保持一致需加上目录后缀<code> /static </code>，改为<code> <a href="http://xxx.bkt.clouddn.com/static" target="_blank" rel="external">http://xxx.bkt.clouddn.com/static</a> 。</code></li>
+<li><code>local_dir ：</code>本地资源储存目录。在本例中，待上传的资源都储存在<code>hexo</code>主目录中的<code> File </code>文件夹（也就是与<code> source </code>目录平级）中。</li>
+<li><code>update_exist ：</code>设置为<code> true ，</code>则会在文件更新之后重新上传并更新七牛空间上中的原有文件。</li>
+<li><code>image/js/css ：</code>子参数<code>folder</code>为不同静态资源种类的目录名称，一般不需要改动</li>
+<li><code>image.extend ：</code>使用<code> qnimg </code>标签引用图片的默认图片处理操作。可以使用 基本图片处理<code>（imageView2）</code>、高级图片处理<code>（imageMogr2）</code>、图片水印处理<code>（watermark） </code>这三个图片处理接口，多个接口内容之间用<code> | </code>间隔。</li>
+</ul>
+<h1 id="配置本地目录"><a href="#配置本地目录" class="headerlink" title="配置本地目录"></a><p id="div-border-left-blue">配置本地目录</p></h1><p>本地目录名称需要与<code> local_dir </code>参数的值一致。所以在<code> hexo</code>主目录 下新建与<code> source </code>平级的目录<code> File </code>，用于存放需要上传到七牛的资源。</p>
+<p>在<code> File </code>目录下创建子目录：<code> css 、 images 、 js ，</code>与<code> image/js/css </code>子参数<code> folder </code>保持一致，待上传的<code>css、</code>图片、<code>js</code>文件应该存储到相应子目录。我的Hexo主目录结构如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">├─.deploy_git</div><div class="line">├─File</div><div class="line">│ ├─css</div><div class="line">│ ├─images</div><div class="line">│ └─js</div><div class="line">├─node_modules</div><div class="line">├─public</div><div class="line">├─scaffolds</div><div class="line">├─<span class="built_in">source</span></div><div class="line">└─theme</div></pre></td></tr></table></figure></p>
+<h1 id="引用七牛资源"><a href="#引用七牛资源" class="headerlink" title=" 引用七牛资源"></a><p id="div-border-left-blue"> 引用七牛资源</p></h1><p>图片的引用是最典型的情况。让我们来看最简单的情况：如果你想引用储存在<code> File/images </code>下的图片<code> demo.jpg </code>，只需在文章中插入：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg yujing.jpg %&#125;</div></pre></td></tr></table></figure></p>
+<img src="http://ouyyfbtb6.bkt.clouddn.com/images/yujing.jpg">
+<p>生成站点时将被解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img src=<span class="string">"http://xxx.bkt.clouddn.com/images/demo.jpg"</span>&gt;</div></pre></td></tr></table></figure></p>
+<h2 id="图片引用的高阶版"><a href="#图片引用的高阶版" class="headerlink" title="图片引用的高阶版"></a>图片引用的高阶版</h2><p>高级用法的通用模版：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg imageFile [attr1:value1] [<span class="string">'attr2:value21 value22 ...'</span>] [extend:... | normal:yes] %&#125;</div></pre></td></tr></table></figure></p>
+<p><code>[] </code>表示可选项，按需添加，也可以不写<br><code>| </code>表示二选一<br><code>extend:… </code>图片处理参数，表示对图片进行某种特定处理5，多个处理之间用<code> | </code>间隔。<br><code>normal:yes </code>表示使用原图，忽略<code> _config.yml </code>文件中的<code> image.extend </code>设置<br>实例 图片的本地路径为<code> File/images/test/demo.png ：</code><br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% qnimg <span class="built_in">test</span>/demo.png title:标题 alt:说明 <span class="string">'class:class1 class2'</span> extend:?imageView2/2/w/600 %&#125;</div></pre></td></tr></table></figure></p>
+<p>解析为：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&lt;img title=<span class="string">"标题"</span> alt=<span class="string">"说明"</span> class=<span class="string">"class1 class2"</span> src=<span class="string">"http://xxx.bkt.clouddn.com/images/test/demo.png?imageView2/2/w/600"</span>&gt;</div></pre></td></tr></table></figure></p>
+<p>其中<code> ?imageView2/2/w/500 </code>代表生成宽度最多<code> 500px</code> 的缩略图5。如果经常使用某种图片效果，可以在其七牛创建处理样式，以后直接将<code>  extend </code> 参数设置为<code>  分隔符 </code>+<code>  样式名 </code> 就好。例如设置的分隔符为<code>  - </code> ，样式名为<code>  new </code> ，则<code>  extend </code> 参数为<code>  -new </code> 。</p>
+<h2 id="引用CSS和JS"><a href="#引用CSS和JS" class="headerlink" title="引用CSS和JS"></a>引用CSS和JS</h2><p>只是引用的标签名不同：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">&#123;% qnjs jsFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div><div class="line">&#123;% qncss cssFile attr1:value1 attr2:value2 <span class="string">'attr3:value31 value32 value3n'</span> %&#125;</div></pre></td></tr></table></figure></p>
+<h1 id="同步到七牛"><a href="#同步到七牛" class="headerlink" title="同步到七牛"></a><p id="div-border-left-blue">同步到七牛</p></h1><p>网站说使用<code> hexo server </code>命令（简写为<code> hexo s </code>）即可自动上传到七牛，但是我和很多网友都发现，此方法无效。好在提供的另一种方法也很简便，运行<code> hexo qiniu s </code>命令即可同步到七牛。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;p&gt;Hexo 七牛同步插件地址: &lt;a href=&quot;https://github.com/gyk001/hexo-qiniu-sync&quot; target=&quot;_blank&quot; rel=&quot;external&quot;&gt;https://github.com/gyk001/hexo-qiniu-sy
+    
+    </summary>
+    
+      <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
+    
+    
+      <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
+    
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
+    
+  </entry>
   
   <entry>
     <title>NexT主题个性化修改</title>
@@ -421,9 +473,9 @@
       <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
     
     
-      <category term="思念" scheme="http://aibabby.win/tags/%E6%80%9D%E5%BF%B5/"/>
-    
       <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="思念" scheme="http://aibabby.win/tags/%E6%80%9D%E5%BF%B5/"/>
     
   </entry>
   
@@ -612,33 +664,6 @@
 <p>昨夜又做了个同样的梦，在梦的回廊里，手持试卷，不管如何擦拭眼角，始终无法看清试卷上的分数，耳旁响着嘈杂的对话，朦胧中仿佛又看到试卷上赫然写着27的得分，27这个数字在我的梦里已经出现了好几次了，对此心里的那份焦躁，一直在我的血脉里扩张！还记得考研的前一个晚上，因为内心极度紧张的而久久无法入眠，然而我总是如此幸运，某人的轻言细语中夹着甜丝丝的关怀，是种沁人心脾的幸福。真是难为她了，明明自己也要考研，那么晚了，还一直在电话里宽慰我，鼓励我。或许有时候自己真的过于偏执了吧！</p>
 <p>考完研的这几天里，我便一直沉醉在自己的网络里，对某人也是爱理不理，结果可想而知，直接导致了某人的心理年龄从23岁直接狂跌至3岁，对话里的各种不满，对话里的各种声调的哼，对话里的各种不想理你了的表达方式，对话里的……哈哈哈，可能最近几天没怎么理某人，某人的狂想症又犯了吧！说到某人狂想症的这点，不禁让人捧腹大笑。某人晚上做个噩梦，第二天起床就气鼓鼓打电话过来，开口的第一句话就是：“你这个臭望望，我不想理了呢！”，你就一脸黑线的莫名其妙的听着某人各种周氏逻辑，最后得出的结论就是：某人做噩梦了，都是你的错！然后你还得一脸自责的向某人认错，然后就。。。就深深的陷入了某人独有的周氏陷阱里了！这个陷阱简直可以说是天衣无缝无懈可击！当某人问你错在何处时，此时等待你的可是某人强大的让人畏惧的逻辑推理，无论你是赞美某人，还是诋毁某人，这些小伎俩，在某人面前那都是小孩子把戏，就算是你不说话表示默认，某人都可以两句一哼，三句一好生气，五句一我不想理你了的周氏逻辑，推导出你不说话，是因为你不想和某人讲话了，是不喜欢某人了！！！可能某人的脑子里面天生就存储着一个庞大到无法用数字来描述的数据库吧，这种凶残的推理能力，要是放在侦查方面估计早就世界和平了──人类灭绝！</p>
 <p>和某人在一起两年多了，从刚认识时的成熟范，到浪漫天真的少女范，到后来蛮不讲理的幼稚范，再到后来的体贴入微的淑女范，到现在的多元化范。。。从刚认识时的淡淡的幸福，到在一起后满满的幸福，到后来的想哭的幸福，再到后来爆表的幸福，到现在的这到处都是坑，说不定哪天她又生气了爆发了，如履薄冰般的幸福！！！这逆天般的幸福，可不是一般人可以享受的呜呜呜~~~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      这是篇受保护的文章！
-    
-    </summary>
-    
-      <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
-    
-    
-      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>寻觅</title>
-    <link href="http://aibabby.win/%E5%AF%BB%E8%A7%85.html"/>
-    <id>http://aibabby.win/寻觅.html</id>
-    <published>2017-03-07T12:55:46.000Z</published>
-    <updated>2017-04-12T12:36:37.970Z</updated>
-    
-    <content type="html"><![CDATA[<p>昨夜未眠，因为最近一直在思考网站的去处。冷冷的日光灯下，散发着一阵阵低沉的电流激发声，像是儿时的催眠曲，但朱颜易改，如今早已不是当年的儿童了。因为从小就有一种早睡的习惯，也不知是何时开始，这种习惯成了奢求。</p>
-<p>依稀还记得儿时，一个人在灯下写作业的那份胆小和孤独，以至于每次都会有母亲在身边陪伴，现在想想，一股甜丝丝的温暖在指尖回荡。好久都没有如此平静的写一篇文章了，竟然都忘了该如何开头，如何去表达自己的所思所想，在喧乱的城市里，冰冷的日光灯下，夹着笔记本扇热器发出的嗡嗡声，自己竟然是第一次真真切切的感受到了指前键盘的冰凉，正好与当时父亲准备的些许炭火形成鲜明对比，原来我真的离父母越来越远了！</p>
-<p>父亲是个恋旧的人，而我也继承了父亲的这点。还记得小时候都会把自己用过的小饰物、小卡片都会放到一个小抽屉里，隔几天就去检查一下，生怕又被父亲给偷偷扔掉了，现在想想觉得真心好笑。前一阵网上的一支钢笔让我眼前一怔，记忆立刻穿越到了儿时，那是一支对于父亲来说十分珍贵的钢笔，笔舌硬生生被我给弄断了，还记得当时父亲脸上流露出的表情，一万分的惋惜和不舍，满满的刻在脸上。听说父亲为了这支笔，专门去了躺修笔店，结果修笔匠也是一脸惋惜的送走了这一单少有生意！往事不可追，一阵阵伤感和无奈，充斥着整个胸腔，真让人有些闯不过气。也不知道那支早已被我忘却的笔，是否依然静静的躺在那个记忆中的小抽屉里，倔强着等待他小主人的归来呢！</p>
-<p>父亲恋旧，母亲要强，这便成了家里的一条不成文的法则：以母为准！哈哈哈，家里凡是比较重要的事情，必须有母亲做决定。当然期间，父亲也曾奋起反叛过，但终究屈服于母亲的亮瞎狗眼的威严之下。当然原因很简单，父亲这个人喜欢想怎么去做好一件事，却不喜欢想着如何与人共事，所以母亲的江山地位在家里还是相当稳固的！</p>
-<p>写了这么多，心里都有些凌乱了，需要好好整理下心境，来迎接自己的下一站，希望自己这么久的等待和努力都能开花结果，哈哈哈！</p>
 ]]></content>
     
     <summary type="html">
