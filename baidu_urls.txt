@@ -1,2 +1,2 @@
-http://aibabby.win/使用七牛云插件为Hexo博客存储资源.html
-http://aibabby.win/NexT主题个性化修改.html
+http://aibabby.win/2017/08/20/使用七牛云插件为Hexo博客存储资源/
+http://aibabby.win/2017/08/19/NexT主题个性化修改/
