@@ -479,9 +479,9 @@
       <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
     
     
-      <category term="思念" scheme="http://aibabby.win/tags/%E6%80%9D%E5%BF%B5/"/>
-    
       <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="思念" scheme="http://aibabby.win/tags/%E6%80%9D%E5%BF%B5/"/>
     
   </entry>
   
@@ -625,9 +625,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
-    
       <category term="HTML" scheme="http://aibabby.win/tags/HTML/"/>
+    
+      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
     
   </entry>
   
