@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-08-20T11:53:12.258Z</updated>
+  <updated>2017-08-21T01:10:17.142Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -20,7 +20,7 @@
     <link href="http://aibabby.win/2017/08/20/%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E6%8F%92%E4%BB%B6%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E5%AD%98%E5%82%A8%E8%B5%84%E6%BA%90/"/>
     <id>http://aibabby.win/2017/08/20/使用七牛云插件为Hexo博客存储资源/</id>
     <published>2017-08-20T06:14:47.000Z</published>
-    <updated>2017-08-20T11:53:12.258Z</updated>
+    <updated>2017-08-21T01:10:17.142Z</updated>
     
     <content type="html"><![CDATA[<p>Hexo 七牛同步插件地址: <a href="https://github.com/gyk001/hexo-qiniu-sync" target="_blank" rel="external">https://github.com/gyk001/hexo-qiniu-sync</a>基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在<code> _config.yml </code>中不要配置插件栏如下，否则会报错找不到<code> hexo server </code>的命令，可参考问题:<code>hexo-qiniu-sync </code>安装好后，<code>hexo s </code>命令不见了，<code>hexo d </code>也提示问题！<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># 错误示范</span></div><div class="line">plugins:</div><div class="line">  - hexo-qiniu-sync</div></pre></td></tr></table></figure></p>
 <h1 id="安装插件：在hexo主目录下运行以下命令："><a href="#安装插件：在hexo主目录下运行以下命令：" class="headerlink" title="安装插件：在hexo主目录下运行以下命令："></a><p id="div-border-left-blue">安装插件：在hexo主目录下运行以下命令：</p></h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">npm install hexo-qiniu-sync --save</div></pre></td></tr></table></figure>
@@ -69,9 +69,11 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
+    
       <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
     
-      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
+      <category term="技巧" scheme="http://aibabby.win/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -80,7 +82,7 @@
     <link href="http://aibabby.win/2017/08/19/NexT%E4%B8%BB%E9%A2%98%E4%B8%AA%E6%80%A7%E5%8C%96%E4%BF%AE%E6%94%B9/"/>
     <id>http://aibabby.win/2017/08/19/NexT主题个性化修改/</id>
     <published>2017-08-19T13:38:42.000Z</published>
-    <updated>2017-08-20T10:59:14.338Z</updated>
+    <updated>2017-08-21T01:08:11.489Z</updated>
     
     <content type="html"><![CDATA[<h1 id="修改文章底部的那个带-号的标签"><a href="#修改文章底部的那个带-号的标签" class="headerlink" title="修改文章底部的那个带#号的标签"></a>修改文章底部的那个带#号的标签</h1><p>修改模板<code> /themes/next/layout/_macro/post.swig</code>，搜索<code> rel=”tag”&gt;#</code>，将<code> # </code>换成<code><i class="fa fa-tag"></i></code></p>
 <h1 id="在每篇文章末尾统一添加“本文结束”标记"><a href="#在每篇文章末尾统一添加“本文结束”标记" class="headerlink" title="在每篇文章末尾统一添加“本文结束”标记"></a>在每篇文章末尾统一添加“本文结束”标记</h1><p>在路径<code> \themes\next\layout_macro </code>中新建<code> passage-end-tag.swig </code>文件,并添加以下内容：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">&lt;div&gt;</div><div class="line">    &#123;% <span class="keyword">if</span> not is_index %&#125;</div><div class="line">        &lt;div style=<span class="string">"text-align:center;color: #ccc;font-size:14px;"</span>&gt;--------------------------------------------------------本文结束&lt;i class=<span class="string">"fa fa-heartbeat"</span>&gt;&lt;/i&gt;感谢您的阅读--------------------------------------------------------&lt;/div&gt;</div><div class="line">    &#123;% endif %&#125;</div><div class="line">&lt;/div&gt;</div></pre></td></tr></table></figure></p>
@@ -110,7 +112,7 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
     
       <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
     
@@ -118,10 +120,10 @@
   
   <entry>
     <title>NexT一些好玩的样式</title>
-    <link href="http://aibabby.win/2017/08/19/Next%E4%B8%80%E4%BA%9B%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%A0%B7%E5%BC%8F/"/>
-    <id>http://aibabby.win/2017/08/19/Next一些好玩的样式/</id>
+    <link href="http://aibabby.win/2017/08/19/NexT%E4%B8%80%E4%BA%9B%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%A0%B7%E5%BC%8F/"/>
+    <id>http://aibabby.win/2017/08/19/NexT一些好玩的样式/</id>
     <published>2017-08-19T08:51:51.000Z</published>
-    <updated>2017-08-19T11:21:17.662Z</updated>
+    <updated>2017-08-21T01:07:50.031Z</updated>
     
     <content type="html"><![CDATA[<h1 id="添加代码"><a href="#添加代码" class="headerlink" title="添加代码"></a>添加代码</h1><p>先在<code>themes/next/source/css/_custom/custom.styl</code>中添加以下样式：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div><div class="line">24</div><div class="line">25</div><div class="line">26</div><div class="line">27</div><div class="line">28</div><div class="line">29</div><div class="line">30</div><div class="line">31</div><div class="line">32</div><div class="line">33</div><div class="line">34</div><div class="line">35</div><div class="line">36</div><div class="line">37</div><div class="line">38</div><div class="line">39</div><div class="line">40</div><div class="line">41</div><div class="line">42</div><div class="line">43</div><div class="line">44</div><div class="line">45</div><div class="line">46</div><div class="line">47</div><div class="line">48</div><div class="line">49</div><div class="line">50</div><div class="line">51</div><div class="line">52</div><div class="line">53</div><div class="line">54</div><div class="line">55</div><div class="line">56</div><div class="line">57</div><div class="line">58</div><div class="line">59</div><div class="line">60</div><div class="line">61</div><div class="line">62</div><div class="line">63</div><div class="line">64</div><div class="line">65</div><div class="line">66</div><div class="line">67</div><div class="line">68</div><div class="line">69</div><div class="line">70</div><div class="line">71</div><div class="line">72</div><div class="line">73</div><div class="line">74</div><div class="line">75</div><div class="line">76</div><div class="line">77</div><div class="line">78</div><div class="line">79</div><div class="line">80</div><div class="line">81</div><div class="line">82</div><div class="line">83</div><div class="line">84</div><div class="line">85</div><div class="line">86</div><div class="line">87</div><div class="line">88</div><div class="line">89</div><div class="line">90</div><div class="line">91</div><div class="line">92</div><div class="line">93</div><div class="line">94</div><div class="line">95</div><div class="line">96</div><div class="line">97</div><div class="line">98</div><div class="line">99</div><div class="line">100</div><div class="line">101</div><div class="line">102</div><div class="line">103</div><div class="line">104</div><div class="line">105</div><div class="line">106</div><div class="line">107</div><div class="line">108</div><div class="line">109</div><div class="line">110</div><div class="line">111</div><div class="line">112</div><div class="line">113</div><div class="line">114</div><div class="line">115</div><div class="line">116</div><div class="line">117</div><div class="line">118</div><div class="line">119</div><div class="line">120</div><div class="line">121</div><div class="line">122</div><div class="line">123</div><div class="line">124</div><div class="line">125</div><div class="line">126</div><div class="line">127</div><div class="line">128</div><div class="line">129</div><div class="line">130</div><div class="line">131</div><div class="line">132</div><div class="line">133</div><div class="line">134</div><div class="line">135</div><div class="line">136</div><div class="line">137</div><div class="line">138</div><div class="line">139</div><div class="line">140</div><div class="line">141</div><div class="line">142</div><div class="line">143</div><div class="line">144</div><div class="line">145</div><div class="line">146</div><div class="line">147</div><div class="line">148</div><div class="line">149</div><div class="line">150</div><div class="line">151</div><div class="line">152</div><div class="line">153</div><div class="line">154</div><div class="line">155</div><div class="line">156</div><div class="line">157</div><div class="line">158</div><div class="line">159</div><div class="line">160</div><div class="line">161</div><div class="line">162</div><div class="line">163</div><div class="line">164</div><div class="line">165</div><div class="line">166</div><div class="line">167</div><div class="line">168</div><div class="line">169</div><div class="line">170</div><div class="line">171</div><div class="line">172</div><div class="line">173</div><div class="line">174</div><div class="line">175</div><div class="line">176</div><div class="line">177</div><div class="line">178</div><div class="line">179</div><div class="line">180</div><div class="line">181</div><div class="line">182</div><div class="line">183</div><div class="line">184</div><div class="line">185</div><div class="line">186</div><div class="line">187</div><div class="line">188</div><div class="line">189</div><div class="line">190</div><div class="line">191</div><div class="line">192</div><div class="line">193</div><div class="line">194</div><div class="line">195</div><div class="line">196</div><div class="line">197</div><div class="line">198</div><div class="line">199</div><div class="line">200</div><div class="line">201</div><div class="line">202</div><div class="line">203</div><div class="line">204</div><div class="line">205</div><div class="line">206</div><div class="line">207</div><div class="line">208</div><div class="line">209</div><div class="line">210</div><div class="line">211</div><div class="line">212</div><div class="line">213</div><div class="line">214</div><div class="line">215</div><div class="line">216</div><div class="line">217</div><div class="line">218</div><div class="line">219</div><div class="line">220</div><div class="line">221</div></pre></td><td class="code"><pre><div class="line">// 下载样式</div><div class="line">a<span class="comment">#download &#123;</span></div><div class="line">display: inline-block;</div><div class="line">padding: 0 10px;</div><div class="line">color: <span class="comment">#000;</span></div><div class="line">background: transparent;</div><div class="line">border: 2px solid <span class="comment">#000;</span></div><div class="line">border-radius: 2px;</div><div class="line">transition: all .5s ease;</div><div class="line">font-weight: bold;</div><div class="line">&amp;:hover &#123;</div><div class="line">background: <span class="comment">#000;</span></div><div class="line">color: <span class="comment">#fff;</span></div><div class="line">&#125;</div><div class="line">&#125;</div><div class="line">/ /颜色块-黄</div><div class="line">span<span class="comment">#inline-yellow &#123;</span></div><div class="line">display:inline;</div><div class="line">padding:.2em .6em .3em;</div><div class="line">font-size:80%;</div><div class="line">font-weight:bold;</div><div class="line">line-height:1;</div><div class="line">color:<span class="comment">#fff;</span></div><div class="line">text-align:center;</div><div class="line">white-space:nowrap;</div><div class="line">vertical-align:baseline;</div><div class="line">border-radius:0;</div><div class="line">background-color: <span class="comment">#f0ad4e;</span></div><div class="line">&#125;</div><div class="line">// 颜色块-绿</div><div class="line">span<span class="comment">#inline-green &#123;</span></div><div class="line">display:inline;</div><div class="line">padding:.2em .6em .3em;</div><div class="line">font-size:80%;</div><div class="line">font-weight:bold;</div><div class="line">line-height:1;</div><div class="line">color:<span class="comment">#fff;</span></div><div class="line">text-align:center;</div><div class="line">white-space:nowrap;</div><div class="line">vertical-align:baseline;</div><div class="line">border-radius:0;</div><div class="line">background-color: <span class="comment">#5cb85c;</span></div><div class="line">&#125;</div><div class="line">// 颜色块-蓝</div><div class="line">span<span class="comment">#inline-blue &#123;</span></div><div class="line">display:inline;</div><div class="line">padding:.2em .6em .3em;</div><div class="line">font-size:80%;</div><div class="line">font-weight:bold;</div><div class="line">line-height:1;</div><div class="line">color:<span class="comment">#fff;</span></div><div class="line">text-align:center;</div><div class="line">white-space:nowrap;</div><div class="line">vertical-align:baseline;</div><div class="line">border-radius:0;</div><div class="line">background-color: <span class="comment">#2780e3;</span></div><div class="line">&#125;</div><div class="line">// 颜色块-紫</div><div class="line">span<span class="comment">#inline-purple &#123;</span></div><div class="line">display:inline;</div><div class="line">padding:.2em .6em .3em;</div><div class="line">font-size:80%;</div><div class="line">font-weight:bold;</div><div class="line">line-height:1;</div><div class="line">color:<span class="comment">#fff;</span></div><div class="line">text-align:center;</div><div class="line">white-space:nowrap;</div><div class="line">vertical-align:baseline;</div><div class="line">border-radius:0;</div><div class="line">background-color: <span class="comment">#9954bb;</span></div><div class="line">&#125;</div><div class="line">// 左侧边框红色块级</div><div class="line">p<span class="comment">#div-border-left-red &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-left-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-left-color: <span class="comment">#df3e3e;</span></div><div class="line">&#125;</div><div class="line">// 左侧边框黄色块级</div><div class="line">p<span class="comment">#div-border-left-yellow &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-left-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-left-color: <span class="comment">#f0ad4e;</span></div><div class="line">&#125;</div><div class="line">// 左侧边框绿色块级</div><div class="line">p<span class="comment">#div-border-left-green &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-left-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-left-color: <span class="comment">#5cb85c;</span></div><div class="line">&#125;</div><div class="line">// 左侧边框蓝色块级</div><div class="line">p<span class="comment">#div-border-left-blue &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-left-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-left-color: <span class="comment">#2780e3;</span></div><div class="line">&#125;</div><div class="line">// 左侧边框紫色块级</div><div class="line">p<span class="comment">#div-border-left-purple &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-left-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-left-color: <span class="comment">#9954bb;</span></div><div class="line">&#125;</div><div class="line">// 右侧边框红色块级</div><div class="line">p<span class="comment">#div-border-right-red &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-right-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-right-color: <span class="comment">#df3e3e;</span></div><div class="line">&#125;</div><div class="line">// 右侧边框黄色块级</div><div class="line">p<span class="comment">#div-border-right-yellow &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-right-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-right-color: <span class="comment">#f0ad4e;</span></div><div class="line">&#125;</div><div class="line">// 右侧边框绿色块级</div><div class="line">p<span class="comment">#div-border-right-green &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-right-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-right-color: <span class="comment">#5cb85c;</span></div><div class="line">&#125;</div><div class="line">// 右侧边框蓝色块级</div><div class="line">p<span class="comment">#div-border-right-blue &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-right-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-right-color: <span class="comment">#2780e3;</span></div><div class="line">&#125;</div><div class="line">// 右侧边框紫色块级</div><div class="line">p<span class="comment">#div-border-right-purple &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-right-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-right-color: <span class="comment">#9954bb;</span></div><div class="line">&#125;</div><div class="line">// 上侧边框红色</div><div class="line">p<span class="comment">#div-border-top-red &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-top-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-top-color: <span class="comment">#df3e3e;</span></div><div class="line">&#125;</div><div class="line">// 上侧边框黄色</div><div class="line">p<span class="comment">#div-border-top-yellow &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-top-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-top-color: <span class="comment">#f0ad4e;</span></div><div class="line">&#125;</div><div class="line">// 上侧边框绿色</div><div class="line">p<span class="comment">#div-border-top-green &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-top-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-top-color: <span class="comment">#5cb85c;</span></div><div class="line">&#125;</div><div class="line">// 上侧边框蓝色</div><div class="line">p<span class="comment">#div-border-top-blue &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-top-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-top-color: <span class="comment">#2780e3;</span></div><div class="line">&#125;</div><div class="line">// 上侧边框紫色</div><div class="line">p<span class="comment">#div-border-top-purple &#123;</span></div><div class="line">display: block;</div><div class="line">padding: 10px;</div><div class="line">margin: 10px 0;</div><div class="line">border: 1px solid <span class="comment">#ccc;</span></div><div class="line">border-top-width: 5px;</div><div class="line">border-radius: 3px;</div><div class="line">border-top-color: <span class="comment">#9954bb;</span></div><div class="line">&#125;</div></pre></td></tr></table></figure>
@@ -149,7 +151,7 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
     
       <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
     
@@ -160,7 +162,7 @@
     <link href="http://aibabby.win/2017/07/30/%E9%9B%A8%E9%9D%99/"/>
     <id>http://aibabby.win/2017/07/30/雨静/</id>
     <published>2017-07-30T02:53:28.000Z</published>
-    <updated>2017-07-30T10:50:00.742Z</updated>
+    <updated>2017-08-21T01:16:08.014Z</updated>
     
     <content type="html"><![CDATA[<p>自从和某人那次大吵之后便很少写文章了，某人为了这个还不胜其烦的“拷问”我是不是又不喜欢她了，对于某人的这种问题，我个人是相当的头疼，每次回答都战战兢兢、如履薄冰，生怕哪句说的不中某人意，又哼哼半天。尽管我早已深知某人的那套周氏理论，但最终的结局还是逃脱不了某人那诡异般让人防不胜防的命运！为此我深感无力，个人觉得最大的痛苦莫过于此！</p>
 <p>某人是一感性动物，喜欢听好听的，吃好吃的，但对于穿着方面，个人觉得品味不敢苟同。一个女孩子对于穿着打扮方面有着如此的特立独行，也是罕见。每次让她买几件好看点的衣服，某人总是嘟着一张嘴，一副感觉像是要割她肉的样子！但对于吃这方面，可以大方的不能再大方了。还记得某人当时为了我一句晚上少吃点东西，还大动肝火的直接挂了我是视频，生了一晚上气呢！真不敢想像如果真让她少吃点东西，会有什么样的后果。看来某人在吃这方面和我们的大明朝有着千丝万缕的关系呀！</p>
@@ -177,9 +179,7 @@
       <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
     
     
-      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
-    
-      <category term="日志" scheme="http://aibabby.win/tags/%E6%97%A5%E5%BF%97/"/>
+      <category term="有感" scheme="http://aibabby.win/tags/%E6%9C%89%E6%84%9F/"/>
     
   </entry>
   
@@ -188,7 +188,7 @@
     <link href="http://aibabby.win/2017/07/30/WordPress%E4%BD%BF%E7%94%A8%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
     <id>http://aibabby.win/2017/07/30/WordPress使用常见问题/</id>
     <published>2017-07-30T02:23:27.000Z</published>
-    <updated>2017-08-19T04:23:59.888Z</updated>
+    <updated>2017-08-21T01:08:35.747Z</updated>
     
     <content type="html"><![CDATA[<h1 id="提示需要输入FTP信息"><a href="#提示需要输入FTP信息" class="headerlink" title="提示需要输入FTP信息"></a>提示需要输入FTP信息</h1><p>后台安装插件或主题都提示需要输入FTP信息<br>出现这个问题，是因为文件目录权限问题。解决方法，SSH登录VPS，执行以下两条命令即可<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">chmod -R 755 /home/wwwroot</div><div class="line">chown -R www /home/wwwroot</div></pre></td></tr></table></figure></p>
 <h1 id="301重定向ppjiazu-com到www-ppjiazu-com"><a href="#301重定向ppjiazu-com到www-ppjiazu-com" class="headerlink" title="301重定向ppjiazu.com到www.ppjiazu.com"></a>301重定向ppjiazu.com到www.ppjiazu.com</h1><p>目前VPS推荐的架构LNMP，将Apache更换为更高效的Nginx。但唯一坏处在于许多位于.htaccess 的规则都无法使用。通用办法是找到对应网站的conf文件，比如www.ppjiazu.com.conf，通常在/usr/local/nginx/conf/vhost/ 目录下，可以找到用sftp软件编辑此文件：<br>把<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">server_name www.ppjiazu.com;</div></pre></td></tr></table></figure></p>
@@ -211,7 +211,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="常见问题" scheme="http://aibabby.win/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
+      <category term="技巧" scheme="http://aibabby.win/tags/%E6%8A%80%E5%B7%A7/"/>
+    
+      <category term="VPS" scheme="http://aibabby.win/tags/VPS/"/>
     
       <category term="Wordpress" scheme="http://aibabby.win/tags/Wordpress/"/>
     
@@ -222,7 +224,7 @@
     <link href="http://aibabby.win/2017/07/27/%E8%A7%A3%E5%86%B3Photoshop-CS6%E7%95%8C%E9%9D%A2%E5%AD%97%E4%BD%93%E5%A4%AA%E5%B0%8F%E9%97%AE%E9%A2%98/"/>
     <id>http://aibabby.win/2017/07/27/解决Photoshop-CS6界面字体太小问题/</id>
     <published>2017-07-27T14:41:26.000Z</published>
-    <updated>2017-08-20T13:06:53.497Z</updated>
+    <updated>2017-08-20T15:16:50.205Z</updated>
     
     <content type="html"><![CDATA[<p>简单来说两步走，安装放大字体的补丁，所以这之前要在注册表安个驱动。</p>
 <p>1.windows健+R健，输入“regedit”，点击确定。</p>
@@ -243,9 +245,7 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="常见问题" scheme="http://aibabby.win/tags/%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/"/>
-    
-      <category term="经验" scheme="http://aibabby.win/tags/%E7%BB%8F%E9%AA%8C/"/>
+      <category term="技巧" scheme="http://aibabby.win/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -254,7 +254,7 @@
     <link href="http://aibabby.win/2017/07/11/%E8%87%B4%E6%88%91%E4%BA%B2%E7%88%B1%E7%9A%84%E6%9C%9B%E6%9C%9B/"/>
     <id>http://aibabby.win/2017/07/11/致我亲爱的望望/</id>
     <published>2017-07-11T15:36:00.000Z</published>
-    <updated>2017-07-12T13:05:30.354Z</updated>
+    <updated>2017-08-21T01:14:55.642Z</updated>
     
     <content type="html"><![CDATA[<p>我最爱的向舟望，此时此刻我有很多的话想要对你说。</p>
 <p>遇见你，是我这一生最美好的一次相遇。从遇见你的那一刻起，就注定了这是我一生中最刻骨铭心的爱！最初的相遇我对你的印象并不是那么的好，当时也没有想到我们会走到一起，更没有想到在未来的日子里我会离不开你。在慢慢的相处中，我发现了你有很多的优点，比如说很会照顾人，很会逗人开心，特别的温暖阳光等等，不能一一列举，因为有太多太多了。也许只有我能荣幸的得到你的照顾与爱，也许你那么多的优点只给了我一个人看见，因为你把所有最好的都给了我。我不知道你为什么那么傻，我明明是一个满身缺点的人，却得到了你那么真挚的爱。我不知道你为什么愿意容忍我的任性，即使知道是我的错还能在自己生气的情况下来逗我开心。我也不知道你为什么对我那么好，好到我傻傻的相信你的每一句话，真话或是假话。我明明是知道你喜欢逗我的啊！为什么我还每次都那么较真呢？每次你说我哪里哪里不好需要改正，为什么我就不能欣然接受呢？每次和你吵架跟你生气之后，都会在心里愧疚好久好久，每次说要改掉改掉，但一生气起来还是把这些都忘的一干二净。在这里我要谢谢你有大海般的胸怀，每次都对无理取闹的我万分包容。你说的没错，不能一直让别人去迁就，每个人都是有脾气的，我已经让你迁就让你让步的够多的了，还一直在得寸进尺，真的很过分！谢谢你阳光般的心，温暖了我的整个世界，让我愿意为你努力改变自己，愿意为你倾尽所有。</p>
@@ -273,16 +273,16 @@
     
       <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
     
-      <category term="日志" scheme="http://aibabby.win/tags/%E6%97%A5%E5%BF%97/"/>
+      <category term="开心" scheme="http://aibabby.win/tags/%E5%BC%80%E5%BF%83/"/>
     
   </entry>
   
   <entry>
     <title>Hexo文章简单加密</title>
-    <link href="http://aibabby.win/2017/07/02/hexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86/"/>
-    <id>http://aibabby.win/2017/07/02/hexo文章简单加密/</id>
+    <link href="http://aibabby.win/2017/07/02/Hexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86/"/>
+    <id>http://aibabby.win/2017/07/02/Hexo文章简单加密/</id>
     <published>2017-07-02T10:03:43.000Z</published>
-    <updated>2017-08-19T04:22:58.944Z</updated>
+    <updated>2017-08-21T01:06:17.152Z</updated>
     
     <content type="html"><![CDATA[<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
 <p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
@@ -302,7 +302,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
+    
+      <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
     
   </entry>
   
@@ -311,7 +313,7 @@
     <link href="http://aibabby.win/2017/06/26/%E8%BD%AC%E7%9C%BC%E9%97%B4%E5%B7%B2%E7%BB%8F%E6%AF%95%E4%B8%9A18%E5%A4%A9%E4%BA%86/"/>
     <id>http://aibabby.win/2017/06/26/转眼间已经毕业18天了/</id>
     <published>2017-06-26T13:28:16.000Z</published>
-    <updated>2017-07-12T12:50:07.905Z</updated>
+    <updated>2017-08-21T01:13:25.646Z</updated>
     
     <content type="html"><![CDATA[<p>转眼间已经毕业18天了，还是有点不敢相信自己已经不是一个学生了。毕业典礼那天，听着主持人说：“今天，我们从吉首大学的学生变成了吉首大学的校友。”那一刻，内心深深触动了，那一刻起，我已经不再是学生了，再也没有课堂，再也没有老师，再也没有同学了。现在的我，不用担心逃课被抓，不用担心期末考试，不用担心图书馆没有座位……因为这些都已与我再无关系。</p>
 ]]></content>
@@ -325,9 +327,7 @@
       <category term="精灵小屋" scheme="http://aibabby.win/categories/%E7%B2%BE%E7%81%B5%E5%B0%8F%E5%B1%8B/"/>
     
     
-      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
-    
-      <category term="日志" scheme="http://aibabby.win/tags/%E6%97%A5%E5%BF%97/"/>
+      <category term="有感" scheme="http://aibabby.win/tags/%E6%9C%89%E6%84%9F/"/>
     
   </entry>
   
@@ -365,7 +365,7 @@
     <link href="http://aibabby.win/2017/05/20/%E4%B8%8D%E5%BF%98%E5%88%9D%E5%BF%83%EF%BC%8C%E6%96%B9%E5%BE%97%E5%A7%8B%E7%BB%88/"/>
     <id>http://aibabby.win/2017/05/20/不忘初心，方得始终/</id>
     <published>2017-05-20T09:05:20.000Z</published>
-    <updated>2017-06-11T10:58:20.218Z</updated>
+    <updated>2017-08-20T15:15:46.670Z</updated>
     
     <content type="html"><![CDATA[<p>相识936天，两年六个月二十四天，相恋911天，两年五个月二十九天，在一起的日子说长不长说短也不短。从初识到相爱，从热情似火到平淡如水，从小心翼翼到理所当然，在这纷杂的社会上一路走来，我们似乎开始忘却初心，似乎快被冰冷的现实打败。</p>
 <p>如今，我们已不再是那还可以依靠着父母生活的孩子，不再是那校园里无忧无虑的学生，不再是那一对浓情蜜意的情侣，这一切都随着时间的流逝而流逝。相爱的道路上并不平坦，难免有些磕磕碰碰，也许会受伤，也许会流血，但谁又能说清是谁让谁受的伤，谁让谁流了血呢？痛了，若是能给对方安抚，那么就不会痛了，若是视而不见不理不睬，那么会更痛。也许最初的我们都只将优点展现给对方，而缺点却被很好的藏了起来，而在相处的过程中，缺点慢慢的暴露出来，成为互相伤害的利器，时不时的戳痛着对方。</p>
@@ -383,9 +383,7 @@
       <category term="精灵小屋" scheme="http://aibabby.win/categories/%E7%B2%BE%E7%81%B5%E5%B0%8F%E5%B1%8B/"/>
     
     
-      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
-    
-      <category term="日志" scheme="http://aibabby.win/tags/%E6%97%A5%E5%BF%97/"/>
+      <category term="有感" scheme="http://aibabby.win/tags/%E6%9C%89%E6%84%9F/"/>
     
   </entry>
   
@@ -394,7 +392,7 @@
     <link href="http://aibabby.win/2017/04/12/%E7%BB%88%E4%BA%8E%E5%86%B3%E5%AE%9A%E5%BC%80%E5%A7%8B%E5%86%99%E8%BF%99%E7%AF%87%E6%97%A5%E8%AE%B0%E4%BA%86/"/>
     <id>http://aibabby.win/2017/04/12/终于决定开始写这篇日记了/</id>
     <published>2017-04-12T13:36:03.000Z</published>
-    <updated>2017-04-12T13:42:03.993Z</updated>
+    <updated>2017-08-21T01:13:48.744Z</updated>
     
     <content type="html"><![CDATA[<p>终于决定开始写这篇日记了。本来是很不情愿的，都怪望望，逼着我写日记，好难过啊😭想了很久很久都不知道写些什么好，好像最近也没有什么想记录下来的有意义的东西。工作吧，就那样，每天没什么事情做，心里慌慌的；生活吧，平平淡淡，一点也不是我想要的。我都不知道该怎么办了，也不知道接下来的路该怎么走了。的确应该静下心来好好想想未来的路了！</p>
 <p>本来我望望是很有希望读研的，但是在成长和成功的路上难免会有些绊脚石阻碍我们的前进，而这一次我的望望就被绊倒了，没有能如我们期望的那样一帆风顺。虽然这只是人生路上的一个小小困难，但也希望我望望能在哪跌倒就在哪爬起来，继续勇往直前，不要因为一次两次的失败就失去斗志，也希望这是对我望望的一次磨砺，能够让他更快的成长。</p>
@@ -411,9 +409,7 @@
       <category term="精灵小屋" scheme="http://aibabby.win/categories/%E7%B2%BE%E7%81%B5%E5%B0%8F%E5%B1%8B/"/>
     
     
-      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
-    
-      <category term="日志" scheme="http://aibabby.win/tags/%E6%97%A5%E5%BF%97/"/>
+      <category term="有感" scheme="http://aibabby.win/tags/%E6%9C%89%E6%84%9F/"/>
     
   </entry>
   
@@ -422,7 +418,7 @@
     <link href="http://aibabby.win/2017/04/11/Bootstrap%20Callout%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://aibabby.win/2017/04/11/Bootstrap Callout的使用/</id>
     <published>2017-04-11T12:37:00.000Z</published>
-    <updated>2017-08-18T15:54:12.550Z</updated>
+    <updated>2017-08-21T01:04:15.895Z</updated>
     
     <content type="html"><![CDATA[<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% note class_name %&#125; Content (md partial supported) &#123;% endnote %&#125;</div></pre></td></tr></table></figure>
 <p>其中，class_name 可以是以下列表中的一个值：</p>
@@ -450,7 +446,7 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
     
       <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
     
@@ -461,7 +457,7 @@
     <link href="http://aibabby.win/2017/04/03/%E5%A4%8D%E8%AF%95%E4%B9%8B%E5%90%8E/"/>
     <id>http://aibabby.win/2017/04/03/复试之后/</id>
     <published>2017-04-03T12:24:43.000Z</published>
-    <updated>2017-04-12T12:36:57.870Z</updated>
+    <updated>2017-08-20T15:16:02.369Z</updated>
     
     <content type="html"><![CDATA[<p>依稀还记得当时知道自己初试分数时的兴奋，当时还觉得自己是这个世界上最幸福的人，有一份暂时还过的去的工作，有一大群关心自己的亲人，还有一个在我身边一直默默的支持着我的女友！当时真的觉得上帝真的把这世间最美的一切都给了我！然而3月30日过后，我发现许多东西都变了！</p>
 <p>世界变了，自己也变了。这个世界太复杂，什么狗屁老乡帮忙，什么狗屎会尽自己最大的努力帮你，都是放屁！龚德才这个狗一样的名字这次我算是记住了！或许是我自己还是过于单纯吧，以至于一开始就被这条狗下了套，还浑然不知！真的好后悔，后悔自己大学期间没有好好读书，如果我的羽翼丰满的话，也不是出现复试被刷掉的情况，或许真的是失去的青春才能叫做青春吧！当然遇到那条狗也不完全是坏事，至少让我知道了自己的不足，让一个有点沾沾自喜的我瞬间醒悟过来，或许这一剂药的药性过烈，以至于我的心到现在还是痛的！</p>
@@ -478,7 +474,7 @@
       <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
     
     
-      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
+      <category term="有感" scheme="http://aibabby.win/tags/%E6%9C%89%E6%84%9F/"/>
     
       <category term="思念" scheme="http://aibabby.win/tags/%E6%80%9D%E5%BF%B5/"/>
     
@@ -489,7 +485,7 @@
     <link href="http://aibabby.win/2017/04/03/NexT%E4%B8%BB%E9%A2%98%E7%9A%84Hexo%E4%BC%98%E5%8C%96%EF%BC%88SEO%E7%AF%87%EF%BC%89/"/>
     <id>http://aibabby.win/2017/04/03/NexT主题的Hexo优化（SEO篇）/</id>
     <published>2017-04-03T10:59:35.000Z</published>
-    <updated>2017-08-19T04:23:32.412Z</updated>
+    <updated>2017-08-21T01:08:03.291Z</updated>
     
     <content type="html"><![CDATA[<h1 id="给你的hexo站点添加sitemap网站地图"><a href="#给你的hexo站点添加sitemap网站地图" class="headerlink" title="给你的hexo站点添加sitemap网站地图"></a>给你的hexo站点添加sitemap网站地图</h1><h2 id="安装hexo的sitemap网站地图生成插件"><a href="#安装hexo的sitemap网站地图生成插件" class="headerlink" title="安装hexo的sitemap网站地图生成插件"></a>安装hexo的sitemap网站地图生成插件</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">npm install hexo-generator-sitemap --save</div><div class="line">npm install hexo-generator-baidu-sitemap --save</div></pre></td></tr></table></figure>
 <h2 id="在你的hexo站点的-config-yml添加下面的代码"><a href="#在你的hexo站点的-config-yml添加下面的代码" class="headerlink" title="在你的hexo站点的_config.yml添加下面的代码"></a>在你的hexo站点的_config.yml添加下面的代码</h2><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line"><span class="comment"># hexo sitemap网站地图</span></div><div class="line">sitemap:</div><div class="line">path: sitemap.xml</div><div class="line">baidusitemap:</div><div class="line">path: baidusitemap.xml</div></pre></td></tr></table></figure>
@@ -518,7 +514,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
+    
+      <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
     
   </entry>
   
@@ -527,7 +525,7 @@
     <link href="http://aibabby.win/2017/04/03/%E5%A6%82%E4%BD%95%E6%89%B9%E9%87%8F%E4%BF%AE%E6%94%B9%E6%96%87%E7%AB%A0%E4%BF%A1%E6%81%AF/"/>
     <id>http://aibabby.win/2017/04/03/如何批量修改文章信息/</id>
     <published>2017-04-03T10:40:54.000Z</published>
-    <updated>2017-08-19T04:25:03.100Z</updated>
+    <updated>2017-08-21T01:10:06.185Z</updated>
     
     <content type="html"><![CDATA[<p>你是否遇到过如下几种状况：</p>
 <p>博客更换域名，博客文章的内容也要跟着换<br>使用的图片地址更换了<br>写了很多文章，回过头来想切换作者<br>想删除某个可恶留言者的所有留言<br>想更改某个留言者所有留言的网站URL<br>想要禁用所有文章的pingback<br>想要禁用所有文章的评论功能<br>所有的这些，都涉及到一个关键词：批量修改。如果在WordPress后台，手动地去一个一个修改文章内容，相信会让你很抓狂，对一些拥有上千篇文章的博客来说，几乎是不可能完成任务。本文将教你如何使用SQL语句来操作你的数据库，实现数据的批量修改。<br>如果你没学过数据库的相关知识，肯定不知道SQL是什么，但是本文所涉及到的内容不需要你了解数据库的知识，也不需要你精通SQL语句的编写，你完全可以直接使用本文提到的SQL，下面我们将分条介绍各个SQL语句的功能，所有语句都使用默认的 wp_ 表前缀，如果你的不是，请自行更改。</p>
@@ -566,7 +564,11 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
+      <category term="技巧" scheme="http://aibabby.win/tags/%E6%8A%80%E5%B7%A7/"/>
+    
       <category term="Wordpress" scheme="http://aibabby.win/tags/Wordpress/"/>
+    
+      <category term="MySQL" scheme="http://aibabby.win/tags/MySQL/"/>
     
   </entry>
   
@@ -575,7 +577,7 @@
     <link href="http://aibabby.win/2017/03/08/VPS%E6%96%B0%E6%89%8B%E6%95%99%E7%A8%8B%EF%BC%9A%E5%B8%B8%E8%A7%81%E7%9A%84Linux%E5%91%BD%E4%BB%A4/"/>
     <id>http://aibabby.win/2017/03/08/VPS新手教程：常见的Linux命令/</id>
     <published>2017-03-08T12:37:00.000Z</published>
-    <updated>2017-08-19T04:23:47.992Z</updated>
+    <updated>2017-08-21T01:08:28.477Z</updated>
     
     <content type="html"><![CDATA[<h1 id="tar-命令-主要用来打包和解压缩"><a href="#tar-命令-主要用来打包和解压缩" class="headerlink" title="tar 命令 主要用来打包和解压缩"></a>tar 命令 主要用来打包和解压缩</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#tar cvf a.tar.gz /home (将home文件夹下所有文件打包，压缩为文件名a.tar.gz)</span></div><div class="line"><span class="comment">#tar xvf a.tar.gz  (将a.tar.gz解压至当前文件夹，亦可用zxvf)</span></div><div class="line"></div><div class="line">tar czvf</div><div class="line">tar czvf /root/x.tar.gz /home/y/ 说明：把/home/y/目录直接打包并且命名为x.tar.gz存放在/root/x目录下。</div><div class="line">tar xzvf</div><div class="line">tar xzvf /root/x.tar.gz /home/y/ 说明：把/root/目录下的x.tar.gz解压缩到/home/y/目录下。</div></pre></td></tr></table></figure>
 <h1 id="MV命令-用来移动文件、文件夹"><a href="#MV命令-用来移动文件、文件夹" class="headerlink" title="MV命令 用来移动文件、文件夹"></a>MV命令 用来移动文件、文件夹</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line"><span class="comment">#mv a.tar.gz /home (移动当前目录下a.tar.gz到home目录)</span></div><div class="line"><span class="comment">#mv a.tar.gz b.tar.gz (将a.tar.gz改名为b.tar.gz)</span></div><div class="line"></div><div class="line">mv /root/x.tar.gz /home/y/ 说明：把把/root/目录下的x.tar.gz移动到/home/y/目录下。</div></pre></td></tr></table></figure>
@@ -599,14 +601,16 @@
     
       <category term="Linux" scheme="http://aibabby.win/tags/Linux/"/>
     
+      <category term="VPS" scheme="http://aibabby.win/tags/VPS/"/>
+    
   </entry>
   
   <entry>
-    <title>markdown编辑器语法——字体、字号与颜色</title>
-    <link href="http://aibabby.win/2017/03/07/markdown%E7%BC%96%E8%BE%91%E5%99%A8%E8%AF%AD%E6%B3%95%E2%80%94%E2%80%94%E5%AD%97%E4%BD%93%E3%80%81%E5%AD%97%E5%8F%B7%E4%B8%8E%E9%A2%9C%E8%89%B2/"/>
-    <id>http://aibabby.win/2017/03/07/markdown编辑器语法——字体、字号与颜色/</id>
+    <title>Markdown编辑器语法——字体、字号与颜色</title>
+    <link href="http://aibabby.win/2017/03/07/Markdown%E7%BC%96%E8%BE%91%E5%99%A8%E8%AF%AD%E6%B3%95%E2%80%94%E2%80%94%E5%AD%97%E4%BD%93%E3%80%81%E5%AD%97%E5%8F%B7%E4%B8%8E%E9%A2%9C%E8%89%B2/"/>
+    <id>http://aibabby.win/2017/03/07/Markdown编辑器语法——字体、字号与颜色/</id>
     <published>2017-03-07T15:13:40.000Z</published>
-    <updated>2017-08-19T04:22:44.268Z</updated>
+    <updated>2017-08-21T01:07:38.797Z</updated>
     
     <content type="html"><![CDATA[<p> Markdown是一种可以使用普通文本编辑器编写的标记语言，通过类似HTML的标记语法，它可以使普通文本内容具有一定的格式。但是它本身是不支持修改字体、字号与颜色等功能的！</p>
 <p>  CSDN-markdown编辑器是其衍生版本，扩展了Markdown的功能（如表格、脚注、内嵌HTML等等）！对，就是内嵌HTML，接下来要讲的功能就需要使用内嵌HTML的方法来实现。</p>
@@ -624,9 +628,11 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HEXO" scheme="http://aibabby.win/tags/HEXO/"/>
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
     
       <category term="HTML" scheme="http://aibabby.win/tags/HTML/"/>
+    
+      <category term="Markdown" scheme="http://aibabby.win/tags/Markdown/"/>
     
   </entry>
   
@@ -635,7 +641,7 @@
     <link href="http://aibabby.win/2017/03/07/%E4%B8%8D%E6%B5%AA%E6%BC%AB%E7%9A%84%E5%89%A7%E7%BB%88/"/>
     <id>http://aibabby.win/2017/03/07/不浪漫的剧终/</id>
     <published>2017-03-07T13:11:14.000Z</published>
-    <updated>2017-04-12T12:36:14.781Z</updated>
+    <updated>2017-08-20T15:14:25.449Z</updated>
     
     <content type="html"><![CDATA[<p>每当心情舒畅的时候，总想翻阅你的信笺来读你，虽然只有短短的两页，但却饱含着你的深情，里面有你的豪迈，有你的青春的年华，更有着你我缠绵的故事。或许现在男孩永远也无法说清，我此时的神情，或许是真的被你所陶醉！</p>
 <p>寒风夹着些许尘埃，带着满腹的心事，走过疲惫的夜空。我也曾经历过失落的痛楚，但我不会把悔恨的旧梦重拾。在这个满是冬天的季节里，希望你也能如此对待那些已经成为了过去的过去。既然秋天的落叶早已消融，化作了滋养生命之树的甘乳，希望你就不要再去寻觅那份伤感的情怀了。</p>
@@ -654,6 +660,8 @@
       <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
     
     
+      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
+    
       <category term="难过" scheme="http://aibabby.win/tags/%E9%9A%BE%E8%BF%87/"/>
     
   </entry>
@@ -663,7 +671,7 @@
     <link href="http://aibabby.win/2017/03/07/%E7%A0%94%E5%90%8E%E9%9A%8F%E7%AC%94/"/>
     <id>http://aibabby.win/2017/03/07/研后随笔/</id>
     <published>2017-03-07T13:09:16.000Z</published>
-    <updated>2017-04-12T12:36:26.184Z</updated>
+    <updated>2017-08-21T01:16:30.331Z</updated>
     
     <content type="html"><![CDATA[<p>青岛的清晨，嘴里散发出的乳白色气流，很快便与空气中弥漫着浓雾相融在一起，像是眼前飘着的白色的绸帐，轻轻的，静静的垂在你的眼眸，拂手一拨，依然安静而又调皮的悬在那里。这不禁让人联想起倩女幽魂里的一个场景，身姿婀娜的小倩一席白纱妩媚的躺着，夜风吹过，带着卷卷纱帐，那种满是唯美的朦胧，直到现在都难以忘怀，不得不承认，那份美到骨子里的忧郁，真是人间少有啊！</p>
 <p>昨夜又做了个同样的梦，在梦的回廊里，手持试卷，不管如何擦拭眼角，始终无法看清试卷上的分数，耳旁响着嘈杂的对话，朦胧中仿佛又看到试卷上赫然写着27的得分，27这个数字在我的梦里已经出现了好几次了，对此心里的那份焦躁，一直在我的血脉里扩张！还记得考研的前一个晚上，因为内心极度紧张的而久久无法入眠，然而我总是如此幸运，某人的轻言细语中夹着甜丝丝的关怀，是种沁人心脾的幸福。真是难为她了，明明自己也要考研，那么晚了，还一直在电话里宽慰我，鼓励我。或许有时候自己真的过于偏执了吧！</p>
@@ -681,6 +689,8 @@
     
     
       <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="开心" scheme="http://aibabby.win/tags/%E5%BC%80%E5%BF%83/"/>
     
   </entry>
   
