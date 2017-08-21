@@ -4,6 +4,28 @@
 
     
   <url>
+    <loc>http://aibabby.win/2017/08/19/%E7%BB%99NexT%E4%B8%BB%E9%A2%98%E5%8D%9A%E5%AE%A2%E6%B7%BB%E5%8A%A0%E5%A5%BD%E7%9C%8B%E7%9A%84%E6%A0%B7%E5%BC%8F/</loc>
+    <lastmod>2017-08-21T05:42:26.344Z</lastmod>
+    <data>
+        <display>
+        <title>给NexT主题博客添加好看的样式</title>
+        <pubTime>2017-08-19T08:51:51.000Z</pubTime>
+        
+        <tag>Hexo</tag>
+         
+        <tag>NexT</tag>
+         
+         
+           
+             
+              <breadCrumb title="学无止境" url="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
+          
+        </display>
+    </data>
+    </url>
+
+    
+  <url>
     <loc>http://aibabby.win/2017/02/24/NexT%E4%B8%BB%E9%A2%98%E6%96%87%E7%AB%A0%E7%BC%96%E8%BE%91%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98/</loc>
     <lastmod>2017-08-21T05:36:56.096Z</lastmod>
     <data>
@@ -82,28 +104,6 @@
         <tag>Hexo</tag>
          
         <tag>博客搭建</tag>
-         
-         
-           
-             
-              <breadCrumb title="学无止境" url="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
-          
-        </display>
-    </data>
-    </url>
-
-    
-  <url>
-    <loc>http://aibabby.win/2017/08/19/NexT%E4%B8%80%E4%BA%9B%E5%A5%BD%E7%8E%A9%E7%9A%84%E6%A0%B7%E5%BC%8F/</loc>
-    <lastmod>2017-08-21T05:14:17.906Z</lastmod>
-    <data>
-        <display>
-        <title>NexT一些好玩的样式</title>
-        <pubTime>2017-08-19T08:51:51.000Z</pubTime>
-        
-        <tag>Hexo</tag>
-         
-        <tag>NexT</tag>
          
          
            
@@ -497,9 +497,9 @@
         
         <tag>技巧</tag>
          
-        <tag>Wordpress</tag>
-         
         <tag>VPS</tag>
+         
+        <tag>Wordpress</tag>
          
          
            
@@ -519,9 +519,9 @@
         <title>VPS新手教程：常见的Linux命令</title>
         <pubTime>2017-03-08T12:37:00.000Z</pubTime>
         
-        <tag>VPS</tag>
-         
         <tag>Linux</tag>
+         
+        <tag>VPS</tag>
          
          
            
