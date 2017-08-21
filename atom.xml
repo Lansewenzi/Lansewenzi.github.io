@@ -213,9 +213,9 @@
     
       <category term="技巧" scheme="http://aibabby.win/tags/%E6%8A%80%E5%B7%A7/"/>
     
-      <category term="VPS" scheme="http://aibabby.win/tags/VPS/"/>
-    
       <category term="Wordpress" scheme="http://aibabby.win/tags/Wordpress/"/>
+    
+      <category term="VPS" scheme="http://aibabby.win/tags/VPS/"/>
     
   </entry>
   
@@ -278,11 +278,11 @@
   </entry>
   
   <entry>
-    <title>Hexo文章简单加密</title>
-    <link href="http://aibabby.win/2017/07/02/Hexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86/"/>
-    <id>http://aibabby.win/2017/07/02/Hexo文章简单加密/</id>
+    <title>NexT博客文章加密</title>
+    <link href="http://aibabby.win/2017/07/02/NexT%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86/"/>
+    <id>http://aibabby.win/2017/07/02/NexT博客文章加密/</id>
     <published>2017-07-02T10:03:43.000Z</published>
-    <updated>2017-08-21T05:12:34.047Z</updated>
+    <updated>2017-08-21T05:35:11.951Z</updated>
     
     <content type="html"><![CDATA[<h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
 <p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
@@ -599,9 +599,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="Linux" scheme="http://aibabby.win/tags/Linux/"/>
-    
       <category term="VPS" scheme="http://aibabby.win/tags/VPS/"/>
+    
+      <category term="Linux" scheme="http://aibabby.win/tags/Linux/"/>
     
   </entry>
   
@@ -628,9 +628,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="HTML" scheme="http://aibabby.win/tags/HTML/"/>
-    
       <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
+    
+      <category term="HTML" scheme="http://aibabby.win/tags/HTML/"/>
     
       <category term="Markdown" scheme="http://aibabby.win/tags/Markdown/"/>
     

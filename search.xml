@@ -57,8 +57,8 @@
       </categories>
       <tags>
         <tag>技巧</tag>
-        <tag>VPS</tag>
         <tag>Wordpress</tag>
+        <tag>VPS</tag>
       </tags>
   </entry>
   <entry>
@@ -85,8 +85,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo文章简单加密]]></title>
-    <url>%2F2017%2F07%2F02%2FHexo%E6%96%87%E7%AB%A0%E7%AE%80%E5%8D%95%E5%8A%A0%E5%AF%86%2F</url>
+    <title><![CDATA[NexT博客文章加密]]></title>
+    <url>%2F2017%2F07%2F02%2FNexT%E5%8D%9A%E5%AE%A2%E6%96%87%E7%AB%A0%E5%8A%A0%E5%AF%86%2F</url>
     <content type="text"><![CDATA[原理由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？ 这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：12var password = promt('请输入文章密码');alert(password); 实现找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。按道理是添加在任何地方都行，但是推荐加在所有的标签之后，个人建议，仅做参考。以下是我加的代码： 12345678910&lt;script&gt; (function()&#123; if('&#123;&#123; page.password &#125;&#125;')&#123; if (prompt('请输入文章密码','') !== '&#123;&#123; page.password &#125;&#125;')&#123; alert('密码错误！'); history.back(); &#125; &#125; &#125;)();&lt;/script&gt; 如果你好奇page.password是什么东西，那么恭喜你，你对 Hexo 的结构还是很熟悉的。page这个变量就是你在hexo new的时候生成文件中最顶部的东西，以下我给出这篇文章的头部参考： 123456789---title: Hexo文章简单加密comments: truedescription: 这是篇受保护的文章！date: 2017-07-02 18:03:43categories:tags:password: password--- 这样我们就好像使用静态页面完成了部分只有动态页面能完成的东西。]]></content>
       <categories>
         <category>学无止境</category>
@@ -197,8 +197,8 @@
         <category>学无止境</category>
       </categories>
       <tags>
-        <tag>Linux</tag>
         <tag>VPS</tag>
+        <tag>Linux</tag>
       </tags>
   </entry>
   <entry>
@@ -209,8 +209,8 @@
         <category>学无止境</category>
       </categories>
       <tags>
-        <tag>HTML</tag>
         <tag>Hexo</tag>
+        <tag>HTML</tag>
         <tag>Markdown</tag>
       </tags>
   </entry>
@@ -287,8 +287,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[KMS激活命令]]></title>
-    <url>%2F2017%2F02%2F26%2FKMS%E6%BF%80%E6%B4%BB%E5%91%BD%E4%BB%A4%2F</url>
+    <title><![CDATA[KMS激活指令教程]]></title>
+    <url>%2F2017%2F02%2F26%2FKMS%E6%BF%80%E6%B4%BB%E6%8C%87%E4%BB%A4%E6%95%99%E7%A8%8B%2F</url>
     <content type="text"><![CDATA[使用方法:在 Windows 10 直接 用管理员权限 开启CMD a.激活 Windows 10 企业版12345slmgr.vbs -upkslmgr.vbs -ipk NPPR9-FWDCX-D2C8J-H872K-2YT43slmgr.vbs -skms zhouwang.tkslmgr.vbs -atoslmgr.vbs -dlv 其他 win8, win8.1 一样都可以使用 KMS 激活。不过，激活的 key 就要自己找了。 b.激活 Office 2013 Vol 版Office 2010 Vol + Office 2013 Vol 通用激活方式 (2016未测试) 用管理员权限 开启CMD1234C:cd "C:\Program Files\Microsoft Office\Office15\"cscript ospp.vbs /sethst:zhouwang.tkcscript ospp.vbs /act 按照安装的 Office 2010, 2013, x86, x64 版本，自行修改成 正确的路径1234C:\Program Files\Microsoft Office\Office14\C:\Program Files (x86)\Microsoft Office\Office14\C:\Program Files\Microsoft Office\Office15\C:\Program Files (x86)\Microsoft Office\Office15\ Windows 10 版本的 key Windows 10 KEY Windows 10 Professional W269N-WFGWX-YVC9B-4J6C9-T83GX Windows 10 Professional N MH37W-N47XK-V7XM9-C7227-GCQG9 Windows 10 Education NW6C2-QMPVW-D7KKK-3GKT6-VCFB2 Windows 10 Education N 2WH4N-8QGBV-H22JP-CT43Q-MDWWJ Windows 10 Enterprise NPPR9-FWDCX-D2C8J-H872K-2YT43 Windows 10 Enterprise N DPH2V-TTNVB-4X9Q3-TJR4H-KHJW4 Windows 10 Enterprise 2015 LTSB WNMTR-4C88C-JK8YV-HQ7T2-76DF9 Windows 10 Enterprise 2015 LTSB N 2F77B-TNFGY-69QQF-B8YKP-D69TJ Windows 10 Home TX9XD-98N7V-6WMQ6-BX7FG-H8Q99 Windows 10 Home N 3KHY7-WNT83-DGQKR-F7HPR-844BM Windows 10 Home Single Language 7HNRX-D7KGG-3K4RQ-4WPJ4-YTDFH Windows 10 Home Country Specific PVMJN-6DFY6-9CCP6-7BKTT-D3WVR Office 2016 版本的 key Office 2016 KEY Office Professional Plus 2016 XQNVK-8JYDB-WJ9W3-YJ8YR-WFG99 Office Standard 2016 JNRGM-WHDWX-FJJG3-K47QV-DRTFM Project Professional 2016 YG9NW-3K39V-2T3HJ-93F3Q-G83KT Project Standard 2016 GNFHQ-F6YQM-KQDGJ-327XX-KQBVC Visio Professional 2016 PD3PC-RHNGV-FXJ29-8JK7D-RJRJK Visio Standard 2016 7WHWN-4T7MP-G96JF-G33KR-W8GF4 Access 2016 GNH9Y-D2J4T-FJHGG-QRVH7-QPFDW Excel 2016 9C2PK-NWTVB-JMPW8-BFT28-7FTBF OneNote 2016 DR92N-9HTF2-97XKM-XW2WJ-XW3J6 Outlook 2016 R69KK-NTPKF-7M3Q4-QYBHW-6MT9B PowerPoint 2016 J7MQP-HNJ4Y-WJ7YM-PFYGF-BY6C6 Publisher 2016 F47MM-N3XJP-TQXJ9-BP99D-8K837 Skype for Business 2016 869NQ-FJ69K-466HW-QYCP2-DDBV6 Word 2016 WXY84-JN2Q9-RBCCQ-3Q3J3-3PFJ6]]></content>
       <categories>
         <category>学无止境</category>
@@ -299,8 +299,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[HEXO博客搭建]]></title>
-    <url>%2F2017%2F02%2F24%2FHexo%E5%8D%9A%E5%AE%A2%E6%90%AD%E5%BB%BA%2F</url>
+    <title><![CDATA[使用Hexo搭建个人博客]]></title>
+    <url>%2F2017%2F02%2F24%2F%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2%2F</url>
     <content type="text"><![CDATA[安装hexo在任意路径输入1npm install hexo-cli -g 安装hexo。（如果出现错误，可能是环境变量没有设置好，最好重启下，或者网上搜索解决办法）hexo安装完成后，在你喜欢的文件夹里新建一个hexo文件夹（比如D：\hexo），然后在文件夹内点击鼠标右键，选择Git Bash，并且输入如下命令 1hexo init hexo就会自动在目标文件夹建立它所需要的文件了。然后继续输入 1234npm installnpm install hexo-renderer-ejs --savenpm install hexo-renderer-stylus --savenpm install hexo-renderer-marked --save 安装需要的一下依赖包。 本地查看效果经过上面三部，一个本地的博客已经建成功了，可以先来一睹为快。继续输入如下命令12hexo ghexo s 这时在浏览器输入http://localhost:4000/&gt;,就能看到自己的博客了。要结束预览只需要在Git Bash里同时按下ctrl+C。如果没有问题，本地的博客已经建成功了，注意，只是本地的。如果想其他人也能看到，就需要部署到github上了。（部署到其他地方也可以，但github最方便） 博客部署到Github注册账号访问Guthub官网 ,输入用户名、邮箱和密码就行，很简单 配置SSH keys觉得麻烦的这一步可以不弄，但是不弄的话，没有都要输入用户名和密码更麻烦。这有个官方教程不过是英文的。 生成新的SSH keys命令行输入下面的内容，并回车：1ssh-keygen -t rsa -C "your_email@example.com" 将your_email@example.com换成你刚刚注册github时的邮箱。然后有提示：12Generating public/private rsa key pair.Enter file in which to save the key (/your_home_path/.ssh/id_rsa): 直接按回车键就好，然后系统要你输入密码：12Enter passphrase (empty for no passphrase): [Type a passphrase]Enter same passphrase again: [Type passphrase again] 这个密码是在你提交项目时使用，为空的话就不用输入，为了方便我就没输密码，直接按了回车键。 最后会看到这样的界面，这就表明设置成功了：123Your identification has been saved in /your_home_path/.ssh/id_rsa.Your public key has been saved in /your_home_path/.ssh/id_rsa.pub.The key fingerprint is: 01:0f:f4:3b:ca:85:d6:17:a1:7d:f0:68:9d:f0:a2:db your_email@example.com 添加SSH key到Github上用文本编辑器打开～/.ssh/id_rsa.pub（Windows下是C:\Documents and Settings\Administrator.ssh\id_rsa.pub），这就是刚刚生成的秘钥,这是隐藏文件，你需要设置显示隐藏文件才能看到，然后全选里面的内容并复制。 登陆github网站：1点击右上角的Account Settings—-&gt;SSH Public keys —-&gt; add another public keys 把刚刚复制的内容粘贴到key里，title随便填，比如我加的是Ubuntu系统的，就写个Ubuntu。 点击add SSH，这就完成了。 测试是否添加成功命令行输入(不要修改下面的内容)：1ssh -T git@github.com 你可能看到警告（也可能没有）：123The authenticity of host 'github.com (207.97.227.239)' can't be established.RSA key fingerprint is 16:27:ac:a5:76:28:2d:36:63:1b:56:4d:eb:df:a6:48.Are you sure you want to continue connecting (yes/no)? 这个不用担心，直接输入yes就好，然后会看到：1Hi username! You've successfully authenticated, but GitHub does not provide shell access. 出现这就表明真的成功了。 设置用户信息现在你已经可以通过SSH链接到GitHub了，还有一些个人信息需要完善的。 Git会根据用户的名字和邮箱来记录提交。GitHub也是用这些信息来做权限的处理，输入下面的代码进行个人信息的设置，把名称和邮箱替换成你自己的，名字和邮箱是github注册时使用的那个。12git config --global user.name "your user_name"git config --global user.email "your_email@example.com" SSH key配置成功到这Github本地全部配置完成了，如果有问题，请重新配置一次，或者google问题，解决就好了。 使用Github Pages建立博客与GitHub建立好链接之后，就可以方便的使用它提供的Pages服务，GitHub Pages分两种，一种是你的GitHub用户名建立的username.github.io这样的用户&amp;组织页（站），另一种是依附项目的pages。 想建立个人博客是用的第一种，形如user_name.github.io这样的可访问的站，每个用户名下面只能建立一个。 ##配置本地文件，链接github 打开之前新建的hexo文件夹，里面有一个_config.yml的文件，用文本编辑器打开，推荐用sublime text。然后编辑，在最下面deploy那修改为：1234deploy: type: git repo: git@github.com:yourname/yourname.github.io.git branch: master 除了将两个user_name改成你自己的github用户名，其他全部不要改，然后保存。注意：每个冒号”：”后边需要有一个”空格” 执行下列指令即可完成部署。12hexo ghexo d 如果在执行hexo d之后出现提示1ERROR Deployer not found: github 请先检查一下__config.yml的配置文件有没有出错，若纠正之后还是出现那个提示，请继续往下看这个问题是由Hexo 2.0过渡到Hexo 3.0出现的问题。执行命令：1npm install hexo-deployer-git --save 如此，便可以像往常一样使用hexo d命令了。 添加sitemap、baidusitemap和feed插件123npm install hexo-generator-feed --savenpm install hexo-generator-sitemap --savenpm install hexo-generator-baidu-sitemap --save 修改Hexo 根目录下的_config.yml，增加以下内容1234567891011121314151617#Plugins:# - hexo-generator-sitemap# - hexo-generator-feed# - hexo-generator-baidu-sitemap# sitemapsitemap: path: sitemap.xml# baidusitemapbaidusitemap: path: baidusitemap.xml# Feed Atomfeed: type: atom path: atom.xml limit: 20]]></content>
       <categories>
         <category>学无止境</category>
@@ -335,8 +335,8 @@
       </tags>
   </entry>
   <entry>
-    <title><![CDATA[Hexo文章编辑常见问题]]></title>
-    <url>%2F2017%2F02%2F24%2FHexo%E6%96%87%E7%AB%A0%E7%BC%96%E8%BE%91%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%2F</url>
+    <title><![CDATA[NexT主题文章编辑常见问题]]></title>
+    <url>%2F2017%2F02%2F24%2FNexT%E4%B8%BB%E9%A2%98%E6%96%87%E7%AB%A0%E7%BC%96%E8%BE%91%E5%B8%B8%E8%A7%81%E9%97%AE%E9%A2%98%2F</url>
     <content type="text"><![CDATA[文本居中的引用此标签将生成一个带上下分割线的引用，同时引用内文本将自动居中。文本居中时，多行文本若长度不等，视觉上会显得不对称，因此建议在引用单行文本的场景下使用。 例如作为文章开篇引用 或者 结束语之前的总结引用。 使用方式HTML方式：使用这种方式时，给 img 添加属性 class=”blockquote-center” 即可。标签方式：使用 centerquote 或者 简写 cq。 123456789&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;&lt;!-- 其中 class="blockquote-center" 是必须的 --&gt; &lt;blockquote class="blockquote-center"&gt;blah blah blah&lt;/blockquote&gt; &lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;&#123;% centerquote %&#125;blah blah blah&#123;% endcenterquote %&#125; &lt;!-- 标签别名 --&gt;&#123;% cq %&#125; blah blah blah &#123;% endcq %&#125; 突破容器宽度限制的图片当使用此标签引用图片时，图片将自动扩大 26%，并突破文章容器的宽度。 此标签使用于需要突出显示的图片, 图片的扩大与容器的偏差从视觉上提升图片的吸引力。 此标签有两种调用方式（详细参看底下示例）： 使用方式HTML方式：使用这种方式时，为 img 添加属性 class=”full-image”即可。标签方式：使用 fullimage 或者 简写 fi， 并传递图片地址、 alt 和 title 属性即可。 属性之间以逗号分隔。123456789&lt;!-- HTML方式: 直接在 Markdown 文件中编写 HTML 来调用 --&gt;&lt;!-- 其中 class="full-image" 是必须的 --&gt;&lt;img src="/image-url" class="full-image" /&gt; &lt;!-- 标签 方式，要求版本在0.4.5或以上 --&gt;&#123;% fullimage /image-url, alt, title %&#125;&lt;!-- 别名 --&gt;&#123;% fi /image-url, alt, title %&#125;]]></content>
       <categories>
         <category>学无止境</category>
