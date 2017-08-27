@@ -1,6 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <search>
   <entry>
+    <title><![CDATA[VPS部署Hexo博客(VPS部分)]]></title>
+    <url>%2F2017%2F08%2F27%2FVPS%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2-VPS%E9%83%A8%E5%88%86%2F</url>
+    <content type="text"><![CDATA[本文只讲VPS部分的部署操作，如果想看本地部分操作请移步使用Hexo搭建个人博客这篇文章！此处为centos在root下的操作，关于连接VPS，Windows 用户请使用Putty（提示： Putty 中使用粘贴仅需鼠标右键）。关于vi操作，按下i键进入编辑模式，编辑结束后按esc键退出，这时按： ，并输入 wq ，即可。 安装Git12yum update &amp;&amp; apt-get upgrade -y #更新内核yum install git-core 安装nginx1yum install nginx -y 新建git用户添加sudo权限123adduser gitchmod 740 /etc/sudoersvim /etc/sudoers 在vi编辑中找到如下内容：12## Allow root to run any commands anywhereroot ALL=(ALL) ALL 在下面添加一行1git ALL=(ALL) ALL 保存并退出后执行1chmod 440 /etc/sudoers 创建git仓库，并配置ssh登录su gitcd ~mkdir .ssh &amp;&amp; cd .sshtouch authorized_keysvi authorized_keys//在这个文件中粘贴进刚刚申请的key（在id_rsa.pub文件中）cd ~mkdir hexo.git &amp;&amp; cd hexo.gitgit init –bare测试一下，如果在git bash中输入ssh git@VPS的IP地址,能够远程登录的话，则表示设置成功了。]]></content>
+      <categories>
+        <category>学无止境</category>
+      </categories>
+      <tags>
+        <tag>Hexo</tag>
+        <tag>VPS</tag>
+      </tags>
+  </entry>
+  <entry>
     <title><![CDATA[使用七牛云插件为Hexo博客存储资源]]></title>
     <url>%2F2017%2F08%2F20%2F%E4%BD%BF%E7%94%A8%E4%B8%83%E7%89%9B%E4%BA%91%E6%8F%92%E4%BB%B6%E4%B8%BAHexo%E5%8D%9A%E5%AE%A2%E5%AD%98%E5%82%A8%E8%B5%84%E6%BA%90%2F</url>
     <content type="text"><![CDATA[Hexo 七牛同步插件地址: https://github.com/gyk001/hexo-qiniu-sync基本的安装、配置在插件主页也有过说明，按照配置即可，这里记录下遇到的坑。注意在 _config.yml 中不要配置插件栏如下，否则会报错找不到 hexo server 的命令，可参考问题:hexo-qiniu-sync 安装好后，hexo s 命令不见了，hexo d 也提示问题！123# 错误示范plugins: - hexo-qiniu-sync 安装插件：在hexo主目录下运行以下命令：1npm install hexo-qiniu-sync --save 添加插件配置信息到站点配置文件 _config.yml ：1234567891011121314151617181920#plugins:# - hexo-qiniu-syncqiniu: offline: false sync: true bucket: bucket_name access_key: AccessKey secret_key: SecretKey dirPrefix: urlPrefix: http://xxx.bkt.clouddn.com local_dir: File update_exist: true image: folder: images extend: js: folder: js css: folder: css 注意：几个需要修改的地方： bucket ：修改为你刚才申请的七牛空间名称 access_key 、 secret_key : 上传密钥AccessKey、SecretKey。即3 第3步复制的AK和SK。 urlPrefix : 七牛空间地址的前缀。 重要！必填！ 因为现在七牛已经取消了二级域名，外链前缀类似设置中的 http://xxx.bkt.clouddn.com ，插件不能根据 bucket 自动生成外链前缀了。你可以进入自己创建的空间在域名设置中看到自己的七牛测试域名，也可以查看一个已上传的文件外链地址，确认前缀无误。这个参数的设置是保证解析成网页文件时，外链地址正确的关键之一！ 配置参数的说明： offline ：是否离线。设置为 true 将在本地预览时使用本地地址渲染，省流量； false 将使用同步到七牛空间的静态资源渲染，方便检查资源链接是否正确。 sync ：是否同步到七牛，一般都是设置 true 啦 dirPrefix ：资源将上传到七牛空间的此目录下，可像我一样设置为空。该参数会影响外链的地址，如果设置为非空值，例如默认值 static ，则 urlPrefix 为保持一致需加上目录后缀 /static ，改为 http://xxx.bkt.clouddn.com/static 。 local_dir ：本地资源储存目录。在本例中，待上传的资源都储存在hexo主目录中的 File 文件夹（也就是与 source 目录平级）中。 update_exist ：设置为 true ，则会在文件更新之后重新上传并更新七牛空间上中的原有文件。 image/js/css ：子参数folder为不同静态资源种类的目录名称，一般不需要改动 image.extend ：使用 qnimg 标签引用图片的默认图片处理操作。可以使用 基本图片处理（imageView2）、高级图片处理（imageMogr2）、图片水印处理（watermark） 这三个图片处理接口，多个接口内容之间用 | 间隔。 配置本地目录本地目录名称需要与 local_dir 参数的值一致。所以在 hexo主目录 下新建与 source 平级的目录 File ，用于存放需要上传到七牛的资源。 在 File 目录下创建子目录： css 、 images 、 js ，与 image/js/css 子参数 folder 保持一致，待上传的css、图片、js文件应该存储到相应子目录。我的Hexo主目录结构如下：12345678910├─.deploy_git├─File│ ├─css│ ├─images│ └─js├─node_modules├─public├─scaffolds├─source└─theme 引用七牛资源图片的引用是最典型的情况。让我们来看最简单的情况：如果你想引用储存在 File/images 下的图片 demo.jpg ，只需在文章中插入：1&#123;% qnimg demo.jpg %&#125; 生成站点时将被解析为：1&lt;img src="http://xxx.bkt.clouddn.com/images/demo.jpg"&gt; 图片引用的高阶版高级用法的通用模版：1&#123;% qnimg imageFile [attr1:value1] ['attr2:value21 value22 ...'] [extend:... | normal:yes] %&#125; [] 表示可选项，按需添加，也可以不写 | 表示二选一 extend:… 图片处理参数，表示对图片进行某种特定处理，多个处理之间用 | 间隔。 normal:yes 表示使用原图，忽略 _config.yml 文件中的 image.extend 设置 实例 图片的本地路径为 File/images/test/demo.png ：1&#123;% qnimg test/demo.png title:标题 alt:说明 'class:class1 class2' extend:?imageView2/2/w/600 %&#125; 解析为：1&lt;img title="标题" alt="说明" class="class1 class2" src="http://xxx.bkt.clouddn.com/images/test/demo.png?imageView2/2/w/600"&gt; 其中 ?imageView2/2/w/500 代表生成宽度最多 500px 的缩略图。如果经常使用某种图片效果，可以在其七牛创建处理样式，以后直接将 extend 参数设置为 分隔符 + 样式名 就好。例如设置的分隔符为 - ，样式名为 new ，则 extend 参数为 -new 。 举例1234# 图片裁剪成450*300，并居中&lt;div align=center&gt;&#123;% qnimg yujing.jpg extend:?imageView2/5/w/450/h/300 %&#125;&lt;/div&gt; 引用CSS和JS只是引用的标签名不同：12&#123;% qnjs jsFile attr1:value1 attr2:value2 'attr3:value31 value32 value3n' %&#125;&#123;% qncss cssFile attr1:value1 attr2:value2 'attr3:value31 value32 value3n' %&#125; 同步到七牛网站说使用 hexo server 命令（简写为 hexo s ）即可自动上传到七牛，但是我和很多网友都发现，此方法无效。好在提供的另一种方法也很简便，运行 hexo qiniu s 命令即可同步到七牛。]]></content>
@@ -57,8 +69,8 @@
       </categories>
       <tags>
         <tag>技巧</tag>
-        <tag>Wordpress</tag>
         <tag>VPS</tag>
+        <tag>Wordpress</tag>
       </tags>
   </entry>
   <entry>
@@ -197,8 +209,8 @@
         <category>学无止境</category>
       </categories>
       <tags>
-        <tag>VPS</tag>
         <tag>Linux</tag>
+        <tag>VPS</tag>
       </tags>
   </entry>
   <entry>
