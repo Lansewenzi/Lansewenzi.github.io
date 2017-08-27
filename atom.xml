@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-08-27T07:38:52.182Z</updated>
+  <updated>2017-08-21T01:10:17.142Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -14,38 +14,6 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
-  
-  <entry>
-    <title>VPS部署Hexo博客(VPS部分)</title>
-    <link href="http://aibabby.win/2017/08/27/VPS%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2-VPS%E9%83%A8%E5%88%86/"/>
-    <id>http://aibabby.win/2017/08/27/VPS部署Hexo博客-VPS部分/</id>
-    <published>2017-08-27T07:28:29.000Z</published>
-    <updated>2017-08-27T07:38:52.182Z</updated>
-    
-    <content type="html"><![CDATA[<p>本文只讲<code>VPS</code>部分的部署操作，如果想看本地部分操作请移步<a href="http://aibabby.win/2017/02/24/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%BA%E5%8D%9A%E5%AE%A2/">使用Hexo搭建个人博客</a>这篇文章！<br>此处为<code>centos</code>在<code>root</code>下的操作，关于连接<code>VPS</code>，<code>Windows</code> 用户请使用<code>Putty</code>（提示： <code>Putty</code> 中使用粘贴仅需鼠标右键）。<br>关于<code>vi</code>操作，按下<code>i</code>键进入编辑模式，编辑结束后按<code>esc</code>键退出，这时按： ，并输入 <code>wq</code> ，即可。</p>
-<h1 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum update &amp;&amp; apt-get upgrade -y #更新内核</div><div class="line">yum install git-core</div></pre></td></tr></table></figure>
-<h1 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install nginx -y</div></pre></td></tr></table></figure>
-<h1 id="新建git用户添加sudo权限"><a href="#新建git用户添加sudo权限" class="headerlink" title="新建git用户添加sudo权限"></a>新建git用户添加sudo权限</h1><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">adduser git</div><div class="line">chmod 740 /etc/sudoers</div><div class="line">vim /etc/sudoers</div></pre></td></tr></table></figure>
-<p>在vi编辑中找到如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## Allow root to run any commands anywhere</div><div class="line">root    ALL=(ALL)     ALL</div></pre></td></tr></table></figure></p>
-<p>在下面添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git   ALL=(ALL)     ALL</div></pre></td></tr></table></figure></p>
-<p>保存并退出后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 440 /etc/sudoers</div></pre></td></tr></table></figure></p>
-<h1 id="创建git仓库，并配置ssh登录"><a href="#创建git仓库，并配置ssh登录" class="headerlink" title="创建git仓库，并配置ssh登录"></a>创建git仓库，并配置ssh登录</h1><p>su git<br>cd ~<br>mkdir .ssh &amp;&amp; cd .ssh<br>touch authorized_keys<br>vi authorized_keys//在这个文件中粘贴进刚刚申请的key（在id_rsa.pub文件中）<br>cd ~<br>mkdir hexo.git &amp;&amp; cd hexo.git<br>git init –bare<br>测试一下，如果在git bash中输入ssh git@VPS的IP地址,能够远程登录的话，则表示设置成功了。</p>
-]]></content>
-    
-    <summary type="html">
-    
-      &lt;p&gt;本文只讲&lt;code&gt;VPS&lt;/code&gt;部分的部署操作，如果想看本地部分操作请移步&lt;a href=&quot;http://aibabby.win/2017/02/24/%E4%BD%BF%E7%94%A8Hexo%E6%90%AD%E5%BB%BA%E4%B8%AA%E4%BA%B
-    
-    </summary>
-    
-      <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
-    
-    
-      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
-    
-      <category term="VPS" scheme="http://aibabby.win/tags/VPS/"/>
-    
-  </entry>
   
   <entry>
     <title>使用七牛云插件为Hexo博客存储资源</title>
@@ -695,6 +663,34 @@
       <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
     
       <category term="难过" scheme="http://aibabby.win/tags/%E9%9A%BE%E8%BF%87/"/>
+    
+  </entry>
+  
+  <entry>
+    <title>研后随笔</title>
+    <link href="http://aibabby.win/2017/03/07/%E7%A0%94%E5%90%8E%E9%9A%8F%E7%AC%94/"/>
+    <id>http://aibabby.win/2017/03/07/研后随笔/</id>
+    <published>2017-03-07T13:09:16.000Z</published>
+    <updated>2017-08-21T01:16:30.331Z</updated>
+    
+    <content type="html"><![CDATA[<p>青岛的清晨，嘴里散发出的乳白色气流，很快便与空气中弥漫着浓雾相融在一起，像是眼前飘着的白色的绸帐，轻轻的，静静的垂在你的眼眸，拂手一拨，依然安静而又调皮的悬在那里。这不禁让人联想起倩女幽魂里的一个场景，身姿婀娜的小倩一席白纱妩媚的躺着，夜风吹过，带着卷卷纱帐，那种满是唯美的朦胧，直到现在都难以忘怀，不得不承认，那份美到骨子里的忧郁，真是人间少有啊！</p>
+<p>昨夜又做了个同样的梦，在梦的回廊里，手持试卷，不管如何擦拭眼角，始终无法看清试卷上的分数，耳旁响着嘈杂的对话，朦胧中仿佛又看到试卷上赫然写着27的得分，27这个数字在我的梦里已经出现了好几次了，对此心里的那份焦躁，一直在我的血脉里扩张！还记得考研的前一个晚上，因为内心极度紧张的而久久无法入眠，然而我总是如此幸运，某人的轻言细语中夹着甜丝丝的关怀，是种沁人心脾的幸福。真是难为她了，明明自己也要考研，那么晚了，还一直在电话里宽慰我，鼓励我。或许有时候自己真的过于偏执了吧！</p>
+<p>考完研的这几天里，我便一直沉醉在自己的网络里，对某人也是爱理不理，结果可想而知，直接导致了某人的心理年龄从23岁直接狂跌至3岁，对话里的各种不满，对话里的各种声调的哼，对话里的各种不想理你了的表达方式，对话里的……哈哈哈，可能最近几天没怎么理某人，某人的狂想症又犯了吧！说到某人狂想症的这点，不禁让人捧腹大笑。某人晚上做个噩梦，第二天起床就气鼓鼓打电话过来，开口的第一句话就是：“你这个臭望望，我不想理了呢！”，你就一脸黑线的莫名其妙的听着某人各种周氏逻辑，最后得出的结论就是：某人做噩梦了，都是你的错！然后你还得一脸自责的向某人认错，然后就。。。就深深的陷入了某人独有的周氏陷阱里了！这个陷阱简直可以说是天衣无缝无懈可击！当某人问你错在何处时，此时等待你的可是某人强大的让人畏惧的逻辑推理，无论你是赞美某人，还是诋毁某人，这些小伎俩，在某人面前那都是小孩子把戏，就算是你不说话表示默认，某人都可以两句一哼，三句一好生气，五句一我不想理你了的周氏逻辑，推导出你不说话，是因为你不想和某人讲话了，是不喜欢某人了！！！可能某人的脑子里面天生就存储着一个庞大到无法用数字来描述的数据库吧，这种凶残的推理能力，要是放在侦查方面估计早就世界和平了──人类灭绝！</p>
+<p>和某人在一起两年多了，从刚认识时的成熟范，到浪漫天真的少女范，到后来蛮不讲理的幼稚范，再到后来的体贴入微的淑女范，到现在的多元化范。。。从刚认识时的淡淡的幸福，到在一起后满满的幸福，到后来的想哭的幸福，再到后来爆表的幸福，到现在的这到处都是坑，说不定哪天她又生气了爆发了，如履薄冰般的幸福！！！这逆天般的幸福，可不是一般人可以享受的呜呜呜~~~</p>
+]]></content>
+    
+    <summary type="html">
+    
+      这是篇受保护的文章！
+    
+    </summary>
+    
+      <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
+    
+    
+      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
+    
+      <category term="开心" scheme="http://aibabby.win/tags/%E5%BC%80%E5%BF%83/"/>
     
   </entry>
   
