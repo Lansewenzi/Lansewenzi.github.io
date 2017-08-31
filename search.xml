@@ -3,7 +3,7 @@
   <entry>
     <title><![CDATA[最新激活Windows思路]]></title>
     <url>%2F2017%2F08%2F31%2F%E6%9C%80%E6%96%B0%E6%BF%80%E6%B4%BBWindows%E6%80%9D%E8%B7%AF%2F</url>
-    <content type="text"><![CDATA[听说最近电话激活各种不行！Now给你们一个最新的教程。ps：上班时间Mon-Fri: 10: 00-19: 00Sat-Sun: 11: 00-19: 00 首先你可能需要一个跟刷网页的IP，也就是一个所谓的科学上网*的工具！ 第二步：点击这里，然后就登陆你的微软账户！之后找客服聊天!注意：需要说明产品名称，安装ID，索取确认ID（必须使用英文模式，不会的请翻译）例如想要激活Office 2016 专业VL版1office 2016 pro plus vol installation ID （产品安装ID） and i need request confirmation ID 对方会给你激活的ID，如果对方问你问题，这个自己随意回答！]]></content>
+    <content type="text"><![CDATA[听说最近电话激活各种不行！Now给你们一个最新的教程。ps：上班时间Mon-Fri: 10: 00-19: 00Sat-Sun: 11: 00-19: 00 第一种激活方法：找客服网页索取ID首先你可能需要一个跟刷网页的IP，也就是一个所谓的科学上网*的工具！强烈建议使用全局模式！ 第二步：点击这里，然后就登陆你的微软账户！之后找客服聊天!注意：需要说明产品名称，安装ID，索取确认ID（必须使用英文模式，不会的请翻译）例如想要激活Office 2016 专业VL版1office 2016 pro plus vol installation ID （产品安装ID） and i need request confirmation ID 对方会给你激活的ID，如果对方问你问题，这个自己随意回答！ 第二种激活方法：自助激活你的windows或office下面带来的是网页获取确认ID的教程，仅用于激活windows和office零售版！注意！是零售版！！！首先你需要准备的东西，一个美洲IP（也就是一个所谓的科学上网*的工具！强烈建议使用全局模式！），一串零售版本的安装ID这时候重点来了，你需要点这里，然后跳转过去这个时候如果是6位数的安装ID便选择 6 Digits ，一般也就是windows7和office2010选择 6 Digits ，其他版本都是 7 Digits这个时候就把我们搁在一边的界面用上了，安装对应的填上去，然后选择 Submit出现这个的时候别慌，一般都不知道填什么，可能还有小伙伴填 1 的，现在要改成 0 了，不要问为什么，这就是你们之前一直说网页不能用的原因。现在可以用了吧（不用谢我）。然后点 Submit这时候确认ID就出现了，然后填入那个搁在一边的界面激活去吧。 注意：第二种方法请勿使用批量版本激活，否则安装ID会失效]]></content>
       <categories>
         <category>学无止境</category>
       </categories>
@@ -232,8 +232,8 @@
         <category>学无止境</category>
       </categories>
       <tags>
-        <tag>HTML</tag>
         <tag>Hexo</tag>
+        <tag>HTML</tag>
         <tag>Markdown</tag>
       </tags>
   </entry>
