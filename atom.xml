@@ -5,7 +5,7 @@
   <link href="/atom.xml" rel="self"/>
   
   <link href="http://aibabby.win/"/>
-  <updated>2017-08-21T01:10:17.142Z</updated>
+  <updated>2017-08-31T08:56:39.241Z</updated>
   <id>http://aibabby.win/</id>
   
   <author>
@@ -14,6 +14,65 @@
   </author>
   
   <generator uri="http://hexo.io/">Hexo</generator>
+  
+  <entry>
+    <title>VPS上自动部署Hexo博客</title>
+    <link href="http://aibabby.win/2017/08/31/VPS%E4%B8%8A%E8%87%AA%E5%8A%A8%E9%83%A8%E7%BD%B2Hexo%E5%8D%9A%E5%AE%A2/"/>
+    <id>http://aibabby.win/2017/08/31/VPS上自动部署Hexo博客/</id>
+    <published>2017-08-31T08:07:03.000Z</published>
+    <updated>2017-08-31T08:56:39.241Z</updated>
+    
+    <content type="html"><![CDATA[<h1 id="基本思路"><a href="#基本思路" class="headerlink" title="基本思路"></a>基本思路</h1><p>在本地生成静态文件，把静态文件部署到<code>VPS</code>上，用<code>Nginx</code>直接做<code>Web</code>服务，由于<code>hexo</code>支持<code>git</code>的部署方式，从而可以实现从本地更新博客，方便快捷。</p>
+<h1 id="本地操作-Windows"><a href="#本地操作-Windows" class="headerlink" title="本地操作(Windows)"></a>本地操作(Windows)</h1><h2 id="安装Node-js"><a href="#安装Node-js" class="headerlink" title="安装Node.js"></a>安装Node.js</h2><p>在<a href="https://nodejs.org/en/download/" target="_blank" rel="external">Node.js官网</a>下载最新版，安装。</p>
+<h2 id="安装Git"><a href="#安装Git" class="headerlink" title="安装Git"></a>安装Git</h2><p>下载<a href="https://git-scm.com/download/win" target="_blank" rel="external">Git for windows</a>安装。</p>
+<p>然后我们需要生成<code>SSH</code>密钥，按下面的步骤进行。</p>
+<p>1.打开<code>C:\Users\&lt;用户名&gt;\.ssh</code> 文件夹，如果没有就新建<br>2.在空白处单击右键，选择<code>Git Bash Here</code>打开终端<br>3.设置<code>git</code>用户名<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">git config --global user.email &quot;email@example.com&quot;</div><div class="line">git config --global user.name &quot;username&quot;</div></pre></td></tr></table></figure></p>
+<p>4.生成<code>ssh</code>密钥<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh-keygen -t rsa -C &quot;email@example.com&quot;</div></pre></td></tr></table></figure></p>
+<p>后面的 <code>your_email@youremail.com</code> 改为你的邮箱，之后会要求确认路径和输入密码，我们这使用默认的一路回车就行。成功的话会在~/下生成 <code>.ssh</code> 文件夹，进去，打开 <code>id_rsa.pub</code>，复制里面的<code>key</code>，粗暴点就是 <code>Ctrl+a</code> 然后 <code>Ctrl+c</code></p>
+<h2 id="创建网站目录"><a href="#创建网站目录" class="headerlink" title="创建网站目录"></a>创建网站目录</h2><p>在你电脑的任意位置创建一个文件夹（例如<code>E:\hexo</code>，下文以此代替），作为网站目录。</p>
+<h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>打开<code>cmd</code>，通过<code>cd</code>命令进入<code>hexo</code>文件夹，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli  #安装Hexo</div><div class="line">hexo init  # Hexo初始化</div><div class="line">npm install  # 安装依赖包</div><div class="line">hexo g  # 等同于hexo generate，生成静态文件</div><div class="line">hexo s  # 等同于hexo server，在本地服务器运行</div></pre></td></tr></table></figure></p>
+<p>打开<code>http://localhost:4000</code> 即可看到你的站点（当然还没有发布到网络）。<br>你可以看见<code>hexo</code>文件夹下有一个<code>themes</code>文件夹，这是可以自定义的，从而改变网站的呈现形式，<a href="https://hexo.io/themes/" target="_blank" rel="external">官网</a>也提供了一些可供选择的主题。</p>
+<h1 id="VPS的操作"><a href="#VPS的操作" class="headerlink" title="VPS的操作"></a>VPS的操作</h1><p>此处为<code>centos 6</code>在<code>root</code>下的操作，关于连接<code>VPS</code>，<code>Windows</code> 用户请使用<code>Putty</code>（提示： <code>Putty</code> 中使用粘贴仅需鼠标右键）。<br>关于<code>vi</code>操作，按下<code>i</code>键进入编辑模式，编辑结束后按<code>esc</code>键退出，这时按<code>：</code> ，并输入 <code>wq</code> ，即可！</p>
+<h2 id="安装Git-1"><a href="#安装Git-1" class="headerlink" title="安装Git"></a>安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git -y</div></pre></td></tr></table></figure>
+<h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><p>1.添加 <code>Nginx</code> 的 <code>yum</code> 仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/yum.repos.d/nginx.repo</div></pre></td></tr></table></figure></p>
+<p>在 <code>nginx.repo</code> 文件中添加如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[nginx]</div><div class="line">name=nginx repo</div><div class="line">baseurl=http://nginx.org/packages/centos/$releasever/$basearch/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure></p>
+<p>2.安装 <code>Nginx</code></p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install -y nginx</div></pre></td></tr></table></figure>
+<p>3.检验 <code>Nginx</code> 是否安装成功<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">nginx -v</div></pre></td></tr></table></figure></p>
+<h2 id="新建git用户添加sudo权限"><a href="#新建git用户添加sudo权限" class="headerlink" title="新建git用户添加sudo权限"></a>新建git用户添加sudo权限</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div></pre></td><td class="code"><pre><div class="line">adduser git # 创建 git 用户</div><div class="line">passwd git # 设置密码！这一步非常重要！如果不设置密码，在ssh链接vps时会不断提示`Permission denied, please try again`</div><div class="line">chmod 740 /etc/sudoers #将新建的用户添加sudo权限</div><div class="line">vim /etc/sudoers</div></pre></td></tr></table></figure>
+<p>在<code>vi</code>编辑中找到如下内容：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">## Allow root to run any commands anywhere</div><div class="line">root    ALL=(ALL)     ALL</div></pre></td></tr></table></figure></p>
+<p>在下面添加一行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">git   ALL=(ALL)     ALL</div></pre></td></tr></table></figure></p>
+<p>保存并退出后执行<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod 440 /etc/sudoers</div></pre></td></tr></table></figure></p>
+<h2 id="创建git仓库，并配置ssh登录"><a href="#创建git仓库，并配置ssh登录" class="headerlink" title="创建git仓库，并配置ssh登录"></a>创建<code>git</code>仓库，并配置<code>ssh</code>登录</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">su git</div><div class="line">cd ~</div><div class="line">mkdir .ssh &amp;&amp; cd .ssh</div><div class="line">touch authorized_keys</div><div class="line">vi authorized_keys//在这个文件中粘贴进刚刚申请的key（在id_rsa.pub文件中）</div><div class="line">cd ~ </div><div class="line">mkdir hexo.git &amp;&amp; cd hexo.git</div><div class="line">git init --bare</div></pre></td></tr></table></figure>
+<p>测试一下，如果在<code>git bash</code>中输入<code>ssh git@VPS的IP地址</code>,能够远程登录的话，则表示设置成功了。<br>这里顺带说一下<code>coding</code>和<code>github</code>的<code>ssh</code>配置<br>首先是<code>Github</code>，登录<code>Github</code>，右上角 <code>头像</code> -&gt; <code>Settings</code> —&gt; <code>SSH and GPG keys</code> —&gt; <code>New SSH key</code> 。把公钥粘贴到<code>key</code>中，填好<code>title</code>并点击 <code>Add SSH key</code><br>至于<code>Coding</code>，登录进入主页，点击 <code>账户</code> —&gt; <code>SSH公钥</code> —&gt; 输入key再点击 <code>添加</code><br>验证github<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@github.com</div></pre></td></tr></table></figure></p>
+<p>验证coding<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">ssh -T git@git.coding.net</div></pre></td></tr></table></figure></p>
+<h2 id="创建网站目录并赋予git对网站目录的所有权"><a href="#创建网站目录并赋予git对网站目录的所有权" class="headerlink" title="创建网站目录并赋予git对网站目录的所有权"></a>创建网站目录并赋予git对网站目录的所有权</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">cd /var/www</div><div class="line">mkdir hexo</div><div class="line">chown git:git -R /var/www/hexo</div></pre></td></tr></table></figure>
+<h2 id="配置git-hooks"><a href="#配置git-hooks" class="headerlink" title="配置git hooks"></a>配置git hooks</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div></pre></td><td class="code"><pre><div class="line">su git</div><div class="line">cd /home/git/hexo.git/hooks</div><div class="line">vim post-receive</div></pre></td></tr></table></figure>
+<p>输入如下内容后保存退出，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div></pre></td><td class="code"><pre><div class="line">#!/bin/bash</div><div class="line">GIT_REPO=/home/git/hexo.git #git仓库</div><div class="line">TMP_GIT_CLONE=/tmp/hexo</div><div class="line">PUBLIC_WWW=/var/www/hexo #网站目录</div><div class="line">rm -rf $&#123;TMP_GIT_CLONE&#125;</div><div class="line">git clone $GIT_REPO $TMP_GIT_CLONE</div><div class="line">rm -rf $&#123;PUBLIC_WWW&#125;/*</div><div class="line">cp -rf $&#123;TMP_GIT_CLONE&#125;/* $&#123;PUBLIC_WWW&#125;</div></pre></td></tr></table></figure></p>
+<p>然后赋予脚本的执行权限<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">chmod +x post-receive</div></pre></td></tr></table></figure></p>
+<h2 id="配置Nginx"><a href="#配置Nginx" class="headerlink" title="配置Nginx"></a>配置Nginx</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">vim /etc/nginx/conf.d/hexo.conf</div></pre></td></tr></table></figure>
+<p>插入如下代码：<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div><div class="line">12</div><div class="line">13</div><div class="line">14</div><div class="line">15</div><div class="line">16</div><div class="line">17</div><div class="line">18</div><div class="line">19</div><div class="line">20</div><div class="line">21</div><div class="line">22</div><div class="line">23</div></pre></td><td class="code"><pre><div class="line">server &#123;</div><div class="line">    listen         80 ;</div><div class="line">    root /var/www/hexo;//这里可以改成你的网站目录地址，我将网站放在/var/www/hexo</div><div class="line">    server_name example.com www.example.com;//这里输入你的域名或IP地址</div><div class="line">    access_log  /var/log/nginx/hexo_access.log;</div><div class="line">    error_log   /var/log/nginx/hexo_error.log;</div><div class="line">    location ~* ^.+\.(ico|gif|jpg|jpeg|png)$ &#123;</div><div class="line">            root /var/www/hexo;</div><div class="line">            access_log   off;</div><div class="line">            expires      1d;</div><div class="line">    &#125;</div><div class="line">    location ~* ^.+\.(css|js|txt|xml|swf|wav)$ &#123;</div><div class="line">        root /var/www/hexo;</div><div class="line">        access_log   off;</div><div class="line">        expires      10m;</div><div class="line">    &#125;</div><div class="line">    location / &#123;</div><div class="line">        root /var/www/hexo;//这里可以改成你的网站目录地址，我将网站放在/var/www/hexo</div><div class="line">        if (-f $request_filename) &#123;</div><div class="line">            rewrite ^/(.*)$  /$1 break;</div><div class="line">        &#125;</div><div class="line">    &#125;</div><div class="line">&#125;</div></pre></td></tr></table></figure></p>
+<p>重启Nginx<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">service nginx restart</div></pre></td></tr></table></figure></p>
+<h1 id="配置hexo配置文件"><a href="#配置hexo配置文件" class="headerlink" title="配置hexo配置文件"></a>配置hexo配置文件</h1><p>位于本地<code>hexo</code>文件夹下，<code>_config.yml</code>,修改<code>deploy</code>选项<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  message: update</div><div class="line">  repo:</div><div class="line">    s1: git@VPS的ip地址或域名:git仓库地址,master</div><div class="line">##例如</div><div class="line">deploy:</div><div class="line">      type: git</div><div class="line">      message: update</div><div class="line">      repo:</div><div class="line">    s1: git@192.168.xxx.xxx:hexo.git,master</div></pre></td></tr></table></figure></p>
+<p>接着在<code>hexo</code>文件夹内，按住<code>shift</code>右击，选择在此处打开命令窗口（当然你也可以用<code>cd</code>命令），运行<code>hexo g hexo d</code>，如果一切正常，静态文件已经被成功的<code>push</code>到了<code>blog</code>的仓库里，如果出现<code>appears not to be a git repo</code>的错误，删除<code>hexo</code>目录下的<code>.deploy</code>后再次<code>hexo g hexo d</code>就可以了。</p>
+<p>这里稍微讲下github和coding的部署配置<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">deploy:</div><div class="line">  type: git</div><div class="line">  repo:</div><div class="line">      github: git@github.com:Lansewenzi/Lansewenzi.github.io.git,master</div><div class="line">      coding: git@git.coding.net:Lansewenzi/Lansewenzi.git,master</div></pre></td></tr></table></figure></p>
+<p>以上，博客已经完全建好了。</p>
+]]></content>
+    
+    <summary type="html">
+    
+      &lt;h1 id=&quot;基本思路&quot;&gt;&lt;a href=&quot;#基本思路&quot; class=&quot;headerlink&quot; title=&quot;基本思路&quot;&gt;&lt;/a&gt;基本思路&lt;/h1&gt;&lt;p&gt;在本地生成静态文件，把静态文件部署到&lt;code&gt;VPS&lt;/code&gt;上，用&lt;code&gt;Nginx&lt;/code&gt;直接做&lt;cod
+    
+    </summary>
+    
+      <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
+    
+    
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
+    
+      <category term="VPS" scheme="http://aibabby.win/tags/VPS/"/>
+    
+  </entry>
   
   <entry>
     <title>使用七牛云插件为Hexo博客存储资源</title>
@@ -599,9 +658,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="Linux" scheme="http://aibabby.win/tags/Linux/"/>
-    
       <category term="VPS" scheme="http://aibabby.win/tags/VPS/"/>
+    
+      <category term="Linux" scheme="http://aibabby.win/tags/Linux/"/>
     
   </entry>
   
@@ -628,9 +687,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
-    
       <category term="HTML" scheme="http://aibabby.win/tags/HTML/"/>
+    
+      <category term="Hexo" scheme="http://aibabby.win/tags/Hexo/"/>
     
       <category term="Markdown" scheme="http://aibabby.win/tags/Markdown/"/>
     
@@ -663,34 +722,6 @@
       <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
     
       <category term="难过" scheme="http://aibabby.win/tags/%E9%9A%BE%E8%BF%87/"/>
-    
-  </entry>
-  
-  <entry>
-    <title>研后随笔</title>
-    <link href="http://aibabby.win/2017/03/07/%E7%A0%94%E5%90%8E%E9%9A%8F%E7%AC%94/"/>
-    <id>http://aibabby.win/2017/03/07/研后随笔/</id>
-    <published>2017-03-07T13:09:16.000Z</published>
-    <updated>2017-08-21T01:16:30.331Z</updated>
-    
-    <content type="html"><![CDATA[<p>青岛的清晨，嘴里散发出的乳白色气流，很快便与空气中弥漫着浓雾相融在一起，像是眼前飘着的白色的绸帐，轻轻的，静静的垂在你的眼眸，拂手一拨，依然安静而又调皮的悬在那里。这不禁让人联想起倩女幽魂里的一个场景，身姿婀娜的小倩一席白纱妩媚的躺着，夜风吹过，带着卷卷纱帐，那种满是唯美的朦胧，直到现在都难以忘怀，不得不承认，那份美到骨子里的忧郁，真是人间少有啊！</p>
-<p>昨夜又做了个同样的梦，在梦的回廊里，手持试卷，不管如何擦拭眼角，始终无法看清试卷上的分数，耳旁响着嘈杂的对话，朦胧中仿佛又看到试卷上赫然写着27的得分，27这个数字在我的梦里已经出现了好几次了，对此心里的那份焦躁，一直在我的血脉里扩张！还记得考研的前一个晚上，因为内心极度紧张的而久久无法入眠，然而我总是如此幸运，某人的轻言细语中夹着甜丝丝的关怀，是种沁人心脾的幸福。真是难为她了，明明自己也要考研，那么晚了，还一直在电话里宽慰我，鼓励我。或许有时候自己真的过于偏执了吧！</p>
-<p>考完研的这几天里，我便一直沉醉在自己的网络里，对某人也是爱理不理，结果可想而知，直接导致了某人的心理年龄从23岁直接狂跌至3岁，对话里的各种不满，对话里的各种声调的哼，对话里的各种不想理你了的表达方式，对话里的……哈哈哈，可能最近几天没怎么理某人，某人的狂想症又犯了吧！说到某人狂想症的这点，不禁让人捧腹大笑。某人晚上做个噩梦，第二天起床就气鼓鼓打电话过来，开口的第一句话就是：“你这个臭望望，我不想理了呢！”，你就一脸黑线的莫名其妙的听着某人各种周氏逻辑，最后得出的结论就是：某人做噩梦了，都是你的错！然后你还得一脸自责的向某人认错，然后就。。。就深深的陷入了某人独有的周氏陷阱里了！这个陷阱简直可以说是天衣无缝无懈可击！当某人问你错在何处时，此时等待你的可是某人强大的让人畏惧的逻辑推理，无论你是赞美某人，还是诋毁某人，这些小伎俩，在某人面前那都是小孩子把戏，就算是你不说话表示默认，某人都可以两句一哼，三句一好生气，五句一我不想理你了的周氏逻辑，推导出你不说话，是因为你不想和某人讲话了，是不喜欢某人了！！！可能某人的脑子里面天生就存储着一个庞大到无法用数字来描述的数据库吧，这种凶残的推理能力，要是放在侦查方面估计早就世界和平了──人类灭绝！</p>
-<p>和某人在一起两年多了，从刚认识时的成熟范，到浪漫天真的少女范，到后来蛮不讲理的幼稚范，再到后来的体贴入微的淑女范，到现在的多元化范。。。从刚认识时的淡淡的幸福，到在一起后满满的幸福，到后来的想哭的幸福，再到后来爆表的幸福，到现在的这到处都是坑，说不定哪天她又生气了爆发了，如履薄冰般的幸福！！！这逆天般的幸福，可不是一般人可以享受的呜呜呜~~~</p>
-]]></content>
-    
-    <summary type="html">
-    
-      这是篇受保护的文章！
-    
-    </summary>
-    
-      <category term="时间风铃" scheme="http://aibabby.win/categories/%E6%97%B6%E9%97%B4%E9%A3%8E%E9%93%83/"/>
-    
-    
-      <category term="心情" scheme="http://aibabby.win/tags/%E5%BF%83%E6%83%85/"/>
-    
-      <category term="开心" scheme="http://aibabby.win/tags/%E5%BC%80%E5%BF%83/"/>
     
   </entry>
   
