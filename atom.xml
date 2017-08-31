@@ -156,11 +156,11 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
+      <category term="技巧" scheme="http://aibabby.win/tags/%E6%8A%80%E5%B7%A7/"/>
+    
       <category term="Hexo博客" scheme="http://aibabby.win/tags/Hexo%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
-    
-      <category term="技巧" scheme="http://aibabby.win/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -505,7 +505,7 @@
     <link href="http://aibabby.win/2017/04/11/Bootstrap%20Callout%E7%9A%84%E4%BD%BF%E7%94%A8/"/>
     <id>http://aibabby.win/2017/04/11/Bootstrap Callout的使用/</id>
     <published>2017-04-11T12:37:00.000Z</published>
-    <updated>2017-08-31T10:59:45.829Z</updated>
+    <updated>2017-08-31T11:13:17.375Z</updated>
     
     <content type="html"><![CDATA[<h1 id="使用方式"><a href="#使用方式" class="headerlink" title="使用方式"></a>使用方式</h1><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">&#123;% note class_name %&#125; Content (md partial supported) &#123;% endnote %&#125;</div></pre></td></tr></table></figure>
 <p>其中，class_name 可以是以下列表中的一个值：</p>
@@ -533,9 +533,7 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="Hexo博客" scheme="http://aibabby.win/tags/Hexo%E5%8D%9A%E5%AE%A2/"/>
-    
-      <category term="NexT" scheme="http://aibabby.win/tags/NexT/"/>
+      <category term="技巧" scheme="http://aibabby.win/tags/%E6%8A%80%E5%B7%A7/"/>
     
   </entry>
   
@@ -715,9 +713,9 @@
       <category term="学无止境" scheme="http://aibabby.win/categories/%E5%AD%A6%E6%97%A0%E6%AD%A2%E5%A2%83/"/>
     
     
-      <category term="Hexo博客" scheme="http://aibabby.win/tags/Hexo%E5%8D%9A%E5%AE%A2/"/>
-    
       <category term="HTML" scheme="http://aibabby.win/tags/HTML/"/>
+    
+      <category term="Hexo博客" scheme="http://aibabby.win/tags/Hexo%E5%8D%9A%E5%AE%A2/"/>
     
       <category term="Markdown" scheme="http://aibabby.win/tags/Markdown/"/>
     
