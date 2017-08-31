@@ -101,7 +101,7 @@
 <meta property="og:url" content="http://aibabby.win/2017/08/31/VPS上自动部署Hexo博客/index.html">
 <meta property="og:site_name" content="艾巴彼小屋">
 <meta property="og:description" content="基本思路在本地生成静态文件，把静态文件部署到VPS上，用Nginx直接做Web服务，由于hexo支持git的部署方式，从而可以实现从本地更新博客，方便快捷。 本地操作(Windows)安装Node.js在Node.js官网下载最新版，安装。 安装Git下载Git for windows安装。 然后我们需要生成SSH密钥，按下面的步骤进行。 1.打开C:\Users\&amp;lt;用户名&amp;gt;\.ssh">
-<meta property="og:updated_time" content="2017-08-31T10:58:04.601Z">
+<meta property="og:updated_time" content="2017-08-31T12:01:27.933Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="VPS上自动部署Hexo博客">
 <meta name="twitter:description" content="基本思路在本地生成静态文件，把静态文件部署到VPS上，用Nginx直接做Web服务，由于hexo支持git的部署方式，从而可以实现从本地更新博客，方便快捷。 本地操作(Windows)安装Node.js在Node.js官网下载最新版，安装。 安装Git下载Git for windows安装。 然后我们需要生成SSH密钥，按下面的步骤进行。 1.打开C:\Users\&amp;lt;用户名&amp;gt;\.ssh">
@@ -424,7 +424,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">1,329(字)</span>
+           <span class="post-count">1,330(字)</span>
            
          </span>
     
@@ -470,7 +470,7 @@
 <h2 id="安装Hexo"><a href="#安装Hexo" class="headerlink" title="安装Hexo"></a>安装Hexo</h2><p>打开<code>cmd</code>，通过<code>cd</code>命令进入<code>hexo</code>文件夹，<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">npm install -g hexo-cli  #安装Hexo</div><div class="line">hexo init  # Hexo初始化</div><div class="line">npm install  # 安装依赖包</div><div class="line">hexo g  # 等同于hexo generate，生成静态文件</div><div class="line">hexo s  # 等同于hexo server，在本地服务器运行</div></pre></td></tr></table></figure></p>
 <p>打开<code>http://localhost:4000</code> 即可看到你的站点（当然还没有发布到网络）。<br>你可以看见<code>hexo</code>文件夹下有一个<code>themes</code>文件夹，这是可以自定义的，从而改变网站的呈现形式，<a href="https://hexo.io/themes/" target="_blank" rel="external">官网</a>也提供了一些可供选择的主题。</p>
 <h1 id="VPS的操作"><a href="#VPS的操作" class="headerlink" title="VPS的操作"></a>VPS的操作</h1><p>此处为<code>centos 6</code>在<code>root</code>下的操作，关于连接<code>VPS</code>，<code>Windows</code> 用户请使用<code>Putty</code>（提示： <code>Putty</code> 中使用粘贴仅需鼠标右键）。<br>关于<code>vi</code>操作，按下<code>i</code>键进入编辑模式，编辑结束后按<code>esc</code>键退出，这时按<code>：</code> ，并输入 <code>wq</code> ，即可！</p>
-<h2 id="安装Git-1"><a href="#安装Git-1" class="headerlink" title="安装Git"></a>安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">yum install git -y</div></pre></td></tr></table></figure>
+<h2 id="安装Git-1"><a href="#安装Git-1" class="headerlink" title="安装Git"></a>安装Git</h2><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">yum update</div><div class="line">yum install git -y</div></pre></td></tr></table></figure>
 <h2 id="安装nginx"><a href="#安装nginx" class="headerlink" title="安装nginx"></a>安装nginx</h2><p>1.添加 <code>Nginx</code> 的 <code>yum</code> 仓库<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div></pre></td><td class="code"><pre><div class="line">$ vim /etc/yum.repos.d/nginx.repo</div></pre></td></tr></table></figure></p>
 <p>在 <code>nginx.repo</code> 文件中添加如下内容<br><figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div></pre></td><td class="code"><pre><div class="line">[nginx]</div><div class="line">name=nginx repo</div><div class="line">baseurl=http://nginx.org/packages/centos/$releasever/$basearch/</div><div class="line">gpgcheck=0</div><div class="line">enabled=1</div></pre></td></tr></table></figure></p>
 <p>2.安装 <code>Nginx</code></p>
