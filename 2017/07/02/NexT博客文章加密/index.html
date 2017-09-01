@@ -101,7 +101,7 @@
 <meta property="og:url" content="http://aibabby.win/2017/07/02/NexT博客文章加密/index.html">
 <meta property="og:site_name" content="艾巴彼小屋">
 <meta property="og:description" content="原理由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？ 这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止">
-<meta property="og:updated_time" content="2017-08-31T10:59:15.132Z">
+<meta property="og:updated_time" content="2017-09-01T01:10:45.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NexT博客文章加密">
 <meta name="twitter:description" content="原理由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？ 这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止">
@@ -132,14 +132,14 @@
 </script>
 
 <script>
-  (function(){
-    if(''){
-      if (prompt('请输入文章密码','') !== ''){
-        alert('密码错误！');
-        history.back();
-      }
-    }
-  })();
+	(function(){
+		if(''){
+			if (prompt('请输入文章密码','') !== ''){
+				alert('密码错误！');
+				location="http://aibabby.win";
+			}
+		}
+	})();
 </script>
 
 
@@ -424,7 +424,7 @@
              <i class="fa fa-calendar-o"></i>
            </span>
            <span class="post-meta-item-text">字数统计:</span>
-           <span class="post-count">457(字)</span>
+           <span class="post-count">532(字)</span>
            
          </span>
     
@@ -459,13 +459,16 @@
       
 
       
-        <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
-<p>这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是alert只有提醒的功能，没有输入的功能，所以这里要用到的是promt函数。例子参见如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
-<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>找到themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig文件。<br>按道理是添加在任何地方都行，但是推荐加在所有的<meta>标签之后，个人建议，仅做参考。以下是我加的代码：</p>
+        <h1 id="原理"><a href="#原理" class="headerlink" title="原理"></a>原理</h1><p>由于 <code>Hexo</code> 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？</p>
+<p>这就要讲到 <code>js</code> 的阻塞机制了，在以往的经验中，当页面中有调用<code>alert();</code>函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止整个页面的渲染，直到你输入了正确的密码才能让页面继续渲染实际的文章。可是<code>alert</code>只有提醒的功能，没有输入的功能，所以这里要用到的是<code>promt</code>函数。例子参见如下：<br><figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div></pre></td><td class="code"><pre><div class="line">var password = promt(<span class="string">'请输入文章密码'</span>);</div><div class="line">alert(password);</div></pre></td></tr></table></figure></p>
+<h1 id="实现"><a href="#实现" class="headerlink" title="实现"></a>实现</h1><p>找到<code>themes-&gt;next-&gt;layout-&gt;_partials-&gt;head.swig</code>文件。<br>按道理是添加在任何地方都行，但是推荐加在所有的<code>&lt;meta&gt;</code>标签之后，个人建议，仅做参考。以下是我加的代码：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">	(<span class="function"><span class="title">function</span></span>()&#123;</div><div class="line">		<span class="keyword">if</span>(<span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</div><div class="line">			<span class="keyword">if</span> (prompt(<span class="string">'请输入文章密码'</span>,<span class="string">''</span>) !== <span class="string">'&#123;&#123; page.password &#125;&#125;'</span>)&#123;</div><div class="line">				alert(<span class="string">'密码错误！'</span>);</div><div class="line">				history.back();</div><div class="line">			&#125;</div><div class="line">		&#125;</div><div class="line">	&#125;)();</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
-<p>如果你好奇page.password是什么东西，那么恭喜你，你对 Hexo 的结构还是很熟悉的。page这个变量就是你在hexo new的时候生成文件中最顶部的东西，以下我给出这篇文章的头部参考：</p>
+<p>如果你好奇<code>page.password</code>是什么东西，那么恭喜你，你对 <code>Hexo</code> 的结构还是很熟悉的。<code>page</code>这个变量就是你在<code>hexo new</code>的时候生成文件中最顶部的东西，以下我给出这篇文章的头部参考：</p>
 <figure class="highlight bash"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div></pre></td><td class="code"><pre><div class="line">---</div><div class="line">title: Hexo文章简单加密</div><div class="line">comments: <span class="literal">true</span></div><div class="line">description: 这是篇受保护的文章！</div><div class="line">date: 2017-07-02 18:03:43</div><div class="line">categories:</div><div class="line">tags:</div><div class="line">password: password</div><div class="line">---</div></pre></td></tr></table></figure>
 <p>这样我们就好像使用静态页面完成了部分只有动态页面能完成的东西。</p>
+<p>由于使用此方法比较麻烦，也可以直接输入以下代码到文章当中</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><div class="line">1</div><div class="line">2</div><div class="line">3</div><div class="line">4</div><div class="line">5</div><div class="line">6</div><div class="line">7</div><div class="line">8</div><div class="line">9</div><div class="line">10</div><div class="line">11</div></pre></td><td class="code"><pre><div class="line">&lt;script&gt;</div><div class="line">    if(&quot;12345678&quot;==prompt(&quot;请输入文章密码&quot;))</div><div class="line">    &#123;</div><div class="line">        alert(&quot;密码正确&quot;);</div><div class="line">    &#125;</div><div class="line">    else</div><div class="line">    &#123;</div><div class="line">        alert(&quot;密码错误&quot;);</div><div class="line">        location=&quot;http://aibabby.win&quot;; #返回网站，请自定义</div><div class="line">    &#125;</div><div class="line">&lt;/script&gt;</div></pre></td></tr></table></figure>
+<p>简单直接，个人推荐第二种！</p>
 
       
     </div>
@@ -726,7 +729,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-pencil"></i><span class="post-count">博客全站共26.6k字</span>
+  <i class="fa fa-pencil"></i><span class="post-count">博客全站共26.7k字</span>
 </div>
 </div>
 
