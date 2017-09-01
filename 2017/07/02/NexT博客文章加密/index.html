@@ -101,6 +101,7 @@
 <meta property="og:url" content="http://aibabby.win/2017/07/02/NexT博客文章加密/index.html">
 <meta property="og:site_name" content="艾巴彼小屋">
 <meta property="og:description" content="原理由于 Hexo 最终编译出来的文件是纯静态的，也就意味着文章的所有信息其实还是原封不动展示在页面中的，当你输入一篇文章的网址，所有的内容就已经跟随网络传输过来了。那我博客使用的加密是怎么实现的呢？ 这就要讲到 js 的阻塞机制了，在以往的经验中，当页面中有调用alert();函数的时候，整个页面会停止运行，直到你点击确定之后，页面的中的代码才会继续执行下去。我们这里需要的也是这样一个假象，阻止">
+<meta property="og:locale" content="zh-Hans">
 <meta property="og:updated_time" content="2017-09-01T01:10:45.271Z">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:title" content="NexT博客文章加密">
@@ -129,17 +130,6 @@
       labels: {"input_placeholder":"Search for Posts","hits_empty":"We didn't find any results for the search: ${query}","hits_stats":"${hits} results found in ${time} ms"}
     }
   };
-</script>
-
-<script>
-	(function(){
-		if(''){
-			if (prompt('请输入文章密码','') !== ''){
-				alert('密码错误！');
-				location="http://aibabby.win";
-			}
-		}
-	})();
 </script>
 
 
@@ -729,7 +719,7 @@
 
 <div class="theme-info">
   <div class="powered-by"></div>
-  <i class="fa fa-pencil"></i><span class="post-count">博客全站共26.7k字</span>
+  <i class="fa fa-pencil"></i><span class="post-count">博客全站共19.4k字</span>
 </div>
 </div>
 
